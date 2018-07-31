@@ -174,11 +174,11 @@ class OperationProcessor
     /**
      * Execute topic handler
      *
-     * @param $callback
+     * @param callable $callback
      * @param $entityParams
      * @return array
      */
-    private function executeHandler($callback, $entityParams)
+    private function executeHandler(callable $callback, array $entityParams): array
     {
         $result = [
             'status' => OperationInterface::STATUS_TYPE_COMPLETE,

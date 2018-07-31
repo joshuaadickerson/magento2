@@ -179,7 +179,7 @@ class BulkManagement implements \Magento\Framework\Bulk\BulkManagementInterface
      * @param array $operations
      * @return void
      */
-    private function publishOperations(array $operations)
+    private function publishOperations(array $operations): void
     {
         $operationsByTopics = [];
         foreach ($operations as $operation) {

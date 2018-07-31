@@ -101,7 +101,7 @@ class SearchResult extends \Magento\Framework\View\Element\UiComponent\DataProvi
      * @param array $item
      * @return string
      */
-    private function provideMetaInfo($item)
+    private function provideMetaInfo(array $item): string
     {
         $metaInfo = '';
         if (isset($item['meta_information'])) {
@@ -116,7 +116,7 @@ class SearchResult extends \Magento\Framework\View\Element\UiComponent\DataProvi
      * @param array $item
      * @return string
      */
-    private function getLink($item)
+    private function getLink(array $item): string
     {
         $entityLink = '';
         if (isset($item['entity_link'])) {
@@ -131,7 +131,7 @@ class SearchResult extends \Magento\Framework\View\Element\UiComponent\DataProvi
      * @param array $item
      * @return string
      */
-    private function getEntityId($item)
+    private function getEntityId(array $item): string
     {
         $entityLink = '';
         if (isset($item['entity_id'])) {

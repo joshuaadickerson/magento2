@@ -60,7 +60,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @param array $operationDetails structure is implied as getOperationDetails() result
      * @return string
      */
-    private function getSummaryReport($operationDetails)
+    private function getSummaryReport(array $operationDetails): string
     {
         if (0 == $operationDetails['operations_successful'] && 0 == $operationDetails['operations_failed']) {
             return __('Pending, in queue...');

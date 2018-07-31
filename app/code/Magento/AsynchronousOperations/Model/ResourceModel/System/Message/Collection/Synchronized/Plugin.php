@@ -132,7 +132,7 @@ class Plugin
      * @param array $operationDetails
      * @return \Magento\Framework\Phrase|string
      */
-    private function getText($operationDetails)
+    private function getText(array $operationDetails)
     {
         if (0 == $operationDetails['operations_successful'] && 0 == $operationDetails['operations_failed']) {
             return __('%1 item(s) have been scheduled for update.', $operationDetails['operations_total']);
@@ -160,7 +160,7 @@ class Plugin
      * @param array $acknowledgedBulks
      * @return array
      */
-    private function getAcknowledgedBulksUuid($acknowledgedBulks)
+    private function getAcknowledgedBulksUuid(array $acknowledgedBulks): array
     {
         $acknowledgedBulksArray = [];
         foreach ($acknowledgedBulks as $bulk) {

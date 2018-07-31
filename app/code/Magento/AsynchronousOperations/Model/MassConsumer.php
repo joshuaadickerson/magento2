@@ -106,7 +106,7 @@ class MassConsumer implements ConsumerInterface
      * @param QueueInterface $queue
      * @return \Closure
      */
-    private function getTransactionCallback(QueueInterface $queue)
+    private function getTransactionCallback(QueueInterface $queue): \Closure
     {
         return function (EnvelopeInterface $message) use ($queue) {
             /** @var LockInterface $lock */
