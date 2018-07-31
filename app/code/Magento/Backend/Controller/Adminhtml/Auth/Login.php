@@ -5,6 +5,7 @@
  * See COPYING.txt for license details.
  */
 namespace Magento\Backend\Controller\Adminhtml\Auth;
+
 use Magento\Backend\Model\View\Result\Redirect;
 
 /**
