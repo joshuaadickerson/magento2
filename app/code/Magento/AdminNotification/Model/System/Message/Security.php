@@ -76,7 +76,7 @@ class Security implements \Magento\Framework\Notification\MessageInterface
      *
      * @return bool
      */
-    private function _canShowNotification()
+    private function _canShowNotification(): bool
     {
         if ($this->_cache->load(self::VERIFICATION_RESULT_CACHE_KEY)) {
             return false;
@@ -96,7 +96,7 @@ class Security implements \Magento\Framework\Notification\MessageInterface
      *
      * @return bool
      */
-    private function _isFileAccessible()
+    private function _isFileAccessible(): bool
     {
         $unsecureBaseURL = $this->_config->getValue(Store::XML_PATH_UNSECURE_BASE_URL, 'default');
 

@@ -250,7 +250,7 @@ class Feed extends \Magento\Framework\Model\AbstractModel
      * @param \SimpleXMLElement $data
      * @return string
      */
-    private function escapeString(\SimpleXMLElement $data)
+    private function escapeString(\SimpleXMLElement $data): string
     {
         return htmlspecialchars((string)$data);
     }
