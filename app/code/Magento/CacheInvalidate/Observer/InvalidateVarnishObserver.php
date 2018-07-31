@@ -6,6 +6,7 @@
 namespace Magento\CacheInvalidate\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\App\Cache\Tag\Resolver;
 
 class InvalidateVarnishObserver implements ObserverInterface
 {
@@ -69,14 +70,15 @@ class InvalidateVarnishObserver implements ObserverInterface
 
     /**
      * @deprecated 100.1.2
-     * @return \Magento\Framework\App\Cache\Tag\Resolver
+     * @return Resolver
      */
-    private function getTagResolver()
+    private function getTagResolver(): Resolver
     {
         if ($this->tagResolver === null) {
             $this->tagResolver = \Magento\Framework\App\ObjectManager::getInstance()
-                ->get(\Magento\Framework\App\Cache\Tag\Resolver::class);
+                ->get(Resolver::class);
         }
+
         return $this->tagResolver;
     }
 }
