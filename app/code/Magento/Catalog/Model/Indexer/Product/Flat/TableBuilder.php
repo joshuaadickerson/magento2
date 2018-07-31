@@ -348,7 +348,7 @@ class TableBuilder
      * @return \Magento\Framework\EntityManager\MetadataPool
      * @deprecated 101.1.0
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()

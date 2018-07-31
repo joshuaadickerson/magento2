@@ -896,11 +896,11 @@ class Option extends AbstractExtensibleModel implements ProductCustomOptionInter
     /**
      * @return Option\Repository
      */
-    private function getOptionRepository()
+    private function getOptionRepository(): Option\Repository
     {
         if (null === $this->optionRepository) {
             $this->optionRepository = \Magento\Framework\App\ObjectManager::getInstance()
-                ->get(\Magento\Catalog\Model\Product\Option\Repository::class);
+                ->get(Option\Repository::class);
         }
         return $this->optionRepository;
     }
@@ -908,7 +908,7 @@ class Option extends AbstractExtensibleModel implements ProductCustomOptionInter
     /**
      * @return \Magento\Framework\EntityManager\MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()
@@ -924,7 +924,7 @@ class Option extends AbstractExtensibleModel implements ProductCustomOptionInter
      *
      * @return void
      */
-    private function cleanFileExtensions()
+    private function cleanFileExtensions(): void
     {
         $rawExtensions = $this->getFileExtension();
         $matches = [];

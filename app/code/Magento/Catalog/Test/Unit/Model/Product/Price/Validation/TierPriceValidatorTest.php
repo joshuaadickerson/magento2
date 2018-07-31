@@ -103,7 +103,7 @@ class TierPriceValidatorTest extends \PHPUnit\Framework\TestCase
      * @param array $returned
      * @return void
      */
-    private function prepareCustomerGroupRepositoryMock(array $returned)
+    private function prepareCustomerGroupRepositoryMock(array $returned): void
     {
         $searchCriteria = $this
             ->getMockBuilder(\Magento\Framework\Api\Search\SearchCriteriaInterface::class)
@@ -131,7 +131,7 @@ class TierPriceValidatorTest extends \PHPUnit\Framework\TestCase
      * @param array $returned
      * @return void
      */
-    private function prepareRetrieveValidationResultMethod($sku, array $returned)
+    private function prepareRetrieveValidationResultMethod(string $sku, array $returned): void
     {
         $this->tierPrice->expects($this->atLeastOnce())->method('getSku')->willReturn($sku);
         $tierPriceValue = 104;

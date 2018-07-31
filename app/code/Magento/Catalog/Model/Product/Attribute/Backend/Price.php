@@ -149,7 +149,7 @@ class Price extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      * @param \Magento\Catalog\Model\Product $object
      * @return bool
      */
-    private function isUseDefault($object)
+    private function isUseDefault(\Magento\Catalog\Model\Product $object): bool
     {
         $overridden = $this->scopeOverriddenValue->containsValue(
             \Magento\Catalog\Api\Data\ProductInterface::class,

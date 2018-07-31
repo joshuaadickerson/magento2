@@ -156,7 +156,7 @@ class BasePriceStorage implements \Magento\Catalog\Api\BasePriceStorageInterface
      *
      * @return PricePersistence
      */
-    private function getPricePersistence()
+    private function getPricePersistence(): PricePersistence
     {
         if (!$this->pricePersistence) {
             $this->pricePersistence = $this->pricePersistenceFactory->create(['attributeCode' => $this->attributeCode]);
@@ -171,7 +171,7 @@ class BasePriceStorage implements \Magento\Catalog\Api\BasePriceStorageInterface
      * @param \Magento\Catalog\Api\Data\BasePriceInterface[] $prices
      * @return array
      */
-    private function retrieveValidPrices(array $prices)
+    private function retrieveValidPrices(array $prices): array
     {
         $skus = array_unique(
             array_map(function ($price) {

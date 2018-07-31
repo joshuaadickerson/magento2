@@ -108,7 +108,7 @@ class Categories extends AbstractModifier
      * @return CacheInterface
      * @deprecated 101.0.3
      */
-    private function getCacheManager()
+    private function getCacheManager(): CacheInterface
     {
         if (!$this->cacheManager) {
             $this->cacheManager = ObjectManager::getInstance()

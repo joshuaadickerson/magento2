@@ -60,7 +60,7 @@ class FileInfo
      *
      * @return WriteInterface
      */
-    private function getMediaDirectory()
+    private function getMediaDirectory(): WriteInterface
     {
         if ($this->mediaDirectory === null) {
             $this->mediaDirectory = $this->filesystem->getDirectoryWrite(DirectoryList::MEDIA);
@@ -73,7 +73,7 @@ class FileInfo
      *
      * @return ReadInterface
      */
-    private function getBaseDirectory()
+    private function getBaseDirectory(): ReadInterface
     {
         if (!isset($this->baseDirectory)) {
             $this->baseDirectory = $this->filesystem->getDirectoryRead(DirectoryList::ROOT);
@@ -131,7 +131,7 @@ class FileInfo
      * @param string $fileName
      * @return string
      */
-    private function getFilePath($fileName)
+    private function getFilePath(string $fileName)
     {
         $filePath = ltrim($fileName, '/');
 
@@ -171,7 +171,7 @@ class FileInfo
      *
      * @return string
      */
-    private function getMediaDirectoryPathRelativeToBaseDirectoryPath()
+    private function getMediaDirectoryPathRelativeToBaseDirectoryPath(): string
     {
         $baseDirectoryPath = $this->getBaseDirectory()->getAbsolutePath();
         $mediaDirectoryPath = $this->getMediaDirectory()->getAbsolutePath();

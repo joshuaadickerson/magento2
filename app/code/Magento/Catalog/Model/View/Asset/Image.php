@@ -168,7 +168,7 @@ class Image implements LocalInterface
      *
      * @return string
      */
-    private function getMiscPath()
+    private function getMiscPath(): string
     {
         return $this->encryptor->hash(
             implode('_', $this->convertToReadableFormat($this->miscParams)),
@@ -181,7 +181,7 @@ class Image implements LocalInterface
      *
      * @return string
      */
-    private function getImageInfo()
+    private function getImageInfo(): string
     {
         $path = $this->getModule()
             . DIRECTORY_SEPARATOR . $this->getMiscPath()
@@ -191,10 +191,10 @@ class Image implements LocalInterface
 
     /**
      * Converting bool into a string representation
-     * @param $miscParams
+     * @param array $miscParams
      * @return array
      */
-    private function convertToReadableFormat($miscParams)
+    private function convertToReadableFormat(array $miscParams): array
     {
         $miscParams['image_height'] = 'h:' . ($miscParams['image_height'] ?? 'empty');
         $miscParams['image_width'] = 'w:' . ($miscParams['image_width'] ?? 'empty');

@@ -116,7 +116,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param string $tableName
      * @return void
      */
-    private function upgradeTable($tableName)
+    private function upgradeTable(string $tableName): void
     {
         foreach ($this->fetchAttributeValues($tableName) as $attributeValueItems) {
             $this->processAttributeValues($attributeValueItems, $tableName);
@@ -129,7 +129,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param string $tableName
      * @return void
      */
-    private function processAttributeValues(array $attributeValueItems, $tableName)
+    private function processAttributeValues(array $attributeValueItems, string $tableName): void
     {
         $this->resetProcessedAttributeValues();
 
@@ -154,7 +154,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @yield array
      * @return \Generator
      */
-    private function fetchAttributeValues($tableName)
+    private function fetchAttributeValues(string $tableName): \Generator
     {
         //filter store groups which have more than 1 store
         $multipleStoresInWebsite = array_values(
@@ -213,7 +213,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
     /**
      * @return array
      */
-    private function getGroupedStoreViews()
+    private function getGroupedStoreViews(): array
     {
         if (!empty($this->groupedStoreViews)) {
             return $this->groupedStoreViews;
@@ -245,7 +245,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param string $tableName
      * @return bool
      */
-    private function isProcessedAttributeValue(array $attributeValue, $tableName)
+    private function isProcessedAttributeValue(array $attributeValue, string $tableName): bool
     {
         return in_array(
             $this->getAttributeValueKey(
@@ -261,7 +261,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * Resets processed attribute values
      * @return void
      */
-    private function resetProcessedAttributeValues()
+    private function resetProcessedAttributeValues(): void
     {
         $this->processedAttributeValues = [];
     }
@@ -271,7 +271,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param string $tableName
      * @return void
      */
-    private function markAttributeValueProcessed(array $attributeValue, $tableName)
+    private function markAttributeValueProcessed(array $attributeValue, string $tableName): void
     {
         $this->processedAttributeValues[] = $this->getAttributeValueKey(
             $attributeValue[$this->getTableLinkField($tableName)],
@@ -286,7 +286,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param int $websiteId
      * @return string
      */
-    private function getAttributeValueKey($entityId, $attributeId, $websiteId)
+    private function getAttributeValueKey(int $entityId, int $attributeId, int $websiteId): string
     {
         return sprintf(
             self::MASK_ATTRIBUTE_VALUE,
@@ -303,8 +303,8 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      */
     private function generateAttributeValueInsertions(
         array $attributeValue,
-        $tableName
-    ) {
+        string $tableName
+    ): ?array {
         $groupedStoreViews = $this->getGroupedStoreViews();
         if (empty($groupedStoreViews[$attributeValue['website_id']])) {
             return null;
@@ -330,7 +330,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param string $tableName
      * @return void
      */
-    private function executeInsertions(array $insertions, $tableName)
+    private function executeInsertions(array $insertions, string $tableName): void
     {
         $rawQuery = sprintf(
             'INSERT INTO 
@@ -352,7 +352,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param array $insertions
      * @return array
      */
-    private function getPlaceholderValues(array $insertions)
+    private function getPlaceholderValues(array $insertions): array
     {
         $placeholderValues = [];
         foreach ($insertions as $insertion) {
@@ -371,7 +371,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @param array $insertions
      * @return string
      */
-    private function prepareInsertValuesStatement(array $insertions)
+    private function prepareInsertValuesStatement(array $insertions): string
     {
         $statement = '';
 
@@ -387,7 +387,7 @@ class UpgradeWebsiteAttributes implements DataPatchInterface, PatchVersionInterf
      * @return string
      * @throws LocalizedException
      */
-    private function getTableLinkField($tableName)
+    private function getTableLinkField(string $tableName): string
     {
         if (!isset($this->tableMetaDataClass[$tableName])) {
             throw new LocalizedException(

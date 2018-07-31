@@ -95,7 +95,7 @@ class ReadHandler implements ExtensionInterface
      * @param array $rawData
      * @return array
      */
-    private function substituteNullsWithDefaultValues(array $rawData)
+    private function substituteNullsWithDefaultValues(array $rawData): array
     {
         $processedData = [];
         foreach ($rawData as $key => $rawValue) {

@@ -442,7 +442,7 @@ class Value extends AbstractDb
      * @return FormatInterface
      * @deprecated 101.0.8
      */
-    private function getLocaleFormatter()
+    private function getLocaleFormatter(): FormatInterface
     {
         if ($this->localeFormat === null) {
             $this->localeFormat = ObjectManager::getInstance()

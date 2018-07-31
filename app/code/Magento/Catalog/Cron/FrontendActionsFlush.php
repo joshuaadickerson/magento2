@@ -46,7 +46,7 @@ class FrontendActionsFlush
      * @param string $namespace
      * @return int
      */
-    private function getLifeTimeByNamespace($namespace)
+    private function getLifeTimeByNamespace(string $namespace): int
     {
         $configurationObject = $this->frontendStorageConfigurationPool->get($namespace);
         if ($configurationObject) {
@@ -67,7 +67,7 @@ class FrontendActionsFlush
      *
      * @return array
      */
-    private function getUniqueNamespaces()
+    private function getUniqueNamespaces(): array
     {
         $adapter = $this->productFrontendActionResource->getConnection();
         $query = $adapter->select()

@@ -100,7 +100,7 @@ class Suffix extends \Magento\Framework\App\Config\Value
      * @return \Magento\Framework\App\Config
      * @deprecated 101.1.0
      */
-    private function getAppConfig()
+    private function getAppConfig(): \Magento\Framework\App\Config
     {
         if ($this->appConfig === null) {
             $this->appConfig = \Magento\Framework\App\ObjectManager::getInstance()->get(
@@ -162,7 +162,7 @@ class Suffix extends \Magento\Framework\App\Config\Value
      *
      * @return bool
      */
-    private function isCategorySuffixChanged()
+    private function isCategorySuffixChanged(): bool
     {
         return $this->isValueChanged()
             && ($this->getPath() == CategoryUrlPathGenerator::XML_PATH_CATEGORY_URL_SUFFIX);

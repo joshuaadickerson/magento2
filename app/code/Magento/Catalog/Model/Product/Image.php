@@ -830,7 +830,7 @@ class Image extends \Magento\Framework\Model\AbstractModel
      * @return array
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
-    private function getMiscParams()
+    private function getMiscParams(): array
     {
         return $this->paramsBuilder->build(
             [
@@ -854,7 +854,7 @@ class Image extends \Magento\Framework\Model\AbstractModel
      * @param string $imagePath
      * @return array
      */
-    private function getImageSize($imagePath)
+    private function getImageSize(string $imagePath): array
     {
         $imageInfo = $this->loadImageInfoFromCache($imagePath);
         if (!isset($imageInfo['size'])) {
@@ -873,7 +873,7 @@ class Image extends \Magento\Framework\Model\AbstractModel
      * @param string $imagePath
      * @return void
      */
-    private function saveImageInfoToCache(array $imageInfo, string $imagePath)
+    private function saveImageInfoToCache(array $imageInfo, string $imagePath): void
     {
         $imagePath = $this->cachePrefix  . $imagePath;
         $this->_cacheManager->save(
@@ -905,7 +905,7 @@ class Image extends \Magento\Framework\Model\AbstractModel
      *
      * @return void
      */
-    private function clearImageInfoFromCache()
+    private function clearImageInfoFromCache(): void
     {
         $this->_cacheManager->clean([$this->cachePrefix]);
     }

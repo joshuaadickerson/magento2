@@ -238,7 +238,7 @@ class Related extends AbstractModifier
      * @return \Magento\Catalog\Ui\Component\Listing\Columns\Price
      * @deprecated 101.0.0
      */
-    private function getPriceModifier()
+    private function getPriceModifier(): \Magento\Catalog\Ui\Component\Listing\Columns\Price
     {
         if (!$this->priceModifier) {
             $this->priceModifier = ObjectManager::getInstance()->get(

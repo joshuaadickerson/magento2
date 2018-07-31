@@ -50,7 +50,7 @@ class CategoryLinkTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    private function prepareAdapter()
+    private function prepareAdapter(): void
     {
         $this->dbSelectMock = $this->getMockBuilder(\Magento\Framework\DB\Select::class)
             ->disableOriginalConstructor()
@@ -63,7 +63,7 @@ class CategoryLinkTest extends \PHPUnit\Framework\TestCase
             ->willReturn($this->connectionMock);
     }
 
-    private function prepareMetadata()
+    private function prepareMetadata(): void
     {
         $categoryLinkMetadata = $this->getMockBuilder(\Magento\Framework\EntityManager\EntityMetadataInterface::class)
             ->getMockForAbstractClass();

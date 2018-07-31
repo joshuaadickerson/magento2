@@ -94,9 +94,9 @@ class Category
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    private function isApplied()
+    private function isApplied(): bool
     {
         return $this->isApplied;
     }
@@ -160,7 +160,7 @@ class Category
     /**
      * @return Layer
      */
-    private function getLayer()
+    private function getLayer(): Layer
     {
         return $this->layer;
     }

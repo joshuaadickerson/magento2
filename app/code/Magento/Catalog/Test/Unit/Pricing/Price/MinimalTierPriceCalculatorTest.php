@@ -64,7 +64,7 @@ class MinimalTierPriceCalculatorTest extends \PHPUnit\Framework\TestCase
     /**
      * @return int
      */
-    private function getValueTierPricesExistShouldReturnMinTierPrice()
+    private function getValueTierPricesExistShouldReturnMinTierPrice(): int
     {
         $minPrice = 5;
         $notMinPrice = 10;

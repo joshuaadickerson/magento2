@@ -309,7 +309,7 @@ class Link extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @param array $links
      * @return array
      */
-    private function prepareProductLinksData($parentId, $data, $typeId, $links)
+    private function prepareProductLinksData(int $parentId, array $data, int $typeId, array $links): array
     {
         $connection =  $this->getConnection();
         $attributes = $this->getAttributesByType($typeId);

@@ -177,7 +177,7 @@ class RefreshSpecialPrices
      *
      * @deprecated 101.0.0
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = ObjectManager::getInstance()->get(MetadataPool::class);

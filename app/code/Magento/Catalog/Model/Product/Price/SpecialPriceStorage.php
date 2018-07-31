@@ -129,7 +129,7 @@ class SpecialPriceStorage implements \Magento\Catalog\Api\SpecialPriceStorageInt
      * @param array $prices
      * @return array
      */
-    private function retrieveValidPrices(array $prices)
+    private function retrieveValidPrices(array $prices): array
     {
         $skus = array_unique(
             array_map(function ($price) {
@@ -204,8 +204,12 @@ class SpecialPriceStorage implements \Magento\Catalog\Api\SpecialPriceStorageInt
      * @param int $key
      * @return void
      */
-    private function checkDate(\Magento\Catalog\Api\Data\SpecialPriceInterface $price, $value, $label, $key)
-    {
+    private function checkDate(
+        \Magento\Catalog\Api\Data\SpecialPriceInterface $price,
+        string $value,
+        string $label,
+        int $key
+    ): void {
         if ($value && !$this->isCorrectDateValue($value)) {
             $this->validationResult->addFailedItem(
                 $key,
@@ -239,7 +243,7 @@ class SpecialPriceStorage implements \Magento\Catalog\Api\SpecialPriceStorageInt
      * @param int $key
      * @return void
      */
-    private function checkPrice(\Magento\Catalog\Api\Data\SpecialPriceInterface $price, $key)
+    private function checkPrice(\Magento\Catalog\Api\Data\SpecialPriceInterface $price, int $key): void
     {
         if (null === $price->getPrice() || $price->getPrice() < 0) {
             $this->validationResult->addFailedItem(
@@ -273,7 +277,7 @@ class SpecialPriceStorage implements \Magento\Catalog\Api\SpecialPriceStorageInt
      * @param array $skus
      * @return string|null
      */
-    private function retrieveSkuById($productId, array $skus)
+    private function retrieveSkuById(int $productId, array $skus): ?string
     {
         foreach ($this->productIdLocator->retrieveProductIdsBySkus($skus) as $sku => $ids) {
             if (isset($ids[$productId])) {
@@ -290,7 +294,7 @@ class SpecialPriceStorage implements \Magento\Catalog\Api\SpecialPriceStorageInt
      * @param string $date
      * @return bool
      */
-    private function isCorrectDateValue($date)
+    private function isCorrectDateValue(string $date): bool
     {
         $actualDate = date('Y-m-d H:i:s', strtotime($date));
         return $actualDate && $actualDate === $date;

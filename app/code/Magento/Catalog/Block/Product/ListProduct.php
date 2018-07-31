@@ -160,7 +160,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      *
      * @return string
      */
-    private function getDefaultListingMode()
+    private function getDefaultListingMode(): string
     {
         // default Toolbar when the toolbar layout is not used
         $defaultToolbar = $this->getToolbarBlock();
@@ -198,7 +198,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      *
      * @param Collection $collection
      */
-    private function addToolbarBlock(Collection $collection)
+    private function addToolbarBlock(Collection $collection): Collection
     {
         $toolbarLayout = $this->getToolbarFromLayout();
 
@@ -422,7 +422,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      *
      * @return Collection
      */
-    private function initializeProductCollection()
+    private function initializeProductCollection(): Collection
     {
         $layer = $this->getLayer();
         /* @var $layer Layer */
@@ -485,7 +485,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      * @param Collection $collection
      * @return void
      */
-    private function configureToolbar(Toolbar $toolbar, Collection $collection)
+    private function configureToolbar(Toolbar $toolbar, Collection $collection): void
     {
         // use sortable parameters
         $orders = $this->getAvailableOrders();

@@ -33,7 +33,7 @@ class ProductLinksTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Product
      */
-    private function getMockedProduct()
+    private function getMockedProduct(): Product
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Catalog\Model\Product::class)
             ->setMethods(

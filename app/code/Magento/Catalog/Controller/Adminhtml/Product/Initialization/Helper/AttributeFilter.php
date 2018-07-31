@@ -92,7 +92,7 @@ class AttributeFilter
      * @param mixed $value
      * @return bool
      */
-    private function isAttributeShouldNotBeUpdated(Product $product, array $useDefaults, $attribute, $value): bool
+    private function isAttributeShouldNotBeUpdated(Product $product, array $useDefaults, string $attribute, $value): bool
     {
         $considerUseDefaultsAttribute = !isset($useDefaults[$attribute]) || $useDefaults[$attribute] === '1';
 

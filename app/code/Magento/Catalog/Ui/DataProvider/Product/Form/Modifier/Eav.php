@@ -308,7 +308,7 @@ class Eav extends AbstractModifier
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    private function getAttributesMeta(array $attributes, $groupCode)
+    private function getAttributesMeta(array $attributes, string $groupCode): array
     {
         $meta = [];
 
@@ -420,7 +420,7 @@ class Eav extends AbstractModifier
      * @param array $data
      * @return array
      */
-    private function resolvePersistentData(array $data)
+    private function resolvePersistentData(array $data): array
     {
         $persistentData = (array)$this->dataPersistor->get('catalog_product');
         $this->dataPersistor->clear('catalog_product');
@@ -441,11 +441,11 @@ class Eav extends AbstractModifier
     /**
      * Get product type
      *
-     * @return null|string
+     * @return string
      */
-    private function getProductType()
+    private function getProductType(): string
     {
-        return (string)$this->request->getParam('type', $this->locator->getProduct()->getTypeId());
+        return (string) $this->request->getParam('type', $this->locator->getProduct()->getTypeId());
     }
 
     /**
@@ -453,9 +453,9 @@ class Eav extends AbstractModifier
      *
      * @return int
      */
-    private function getPreviousSetId()
+    private function getPreviousSetId(): int
     {
-        return (int)$this->request->getParam('prev_set_id', 0);
+        return (int) $this->request->getParam('prev_set_id', 0);
     }
 
     /**
@@ -463,7 +463,7 @@ class Eav extends AbstractModifier
      *
      * @return AttributeGroupInterface[]
      */
-    private function getGroups()
+    private function getGroups(): array
     {
         if (!$this->attributeGroups) {
             $searchCriteria = $this->prepareGroupSearchCriteria()->create();
@@ -481,7 +481,7 @@ class Eav extends AbstractModifier
      *
      * @return SearchCriteriaBuilder
      */
-    private function prepareGroupSearchCriteria()
+    private function prepareGroupSearchCriteria(): SearchCriteriaBuilder
     {
         return $this->searchCriteriaBuilder->addFilter(
             AttributeGroupInterface::ATTRIBUTE_SET_ID,
@@ -494,7 +494,7 @@ class Eav extends AbstractModifier
      *
      * @return int|null
      */
-    private function getAttributeSetId()
+    private function getAttributeSetId(): ?int
     {
         return $this->locator->getProduct()->getAttributeSetId();
     }
@@ -504,7 +504,7 @@ class Eav extends AbstractModifier
      *
      * @return ProductAttributeInterface[]
      */
-    private function getAttributes()
+    private function getAttributes(): array
     {
         if (!$this->attributes) {
             foreach ($this->getGroups() as $group) {
@@ -521,7 +521,7 @@ class Eav extends AbstractModifier
      * @param AttributeGroupInterface $group
      * @return ProductAttributeInterface[]
      */
-    private function loadAttributes(AttributeGroupInterface $group)
+    private function loadAttributes(AttributeGroupInterface $group): array
     {
         $attributes = [];
         $sortOrder = $this->sortOrderBuilder
@@ -552,7 +552,7 @@ class Eav extends AbstractModifier
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    private function getPreviousSetAttributes()
+    private function getPreviousSetAttributes(): array
     {
         if ($this->prevSetAttributes === null) {
             $searchCriteria = $this->searchCriteriaBuilder
@@ -573,7 +573,7 @@ class Eav extends AbstractModifier
      *
      * @return bool
      */
-    private function isProductExists()
+    private function isProductExists(): bool
     {
         return (bool) $this->locator->getProduct()->getId();
     }
@@ -675,7 +675,7 @@ class Eav extends AbstractModifier
      * @param ProductAttributeInterface $attribute
      * @return null|string
      */
-    private function getAttributeDefaultValue(ProductAttributeInterface $attribute)
+    private function getAttributeDefaultValue(ProductAttributeInterface $attribute): ?string
     {
         if ($attribute->getAttributeCode() === 'page_layout') {
             $defaultValue = $this->scopeConfig->getValue(
@@ -694,7 +694,7 @@ class Eav extends AbstractModifier
      * @param array $options
      * @return array
      */
-    private function convertOptionsValueToString(array $options) : array
+    private function convertOptionsValueToString(array $options): array
     {
         array_walk($options, function (&$value) {
             if (isset($value['value']) && is_scalar($value['value'])) {
@@ -710,7 +710,7 @@ class Eav extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function addUseDefaultValueCheckbox(ProductAttributeInterface $attribute, array $meta)
+    private function addUseDefaultValueCheckbox(ProductAttributeInterface $attribute, array $meta): array
     {
         $canDisplayService = $this->canDisplayUseDefault($attribute);
         if ($canDisplayService) {
@@ -793,7 +793,7 @@ class Eav extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function customizeCheckbox(ProductAttributeInterface $attribute, array $meta)
+    private function customizeCheckbox(ProductAttributeInterface $attribute, array $meta): array
     {
         if ($attribute->getFrontendInput() === 'boolean') {
             $meta['arguments']['data']['config']['prefer'] = 'toggle';
@@ -813,7 +813,7 @@ class Eav extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function customizePriceAttribute(ProductAttributeInterface $attribute, array $meta)
+    private function customizePriceAttribute(ProductAttributeInterface $attribute, array $meta): array
     {
         if ($attribute->getFrontendInput() === 'price') {
             $meta['arguments']['data']['config']['addbefore'] = $this->locator->getStore()
@@ -831,7 +831,7 @@ class Eav extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function customizeWysiwyg(ProductAttributeInterface $attribute, array $meta)
+    private function customizeWysiwyg(ProductAttributeInterface $attribute, array $meta): array
     {
         if (!$attribute->getIsWysiwygEnabled()) {
             return $meta;
@@ -850,7 +850,7 @@ class Eav extends AbstractModifier
      * @param string $value
      * @return mixed
      */
-    private function getFormElementsMapValue($value)
+    private function getFormElementsMapValue(string $value)
     {
         $valueMap = $this->formElementMapper->getMappings();
 
@@ -903,7 +903,7 @@ class Eav extends AbstractModifier
      * @param ProductAttributeInterface $attribute
      * @return bool
      */
-    private function canDisplayUseDefault(ProductAttributeInterface $attribute)
+    private function canDisplayUseDefault(ProductAttributeInterface $attribute): bool
     {
         $attributeCode = $attribute->getAttributeCode();
         /** @var Product $product */
@@ -927,7 +927,7 @@ class Eav extends AbstractModifier
      * @param ProductAttributeInterface $attribute
      * @return bool
      */
-    private function isScopeGlobal($attribute)
+    private function isScopeGlobal(ProductAttributeInterface $attribute): bool
     {
         return $attribute->getScope() === ProductAttributeInterface::SCOPE_GLOBAL_TEXT;
     }
@@ -940,7 +940,7 @@ class Eav extends AbstractModifier
      * @param ProductAttributeInterface $attribute
      * @return EavAttribute
      */
-    private function getAttributeModel($attribute)
+    private function getAttributeModel(ProductAttributeInterface $attribute): EavAttribute
     {
         return $this->eavAttributeFactory->create()->load($attribute->getAttributeId());
     }
@@ -955,7 +955,7 @@ class Eav extends AbstractModifier
      * @param AttributeGroupInterface $group
      * @return string
      */
-    private function calculateGroupCode(AttributeGroupInterface $group)
+    private function calculateGroupCode(AttributeGroupInterface $group): string
     {
         $attributeGroupCode = $group->getAttributeGroupCode();
 
@@ -973,7 +973,7 @@ class Eav extends AbstractModifier
      *
      * @deprecated 101.0.0
      */
-    private function getLocaleCurrency()
+    private function getLocaleCurrency(): \Magento\Framework\Locale\CurrencyInterface
     {
         if ($this->localeCurrency === null) {
             $this->localeCurrency = \Magento\Framework\App\ObjectManager::getInstance()->get(CurrencyInterface::class);

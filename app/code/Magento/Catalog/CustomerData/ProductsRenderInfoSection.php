@@ -81,7 +81,7 @@ class ProductsRenderInfoSection implements SectionSourceInterface
      *
      * @return array
      */
-    private function getProductIds()
+    private function getProductIds(): array
     {
         $productIds = [];
         /** @var Collection $actionCollection */

@@ -97,7 +97,7 @@ class Copier
      * @return Option\Repository
      * @deprecated 101.0.0
      */
-    private function getOptionRepository()
+    private function getOptionRepository(): Option\Repository
     {
         if (null === $this->optionRepository) {
             $this->optionRepository = \Magento\Framework\App\ObjectManager::getInstance()
@@ -110,7 +110,7 @@ class Copier
      * @return \Magento\Framework\EntityManager\MetadataPool
      * @deprecated 101.0.0
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()
@@ -125,7 +125,7 @@ class Copier
      * @param array $productData
      * @return array
      */
-    private function removeStockItem(array $productData)
+    private function removeStockItem(array $productData): array
     {
         if (isset($productData[ProductInterface::EXTENSION_ATTRIBUTES_KEY])) {
             $extensionAttributes = $productData[ProductInterface::EXTENSION_ATTRIBUTES_KEY];

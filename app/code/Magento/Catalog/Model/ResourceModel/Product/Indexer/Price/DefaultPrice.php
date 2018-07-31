@@ -248,7 +248,7 @@ class DefaultPrice extends AbstractIndexer implements PriceInterface
      *
      * @return IndexTableStructure
      */
-    private function prepareFinalPriceTable()
+    private function prepareFinalPriceTable(): IndexTableStructure
     {
         $tableName = $this->_getDefaultFinalPriceTable();
         $this->getConnection()->delete($tableName);

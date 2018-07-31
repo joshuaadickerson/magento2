@@ -95,7 +95,7 @@ class CategoryLink
     /**
      * @return \Magento\Framework\EntityManager\EntityMetadataInterface
      */
-    private function getCategoryLinkMetadata()
+    private function getCategoryLinkMetadata(): \Magento\Framework\EntityManager\EntityMetadataInterface
     {
         if ($this->categoryLinkMetadata == null) {
             $this->categoryLinkMetadata = $this->metadataPool->getMetadata(CategoryLinkInterface::class);
@@ -111,7 +111,7 @@ class CategoryLink
      * @param array $oldCategoryPositions
      * @return array
      */
-    private function processCategoryLinks($newCategoryPositions, &$oldCategoryPositions)
+    private function processCategoryLinks(array $newCategoryPositions, array &$oldCategoryPositions): array
     {
         $result = ['changed' => [], 'updated' => []];
         foreach ($newCategoryPositions as $newCategoryPosition) {
@@ -137,7 +137,7 @@ class CategoryLink
      * @param bool $insert
      * @return array
      */
-    private function updateCategoryLinks(ProductInterface $product, array $insertLinks, $insert = false)
+    private function updateCategoryLinks(ProductInterface $product, array $insertLinks, bool $insert = false): array
     {
         if (empty($insertLinks)) {
             return [];
@@ -179,7 +179,7 @@ class CategoryLink
      * @param array $deleteLinks
      * @return array
      */
-    private function deleteCategoryLinks(ProductInterface $product, array $deleteLinks)
+    private function deleteCategoryLinks(ProductInterface $product, array $deleteLinks): array
     {
         if (empty($deleteLinks)) {
             return [];
@@ -200,7 +200,7 @@ class CategoryLink
      * @param array $links
      * @return array
      */
-    private function verifyCategoryLinks(array $links)
+    private function verifyCategoryLinks(array $links): array
     {
         if (empty($links)) {
             return [];
@@ -232,7 +232,7 @@ class CategoryLink
      * @param array $insertUpdate
      * @return array
      */
-    private function analyseUpdatedLinks($deleteUpdate, $insertUpdate)
+    private function analyseUpdatedLinks(array $deleteUpdate, array $insertUpdate): array
     {
         $delete = $deleteUpdate['changed'] ?: [];
         $insert = $insertUpdate['changed'] ?: [];

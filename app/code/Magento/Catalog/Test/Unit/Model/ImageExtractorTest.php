@@ -31,7 +31,7 @@ class ImageExtractorTest extends \PHPUnit\Framework\TestCase
      *
      * @return \DOMElement
      */
-    private function getDomElement()
+    private function getDomElement(): \DOMElement
     {
         $doc = new \DOMDocument();
         $doc->load(__DIR__ . '/_files/valid_view.xml');

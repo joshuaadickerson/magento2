@@ -92,7 +92,7 @@ class TierPrice extends AbstractModifier
      * @param array $priceMeta
      * @return array
      */
-    private function getUpdatedTierPriceStructure(array $priceMeta)
+    private function getUpdatedTierPriceStructure(array $priceMeta): array
     {
         $priceTypeOptions = $this->productPriceOptions->toOptionArray();
         $firstOption = $priceTypeOptions ? current($priceTypeOptions) : null;

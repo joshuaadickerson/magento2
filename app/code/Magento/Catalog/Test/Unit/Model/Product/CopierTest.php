@@ -169,7 +169,7 @@ class CopierTest extends \PHPUnit\Framework\TestCase
      * @param $object
      * @param array $properties
      */
-    private function setProperties($object, $properties = [])
+    private function setProperties(object $object, $properties = []): void
     {
         $reflectionClass = new \ReflectionClass(get_class($object));
         foreach ($properties as $key => $value) {

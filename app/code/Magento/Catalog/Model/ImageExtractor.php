@@ -53,11 +53,10 @@ class ImageExtractor implements TypeDataExtractorInterface
      * @param string $backgroundString
      * @return int[]
      */
-    private function processImageBackground($backgroundString)
+    private function processImageBackground(string $backgroundString): array
     {
-        $pattern = '#\[(\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\]#';
         $backgroundArray = [];
-        if (preg_match($pattern, $backgroundString, $backgroundArray)) {
+        if (preg_match('#\[(\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\]#', $backgroundString, $backgroundArray)) {
             array_shift($backgroundArray);
             $backgroundArray = array_map('intval', $backgroundArray);
         }

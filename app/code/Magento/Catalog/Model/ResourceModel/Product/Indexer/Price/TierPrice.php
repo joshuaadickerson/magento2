@@ -96,8 +96,9 @@ class TierPrice extends AbstractDb
      *
      * @param Select $select
      * @param bool $isAllWebsites
+     * @return void
      */
-    private function joinWebsites(Select $select, bool $isAllWebsites)
+    private function joinWebsites(Select $select, bool $isAllWebsites): void
     {
         $websiteTable = ['website' => $this->getTable('store_website')];
         if ($isAllWebsites) {
@@ -118,7 +119,7 @@ class TierPrice extends AbstractDb
      * @param Select $select
      * @param bool $isAllCustomerGroups
      */
-    private function joinCustomerGroups(Select $select, bool $isAllCustomerGroups)
+    private function joinCustomerGroups(Select $select, bool $isAllCustomerGroups): void
     {
         $customerGroupTable = ['customer_group' => $this->getTable('customer_group')];
         if ($isAllCustomerGroups) {

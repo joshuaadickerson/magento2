@@ -315,7 +315,7 @@ abstract class AbstractGroupPrice extends Price
      * @param int $storeId
      * @return int|null
      */
-    private function getWebsiteId($storeId)
+    private function getWebsiteId(int $storeId): ?int
     {
         $websiteId = null;
         if ($this->getAttribute()->isScopeGlobal()) {
@@ -546,7 +546,7 @@ abstract class AbstractGroupPrice extends Price
     /**
      * @return \Magento\Framework\EntityManager\MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()

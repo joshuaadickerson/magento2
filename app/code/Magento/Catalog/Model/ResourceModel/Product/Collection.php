@@ -907,7 +907,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * @param string $conditionType
      * @return mixed
      */
-    private function mapConditionType($conditionType)
+    private function mapConditionType(string $conditionType)
     {
         $conditionsMap = [
             'eq' => 'in',
@@ -2132,7 +2132,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * @param array $productIds
      * @return \Magento\Framework\DB\Select
      */
-    private function getTierPriceSelect(array $productIds)
+    private function getTierPriceSelect(array $productIds): \Magento\Framework\DB\Select
     {
         /** @var $attribute \Magento\Catalog\Model\ResourceModel\Eav\Attribute */
         $attribute = $this->getAttribute('tier_price');
@@ -2158,7 +2158,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * @param Select $select
      * @return void
      */
-    private function fillTierPriceData(\Magento\Framework\DB\Select $select)
+    private function fillTierPriceData(\Magento\Framework\DB\Select $select): void
     {
         $tierPrices = [];
         foreach ($this->getConnection()->fetchAll($select) as $row) {
@@ -2188,7 +2188,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      *
      * @return \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      */
-    private function getBackend()
+    private function getBackend(): \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
     {
         if ($this->backend === null) {
             $this->backend = $this->getAttribute('tier_price')->getBackend();
@@ -2290,7 +2290,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * @return GalleryReadHandler
      * @deprecated 101.0.1
      */
-    private function getGalleryReadHandler()
+    private function getGalleryReadHandler(): GalleryReadHandler
     {
         if ($this->productGalleryReadHandler === null) {
             $this->productGalleryReadHandler = ObjectManager::getInstance()->get(GalleryReadHandler::class);
@@ -2302,7 +2302,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * @deprecated 101.0.1
      * @return \Magento\Catalog\Model\ResourceModel\Product\Gallery
      */
-    private function getMediaGalleryResource()
+    private function getMediaGalleryResource(): \Magento\Catalog\Model\ResourceModel\Product\Gallery
     {
         if (null === $this->mediaGalleryResource) {
             $this->mediaGalleryResource = ObjectManager::getInstance()->get(Gallery::class);

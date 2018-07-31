@@ -116,7 +116,7 @@ class ProductAttributesCleanUp extends \Symfony\Component\Console\Command\Comman
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    private function getAttributeTables()
+    private function getAttributeTables(): array
     {
         $searchResult = $this->productAttributeRepository->getList($this->searchCriteriaBuilder->create());
         $attributeTables = [];
@@ -139,7 +139,7 @@ class ProductAttributesCleanUp extends \Symfony\Component\Console\Command\Comman
      * @return array
      * @throws \Zend_Db_Statement_Exception
      */
-    private function getAffectedAttributeIds(AdapterInterface $connection, $attributeTableName)
+    private function getAffectedAttributeIds(AdapterInterface $connection, string $attributeTableName): array
     {
         $linkField = $this->metadata->getLinkField();
         $select = $connection->select()->reset();

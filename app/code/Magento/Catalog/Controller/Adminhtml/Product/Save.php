@@ -192,7 +192,7 @@ class Save extends \Magento\Catalog\Controller\Adminhtml\Product
      * @param int $productId
      * @return void
      */
-    private function handleImageRemoveError($postData, $productId)
+    private function handleImageRemoveError(array $postData, int $productId): void
     {
         if (isset($postData['product']['media_gallery']['images'])) {
             $removedImagesAmount = 0;
@@ -252,7 +252,7 @@ class Save extends \Magento\Catalog\Controller\Adminhtml\Product
     /**
      * @return \Magento\Catalog\Api\CategoryLinkManagementInterface
      */
-    private function getCategoryLinkManagement()
+    private function getCategoryLinkManagement(): \Magento\Catalog\Api\CategoryLinkManagementInterface
     {
         if (null === $this->categoryLinkManagement) {
             $this->categoryLinkManagement = \Magento\Framework\App\ObjectManager::getInstance()
@@ -265,7 +265,7 @@ class Save extends \Magento\Catalog\Controller\Adminhtml\Product
      * @return StoreManagerInterface
      * @deprecated 101.0.0
      */
-    private function getStoreManager()
+    private function getStoreManager(): StoreManagerInterface
     {
         if (null === $this->storeManager) {
             $this->storeManager = \Magento\Framework\App\ObjectManager::getInstance()

@@ -37,7 +37,7 @@ class LayoutTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Framework\View\Model\PageLayout\Config\BuilderInterface
      */
-    private function getMockedPageLayoutBuilder()
+    private function getMockedPageLayoutBuilder(): \Magento\Framework\View\Model\PageLayout\Config\BuilderInterface
     {
         $mockPageLayoutConfig = $this->getMockBuilder(\Magento\Framework\View\PageLayout\Config::class)
             ->disableOriginalConstructor()

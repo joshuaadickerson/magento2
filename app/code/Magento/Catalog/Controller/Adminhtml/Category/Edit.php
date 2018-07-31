@@ -111,7 +111,7 @@ class Edit extends \Magento\Catalog\Controller\Adminhtml\Category
     /**
      * @return \Magento\Store\Model\StoreManagerInterface
      */
-    private function getStoreManager()
+    private function getStoreManager(): \Magento\Store\Model\StoreManagerInterface
     {
         if (null === $this->storeManager) {
             $this->storeManager = \Magento\Framework\App\ObjectManager::getInstance()

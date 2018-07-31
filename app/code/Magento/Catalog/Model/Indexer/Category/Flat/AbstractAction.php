@@ -400,7 +400,7 @@ class AbstractAction
      * @param array $entityIds
      * @return array
      */
-    private function getLinkIds(array $entityIds)
+    private function getLinkIds(array $entityIds): array
     {
         $linkField = $this->getCategoryMetadata()->getLinkField();
         if ($linkField === 'entity_id') {
@@ -499,7 +499,7 @@ class AbstractAction
     /**
      * @return \Magento\Framework\EntityManager\EntityMetadata
      */
-    private function getCategoryMetadata()
+    private function getCategoryMetadata(): \Magento\Framework\EntityManager\EntityMetadata
     {
         if (null === $this->categoryMetadata) {
             $metadataPool = \Magento\Framework\App\ObjectManager::getInstance()
@@ -512,7 +512,7 @@ class AbstractAction
     /**
      * @return array
      */
-    private function getSkipStaticColumns()
+    private function getSkipStaticColumns(): array
     {
         if (null === $this->skipStaticColumns) {
             $provider = \Magento\Framework\App\ObjectManager::getInstance()

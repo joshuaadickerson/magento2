@@ -347,7 +347,7 @@ class Helper
      * @param array $overwriteOptions
      * @return array
      */
-    private function overwriteValue($optionId, $option, $overwriteOptions)
+    private function overwriteValue(int $optionId, array $option, array $overwriteOptions): array
     {
         if (isset($overwriteOptions[$optionId])) {
             foreach ($overwriteOptions[$optionId] as $fieldName => $overwrite) {
@@ -367,7 +367,7 @@ class Helper
      * @return LinkResolver
      * @deprecated 101.0.0
      */
-    private function getLinkResolver()
+    private function getLinkResolver(): LinkResolver
     {
         if (!is_object($this->linkResolver)) {
             $this->linkResolver = ObjectManager::getInstance()->get(LinkResolver::class);
@@ -379,7 +379,7 @@ class Helper
      * @return \Magento\Framework\Stdlib\DateTime\Filter\DateTime
      * @deprecated 101.0.0
      */
-    private function getDateTimeFilter()
+    private function getDateTimeFilter(): \Magento\Framework\Stdlib\DateTime\Filter\DateTime
     {
         if ($this->dateTimeFilter === null) {
             $this->dateTimeFilter = \Magento\Framework\App\ObjectManager::getInstance()
@@ -396,7 +396,7 @@ class Helper
      * @param array $websiteIds
      * @return array
      */
-    private function filterWebsiteIds($websiteIds)
+    private function filterWebsiteIds(array $websiteIds): array
     {
         if (!$this->storeManager->isSingleStoreMode()) {
             $websiteIds = array_filter((array)$websiteIds);
@@ -414,7 +414,7 @@ class Helper
      * @param array $productOptions
      * @return Product
      */
-    private function fillProductOptions(Product $product, array $productOptions)
+    private function fillProductOptions(Product $product, array $productOptions): Product
     {
         if ($product->getOptionsReadonly()) {
             return $product;

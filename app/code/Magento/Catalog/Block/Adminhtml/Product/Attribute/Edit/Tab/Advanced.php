@@ -280,7 +280,7 @@ class Advanced extends Generic
      *
      * @return PropertyLocker
      */
-    private function getPropertyLocker()
+    private function getPropertyLocker(): PropertyLocker
     {
         if (null === $this->propertyLocker) {
             $this->propertyLocker = ObjectManager::getInstance()->get(PropertyLocker::class);

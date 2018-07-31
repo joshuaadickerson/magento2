@@ -309,7 +309,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
      * @param \Magento\Catalog\Api\Data\ProductInterface $product
      * @return void
      */
-    private function cacheProduct($cacheKey, \Magento\Catalog\Api\Data\ProductInterface $product)
+    private function cacheProduct(string $cacheKey, \Magento\Catalog\Api\Data\ProductInterface $product): void
     {
         $this->instancesById[$product->getId()][$cacheKey] = $product;
         $this->saveProductInLocalCache($product, $cacheKey);
@@ -351,7 +351,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
      * @param \Magento\Catalog\Model\Product $product
      * @return void
      */
-    private function assignProductToWebsites(\Magento\Catalog\Model\Product $product)
+    private function assignProductToWebsites(\Magento\Catalog\Model\Product $product): void
     {
         if ($this->storeManager->getStore(true)->getCode() == \Magento\Store\Model\Store::ADMIN_CODE) {
             $websiteIds = array_keys($this->storeManager->getWebsites());
@@ -419,7 +419,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
      * @return $this
      * @throws NoSuchEntityException
      */
-    private function processLinks(\Magento\Catalog\Api\Data\ProductInterface $product, $newLinks)
+    private function processLinks(\Magento\Catalog\Api\Data\ProductInterface $product, array $newLinks): ProductRepository
     {
         if ($newLinks === null) {
             // If product links were not specified, don't do anything
@@ -761,7 +761,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
     /**
      * @return Product\Gallery\Processor
      */
-    private function getMediaGalleryProcessor()
+    private function getMediaGalleryProcessor(): Product\Gallery\Processor
     {
         if (null === $this->mediaGalleryProcessor) {
             $this->mediaGalleryProcessor = \Magento\Framework\App\ObjectManager::getInstance()
@@ -776,11 +776,11 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
      * @deprecated 101.1.0
      * @return CollectionProcessorInterface
      */
-    private function getCollectionProcessor()
+    private function getCollectionProcessor(): CollectionProcessorInterface
     {
         if (!$this->collectionProcessor) {
             $this->collectionProcessor = \Magento\Framework\App\ObjectManager::getInstance()->get(
-                'Magento\Catalog\Model\Api\SearchCriteria\ProductCollectionProcessor'
+                \Magento\Catalog\Model\Api\SearchCriteria\ProductCollectionProcessor::class
             );
         }
         return $this->collectionProcessor;
@@ -793,7 +793,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
      * @param string $cacheKey
      * @return Product|null
      */
-    private function getProductFromLocalCache(string $sku, string $cacheKey)
+    private function getProductFromLocalCache(string $sku, string $cacheKey): ?Product
     {
         $preparedSku = $this->prepareSku($sku);
 

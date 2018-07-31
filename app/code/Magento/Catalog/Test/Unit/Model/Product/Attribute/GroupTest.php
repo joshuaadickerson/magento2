@@ -35,7 +35,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory
      */
-    private function getMockedCollectionFactory()
+    private function getMockedCollectionFactory(): \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory
     {
         $mockedCollection = $this->getMockedCollection();
 
@@ -56,7 +56,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
      */
-    private function getMockedCollection()
+    private function getMockedCollection(): \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection::class);
         $mock = $mockBuilder->disableOriginalConstructor()

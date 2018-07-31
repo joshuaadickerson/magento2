@@ -84,7 +84,7 @@ class PriceBoxTags
      * @param PriceBox $subject
      * @return string
      */
-    private function getTaxRateIds(PriceBox $subject)
+    private function getTaxRateIds(PriceBox $subject): string
     {
         $rateIds = [];
 
@@ -123,7 +123,7 @@ class PriceBoxTags
      *
      * @deprecated 101.0.0
      */
-    private function getTaxCalculation()
+    private function getTaxCalculation(): \Magento\Tax\Model\Calculation
     {
         if ($this->taxCalculation === null) {
             $this->taxCalculation = \Magento\Framework\App\ObjectManager::getInstance()->get(TaxCalculation::class);

@@ -764,7 +764,7 @@ class Category extends \Magento\Catalog\Model\AbstractModel implements
      * @param string $attributeCode
      * @return \Magento\Eav\Model\Entity\Attribute\AbstractAttribute
      */
-    private function _getAttribute($attributeCode)
+    private function _getAttribute(string $attributeCode): \Magento\Eav\Model\Entity\Attribute\AbstractAttribute
     {
         if (!$this->_useFlatResource) {
             $attribute = $this->getResource()->getAttribute($attributeCode);

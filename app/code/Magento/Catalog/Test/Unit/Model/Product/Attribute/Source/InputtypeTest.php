@@ -51,7 +51,7 @@ class InputtypeTest extends \PHPUnit\Framework\TestCase
     /**
      * @return array
      */
-    private function getInputTypeSet()
+    private function getInputTypeSet(): array
     {
         return [
             ['value' => 'text', 'label' => 'Text Field'],

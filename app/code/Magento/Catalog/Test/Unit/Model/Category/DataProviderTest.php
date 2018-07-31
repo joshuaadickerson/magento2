@@ -133,7 +133,7 @@ class DataProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return DataProvider
      */
-    private function getModel()
+    private function getModel(): DataProvider
     {
         $this->eavEntityMock->expects($this->any())
             ->method('getAttributeCollection')

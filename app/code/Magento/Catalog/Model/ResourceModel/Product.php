@@ -397,7 +397,7 @@ class Product extends AbstractResource
      * @param string $tableName
      * @return \Magento\Framework\DB\Select
      */
-    private function getAvailableInCategoriesSelect($entityId, $tableName)
+    private function getAvailableInCategoriesSelect(int $entityId, string $tableName): \Magento\Framework\DB\Select
     {
         return $this->getConnection()->select()->distinct()->from(
             $tableName,
@@ -677,7 +677,7 @@ class Product extends AbstractResource
     /**
      * @return \Magento\Framework\EntityManager\EntityManager
      */
-    private function getEntityManager()
+    private function getEntityManager(): \Magento\Framework\EntityManager\EntityManager
     {
         if (null === $this->entityManager) {
             $this->entityManager = \Magento\Framework\App\ObjectManager::getInstance()
@@ -690,7 +690,7 @@ class Product extends AbstractResource
      * @deprecated 101.1.0
      * @return ProductWebsiteLink
      */
-    private function getProductWebsiteLink()
+    private function getProductWebsiteLink(): ProductWebsiteLink
     {
         return ObjectManager::getInstance()->get(ProductWebsiteLink::class);
     }
@@ -699,7 +699,7 @@ class Product extends AbstractResource
      * @deprecated 101.1.0
      * @return \Magento\Catalog\Model\ResourceModel\Product\CategoryLink
      */
-    private function getProductCategoryLink()
+    private function getProductCategoryLink(): \Magento\Catalog\Model\ResourceModel\Product\CategoryLink
     {
         if (null === $this->productCategoryLink) {
             $this->productCategoryLink = \Magento\Framework\App\ObjectManager::getInstance()

@@ -78,7 +78,7 @@ class Attributes extends AbstractModifier
     /**
      * @return boolean
      */
-    private function canAddAttributes()
+    private function canAddAttributes(): bool
     {
         $isWrapped = $this->registry->registry('use_wrapper');
         if (!isset($isWrapped)) {
@@ -114,7 +114,7 @@ class Attributes extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function customizeAddAttributeModal(array $meta)
+    private function customizeAddAttributeModal(array $meta): array
     {
         $meta['add_attribute_modal']['arguments']['data']['config'] = [
             'isTemplate' => false,
@@ -210,7 +210,7 @@ class Attributes extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function customizeCreateAttributeModal(array $meta)
+    private function customizeCreateAttributeModal(array $meta): array
     {
         $params = [
             'group' => static::GROUP_CODE,
@@ -292,7 +292,7 @@ class Attributes extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function customizeAttributesGrid(array $meta)
+    private function customizeAttributesGrid(array $meta): array
     {
         $meta['add_attribute_modal']['children']['product_attributes_grid'] = [
             'arguments' => [

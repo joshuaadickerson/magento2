@@ -105,9 +105,9 @@ class View extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @param \Magento\Framework\View\Result\Page $resultPage
      * @param \Magento\Catalog\Model\Product $product
-     * @return \Magento\Framework\View\Result\Page
+     * @return View
      */
-    private function preparePageMetadata(ResultPage $resultPage, $product)
+    private function preparePageMetadata(ResultPage $resultPage, \Magento\Catalog\Model\Product $product): View
     {
         $pageLayout = $resultPage->getLayout();
         $pageConfig = $resultPage->getConfig();

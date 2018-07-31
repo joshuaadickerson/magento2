@@ -41,7 +41,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Cms\Model\ResourceModel\Block\CollectionFactory
      */
-    private function getMockedBlockCollectionFactory()
+    private function getMockedBlockCollectionFactory(): \Magento\Cms\Model\ResourceModel\Block\CollectionFactory
     {
         $mockedCollection = $this->getMockedCollection();
 
@@ -60,7 +60,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Framework\Data\Collection
      */
-    private function getMockedCollection()
+    private function getMockedCollection(): \Magento\Framework\Data\Collection
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Framework\Data\Collection::class);
         $mock = $mockBuilder->disableOriginalConstructor()

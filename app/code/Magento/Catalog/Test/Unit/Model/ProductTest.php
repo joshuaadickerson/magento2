@@ -764,7 +764,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
     /**
      * @return array
      */
-    private function getStatusAndCategoryChangesData()
+    private function getStatusAndCategoryChangesData(): array
     {
         return [
             [0 => 'cat_p_1', 1 => 'cat_c_p_5'],
@@ -783,7 +783,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
     /**
      * @return array
      */
-    private function getNewProductProviderData()
+    private function getNewProductProviderData(): array
     {
         return [
             ['cat_p_1', 'cat_c_p_1'],
@@ -802,7 +802,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
      * @param \PHPUnit_Framework_MockObject_MockObject $extensionAttributesMock
      * @return array
      */
-    private function getStatusStockProviderData($extensionAttributesMock)
+    private function getStatusStockProviderData(\PHPUnit_Framework_MockObject_MockObject $extensionAttributesMock): array
     {
         return [
             [0 => 'cat_p_1', 1 => 'cat_c_p_1'],

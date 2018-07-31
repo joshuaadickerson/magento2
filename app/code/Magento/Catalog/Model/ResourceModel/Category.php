@@ -1090,7 +1090,7 @@ class Category extends AbstractResource
     /**
      * @return EntityManager
      */
-    private function getEntityManager()
+    private function getEntityManager(): EntityManager
     {
         if (null === $this->entityManager) {
             $this->entityManager = \Magento\Framework\App\ObjectManager::getInstance()
@@ -1102,7 +1102,7 @@ class Category extends AbstractResource
     /**
      * @return Category\AggregateCount
      */
-    private function getAggregateCount()
+    private function getAggregateCount(): Category\AggregateCount
     {
         if (null === $this->aggregateCount) {
             $this->aggregateCount = \Magento\Framework\App\ObjectManager::getInstance()

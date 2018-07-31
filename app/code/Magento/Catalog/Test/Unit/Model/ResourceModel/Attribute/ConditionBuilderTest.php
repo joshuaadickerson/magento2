@@ -548,7 +548,7 @@ class ConditionBuilderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getValidAttributeMock()
+    private function getValidAttributeMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $attribute = $this->getMockBuilder(CatalogEavAttribute::class)
             ->disableOriginalConstructor()
@@ -574,7 +574,7 @@ class ConditionBuilderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getValidStoreMock()
+    private function getValidStoreMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $website = $this->getMockBuilder(Website::class)
             ->disableOriginalConstructor()
@@ -610,7 +610,7 @@ class ConditionBuilderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getValidScopeMock()
+    private function getValidScopeMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $scope = $this->getMockBuilder(ScopeInterface::class)
             ->disableOriginalConstructor()

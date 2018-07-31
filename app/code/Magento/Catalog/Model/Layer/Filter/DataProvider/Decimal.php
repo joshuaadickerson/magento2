@@ -133,9 +133,9 @@ class Decimal
 
     /**
      * @param FilterInterface $filter
-     * @return mixed
+     * @return Decimal
      */
-    private function loadValues(FilterInterface $filter)
+    private function loadValues(FilterInterface $filter): Decimal
     {
         list($min, $max) = $this->getResource()
             ->getMinMax($filter);

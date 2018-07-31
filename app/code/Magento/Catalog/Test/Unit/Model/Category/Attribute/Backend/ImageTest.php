@@ -222,7 +222,7 @@ class ImageTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Catalog\Model\Category\Attribute\Backend\Image
      */
-    private function setUpModelForAfterSave()
+    private function setUpModelForAfterSave(): \Magento\Catalog\Model\Category\Attribute\Backend\Image
     {
         $objectManagerMock = $this->createPartialMock(\Magento\Framework\App\ObjectManager::class, ['get']);
 

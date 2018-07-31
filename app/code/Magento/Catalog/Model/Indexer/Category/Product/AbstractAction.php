@@ -353,7 +353,7 @@ abstract class AbstractAction
      * @return void
      * @throws \Exception when metadata not found for ProductInterface
      */
-    private function addFilteringByChildProductsToSelect(Select $select, Store $store)
+    private function addFilteringByChildProductsToSelect(Select $select, Store $store): void
     {
         $metadata = $this->metadataPool->getMetadata(ProductInterface::class);
         $linkField = $metadata->getLinkField();

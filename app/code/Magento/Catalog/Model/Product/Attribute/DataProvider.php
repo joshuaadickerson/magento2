@@ -87,7 +87,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @param array $meta
      * @return array
      */
-    private function customizeAttributeCode($meta)
+    private function customizeAttributeCode(array $meta): array
     {
         $meta['advanced_fieldset']['children'] = $this->arrayManager->set(
             'attribute_code/arguments/data/config',
@@ -111,7 +111,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @param array $meta
      * @return array
      */
-    private function customizeFrontendLabels($meta)
+    private function customizeFrontendLabels(array $meta): array
     {
         foreach ($this->storeRepository->getList() as $store) {
             $storeId = $store->getId();
@@ -143,7 +143,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @param array $meta
      * @return array
      */
-    private function customizeOptions($meta)
+    private function customizeOptions(array $meta): array
     {
         $sortOrder = 1;
         foreach ($this->storeRepository->getList() as $store) {

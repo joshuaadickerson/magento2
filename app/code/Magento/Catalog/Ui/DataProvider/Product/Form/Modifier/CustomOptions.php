@@ -937,7 +937,7 @@ class CustomOptions extends AbstractModifier
      * @param int $sortOrder
      * @return array
      */
-    private function getPriceFieldConfigForSelectType(int $sortOrder)
+    private function getPriceFieldConfigForSelectType(int $sortOrder): array
     {
         $priceFieldConfig = $this->getPriceFieldConfig($sortOrder);
         $priceFieldConfig['arguments']['data']['config']['template'] = 'Magento_Catalog/form/field';
@@ -1177,7 +1177,7 @@ class CustomOptions extends AbstractModifier
      *
      * @deprecated 101.0.0
      */
-    private function getLocaleCurrency()
+    private function getLocaleCurrency(): \Magento\Framework\Locale\CurrencyInterface
     {
         if ($this->localeCurrency === null) {
             $this->localeCurrency = \Magento\Framework\App\ObjectManager::getInstance()->get(CurrencyInterface::class);

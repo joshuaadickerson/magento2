@@ -74,7 +74,7 @@ class EditTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    private function prepareContext()
+    private function prepareContext(): void
     {
         $this->request = $this->getMockBuilder(\Magento\Framework\App\Request\Http::class)
             ->setMethods(['getParam', 'getParams', 'setParams'])

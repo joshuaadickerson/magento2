@@ -60,7 +60,7 @@ class Price implements ProductPriceOptionsInterface
      *
      * @return string
      */
-    private function getCurrencySymbol()
+    private function getCurrencySymbol(): string
     {
         return $this->storeManager->getStore()->getBaseCurrency()->getCurrencySymbol();
     }

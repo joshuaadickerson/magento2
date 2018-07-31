@@ -112,7 +112,7 @@ class ConditionBuilder
      * @param array $scopes
      * @return null|Website
      */
-    private function getWebsiteForWebsiteScope(array $scopes)
+    private function getWebsiteForWebsiteScope(array $scopes): ?Website
     {
         $store = $this->getStoreFromScopes($scopes);
         return $store ? $store->getWebsite() : null;
@@ -122,7 +122,7 @@ class ConditionBuilder
      * @param ScopeInterface[] $scopes
      * @return StoreInterface|null
      */
-    private function getStoreFromScopes(array $scopes)
+    private function getStoreFromScopes(array $scopes): ?StoreInterface
     {
         foreach ($scopes as $scope) {
             if (Store::STORE_ID === $scope->getIdentifier()) {

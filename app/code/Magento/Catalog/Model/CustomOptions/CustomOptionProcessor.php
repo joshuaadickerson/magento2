@@ -155,7 +155,7 @@ class CustomOptionProcessor implements CartItemProcessorInterface
      * @param array $optionValue
      * @return array
      */
-    private function processFileOptionValue(array $optionValue)
+    private function processFileOptionValue(array $optionValue): array
     {
         if (array_key_exists('url', $optionValue) &&
             array_key_exists('route', $optionValue['url']) &&
@@ -175,7 +175,7 @@ class CustomOptionProcessor implements CartItemProcessorInterface
      * @param array $optionValue
      * @return array
      */
-    private function processDateOptionValue(array $optionValue)
+    private function processDateOptionValue(array $optionValue): array
     {
         if (array_key_exists('date_internal', $optionValue)
         ) {
@@ -192,7 +192,7 @@ class CustomOptionProcessor implements CartItemProcessorInterface
      *
      * @deprecated 101.0.0
      */
-    private function getUrlBuilder()
+    private function getUrlBuilder(): \Magento\Catalog\Model\Product\Option\UrlBuilder
     {
         if ($this->urlBuilder === null) {
             $this->urlBuilder = \Magento\Framework\App\ObjectManager::getInstance()

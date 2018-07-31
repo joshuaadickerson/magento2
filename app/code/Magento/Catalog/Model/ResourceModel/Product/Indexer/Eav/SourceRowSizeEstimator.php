@@ -87,9 +87,9 @@ class SourceRowSizeEstimator implements IndexTableRowSizeEstimatorInterface
      */
     private function getMaxRowsPerStore(
         AdapterInterface $connection,
-        $valueTable,
-        $entityIdField
-    ) {
+        string $valueTable,
+        string $entityIdField
+    ): string {
         $valueSelect = $connection->select();
         $valueSelect->from(
             ['value_table' => $valueTable],

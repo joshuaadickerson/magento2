@@ -45,7 +45,7 @@ class ConditionTest extends \PHPUnit\Framework\TestCase
     /**
      * @return AbstractCollection
      */
-    private function getMockedAbstractCollection()
+    private function getMockedAbstractCollection(): AbstractCollection
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Eav\Model\Entity\Collection\AbstractCollection::class)
             ->setMethods(['joinTable'])
@@ -61,7 +61,7 @@ class ConditionTest extends \PHPUnit\Framework\TestCase
     /**
      * @return AdapterInterface
      */
-    private function getMockedAdapterInterface()
+    private function getMockedAdapterInterface(): AdapterInterface
     {
         $mockedDbSelect = $this->getMockedDbSelect();
 
@@ -80,7 +80,7 @@ class ConditionTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Select
      */
-    private function getMockedDbSelect()
+    private function getMockedDbSelect(): Select
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Framework\DB\Select::class)
             ->setMethods(['from'])

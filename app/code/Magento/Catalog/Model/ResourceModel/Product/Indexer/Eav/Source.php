@@ -334,7 +334,7 @@ class Source extends AbstractEav
      * @param array $options
      * @return void
      */
-    private function saveDataFromSelect(\Magento\Framework\DB\Select $select, array $options)
+    private function saveDataFromSelect(\Magento\Framework\DB\Select $select, array $options): void
     {
         $i = 0;
         $data = [];

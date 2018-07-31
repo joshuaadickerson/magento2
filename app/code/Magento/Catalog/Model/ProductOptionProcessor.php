@@ -111,7 +111,7 @@ class ProductOptionProcessor implements ProductOptionProcessorInterface
      * @param array $optionValue
      * @return array
      */
-    private function processFileOptionValue(array $optionValue)
+    private function processFileOptionValue(array $optionValue): array
     {
         if (array_key_exists('url', $optionValue) &&
             array_key_exists('route', $optionValue['url']) &&
@@ -130,7 +130,7 @@ class ProductOptionProcessor implements ProductOptionProcessorInterface
      *
      * @deprecated 101.0.0
      */
-    private function getUrlBuilder()
+    private function getUrlBuilder(): \Magento\Catalog\Model\Product\Option\UrlBuilder
     {
         if ($this->urlBuilder === null) {
             $this->urlBuilder = \Magento\Framework\App\ObjectManager::getInstance()

@@ -100,7 +100,7 @@ abstract class AbstractModifier implements ModifierInterface
      * @param int $iteration
      * @return mixed
      */
-    private function _getNextAttributeSortOrder(array $meta, $attributeCodes, $defaultSortOrder, $iteration = 1)
+    private function _getNextAttributeSortOrder(array $meta, array $attributeCodes, int $defaultSortOrder, int $iteration = 1)
     {
         if (isset($meta['children'])) {
             foreach ($meta['children'] as $attributeCode => $attributeMeta) {

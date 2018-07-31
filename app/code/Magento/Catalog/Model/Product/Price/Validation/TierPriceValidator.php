@@ -177,10 +177,10 @@ class TierPriceValidator
      */
     private function checkSku(
         \Magento\Catalog\Api\Data\TierPriceInterface $price,
-        $key,
+        int $key,
         array $invalidSkus,
         Result $validationResult
-    ) {
+    ): void {
         if (!$price->getSku() || in_array($price->getSku(), $invalidSkus)) {
             $validationResult->addFailedItem(
                 $key,
@@ -212,7 +212,7 @@ class TierPriceValidator
      * @param Result $validationResult
      * @return void
      */
-    private function checkPrice(\Magento\Catalog\Api\Data\TierPriceInterface $price, $key, Result $validationResult)
+    private function checkPrice(\Magento\Catalog\Api\Data\TierPriceInterface $price, int $key, Result $validationResult): void
     {
         if (null === $price->getPrice()
             || $price->getPrice() < 0
@@ -256,9 +256,9 @@ class TierPriceValidator
     private function checkPriceType(
         \Magento\Catalog\Api\Data\TierPriceInterface $price,
         array $ids,
-        $key,
+        int $key,
         Result $validationResult
-    ) {
+    ): void {
         if (!in_array(
             $price->getPriceType(),
             [
@@ -301,7 +301,7 @@ class TierPriceValidator
      * @param Result $validationResult
      * @return void
      */
-    private function checkQuantity(\Magento\Catalog\Api\Data\TierPriceInterface $price, $key, Result $validationResult)
+    private function checkQuantity(\Magento\Catalog\Api\Data\TierPriceInterface $price, int $key, Result $validationResult): void
     {
         if ($price->getQuantity() < 1) {
             $validationResult->addFailedItem(
@@ -334,7 +334,7 @@ class TierPriceValidator
      * @param Result $validationResult
      * @return void
      */
-    private function checkWebsite(\Magento\Catalog\Api\Data\TierPriceInterface $price, $key, Result $validationResult)
+    private function checkWebsite(\Magento\Catalog\Api\Data\TierPriceInterface $price, int $key, Result $validationResult): void
     {
         try {
             $this->websiteRepository->getById($price->getWebsiteId());
@@ -373,9 +373,9 @@ class TierPriceValidator
     private function checkUnique(
         \Magento\Catalog\Api\Data\TierPriceInterface $tierPrice,
         array $prices,
-        $key,
+        int $key,
         Result $validationResult
-    ) {
+    ): void {
         if (isset($prices[$tierPrice->getSku()])) {
             foreach ($prices[$tierPrice->getSku()] as $price) {
                 if (strtolower($price->getCustomerGroup()) === strtolower($tierPrice->getCustomerGroup())
@@ -420,7 +420,7 @@ class TierPriceValidator
      * @param Result $validationResult
      * @return void
      */
-    private function checkGroup(\Magento\Catalog\Api\Data\TierPriceInterface $price, $key, Result $validationResult)
+    private function checkGroup(\Magento\Catalog\Api\Data\TierPriceInterface $price, int $key, Result $validationResult): void
     {
         $customerGroup = strtolower($price->getCustomerGroup());
 
@@ -453,7 +453,7 @@ class TierPriceValidator
      * @param string $code
      * @return int|bool
      */
-    private function retrieveGroupValue($code)
+    private function retrieveGroupValue(string $code)
     {
         if (!isset($this->customerGroupsByCode[$code])) {
             $searchCriteria = $this->searchCriteriaBuilder->addFilters(

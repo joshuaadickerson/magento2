@@ -87,10 +87,10 @@ class CategoryLinkManagementTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @param $object
+     * @param object $object
      * @param array $properties
      */
-    private function setProperties($object, $properties = [])
+    private function setProperties(object $object, array $properties = []): void
     {
         $reflectionClass = new \ReflectionClass(get_class($object));
         foreach ($properties as $key => $value) {

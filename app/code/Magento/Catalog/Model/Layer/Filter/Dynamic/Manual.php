@@ -71,7 +71,7 @@ class Manual implements AlgorithmInterface
      * @param array $items
      * @return array
      */
-    private function processRange($items)
+    private function processRange(array $items): array
     {
         $i = 0;
         $lastIndex = null;

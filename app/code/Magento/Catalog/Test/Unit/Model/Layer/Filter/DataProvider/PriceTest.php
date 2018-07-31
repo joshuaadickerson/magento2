@@ -200,7 +200,7 @@ class PriceTest extends \PHPUnit\Framework\TestCase
     /**
      * @return array
      */
-    private function getValueMap()
+    private function getValueMap(): array
     {
         return [
             Price::XML_PATH_RANGE_CALCULATION => [

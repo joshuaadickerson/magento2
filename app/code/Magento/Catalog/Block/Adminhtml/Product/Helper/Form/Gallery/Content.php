@@ -158,13 +158,12 @@ class Content extends \Magento\Backend\Block\Widget
      * @param array $images
      * @return array
      */
-    private function sortImagesByPosition($images)
+    private function sortImagesByPosition(array $images): array
     {
-        if (is_array($images)) {
-            usort($images, function ($imageA, $imageB) {
-                return ($imageA['position'] < $imageB['position']) ? -1 : 1;
-            });
-        }
+        usort($images, function ($imageA, $imageB) {
+            return ($imageA['position'] < $imageB['position']) ? -1 : 1;
+        });
+
         return $images;
     }
 
@@ -244,7 +243,7 @@ class Content extends \Magento\Backend\Block\Widget
      * @return \Magento\Catalog\Helper\Image
      * @deprecated 101.0.3
      */
-    private function getImageHelper()
+    private function getImageHelper(): \Magento\Catalog\Helper\Image
     {
         if ($this->imageHelper === null) {
             $this->imageHelper = \Magento\Framework\App\ObjectManager::getInstance()

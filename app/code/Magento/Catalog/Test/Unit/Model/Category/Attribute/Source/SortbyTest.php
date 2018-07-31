@@ -34,7 +34,7 @@ class SortbyTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Catalog\Model\Config
      */
-    private function getMockedConfig()
+    private function getMockedConfig(): \Magento\Catalog\Model\Config
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Catalog\Model\Config::class);
         $mockBuilder->disableOriginalConstructor();

@@ -213,7 +213,7 @@ class Gallery extends AbstractView
      *
      * @return \Magento\Framework\Config\View
      */
-    private function getConfigView()
+    private function getConfigView(): \Magento\Framework\Config\View
     {
         if (!$this->configView) {
             $this->configView = $this->_viewConfig->getViewConfig();
@@ -224,7 +224,7 @@ class Gallery extends AbstractView
     /**
      * @return Collection
      */
-    private function getGalleryImagesConfig()
+    private function getGalleryImagesConfig(): Collection
     {
         if (false === $this->hasData('gallery_images_config')) {
             $galleryImageConfig = $this->galleryImagesConfigFactory->create($this->galleryImagesConfig);

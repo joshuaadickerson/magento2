@@ -151,7 +151,7 @@ class CostStorage implements \Magento\Catalog\Api\CostStorageInterface
      *
      * @return PricePersistence
      */
-    private function getPricePersistence()
+    private function getPricePersistence(): PricePersistence
     {
         if (!$this->pricePersistence) {
             $this->pricePersistence = $this->pricePersistenceFactory->create(['attributeCode' => $this->attributeCode]);
@@ -166,7 +166,7 @@ class CostStorage implements \Magento\Catalog\Api\CostStorageInterface
      * @param array $prices
      * @return array
      */
-    private function retrieveValidPrices(array $prices)
+    private function retrieveValidPrices(array $prices): array
     {
         $skus = array_unique(
             array_map(function ($price) {

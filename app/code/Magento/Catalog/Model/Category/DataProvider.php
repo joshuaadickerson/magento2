@@ -214,7 +214,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @param array $meta
      * @return array
      */
-    private function addUseDefaultValueCheckbox(Category $category, array $meta)
+    private function addUseDefaultValueCheckbox(Category $category, array $meta): array
     {
         /** @var EavAttributeInterface $attribute */
         foreach ($category->getAttributes() as $attribute) {
@@ -275,7 +275,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @param array $fieldsMeta
      * @return array
      */
-    private function prepareFieldsMeta($fieldsMap, $fieldsMeta)
+    private function prepareFieldsMeta(array $fieldsMap, array $fieldsMeta): array
     {
         $result = [];
         foreach ($fieldsMap as $fieldSet => $fields) {
@@ -481,7 +481,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @param array $categoryData
      * @return array
      */
-    private function convertValues($category, $categoryData)
+    private function convertValues(\Magento\Catalog\Model\Category $category, array $categoryData): array
     {
         foreach ($category->getAttributes() as $attributeCode => $attribute) {
             if (!isset($categoryData[$attributeCode])) {
@@ -595,7 +595,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @return ScopeOverriddenValue
      * @deprecated 101.1.0
      */
-    private function getScopeOverriddenValue()
+    private function getScopeOverriddenValue(): ScopeOverriddenValue
     {
         if (null === $this->scopeOverriddenValue) {
             $this->scopeOverriddenValue = \Magento\Framework\App\ObjectManager::getInstance()->get(
@@ -612,7 +612,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @return ArrayManager
      * @deprecated 101.1.0
      */
-    private function getArrayManager()
+    private function getArrayManager(): ArrayManager
     {
         if (null === $this->arrayManager) {
             $this->arrayManager = \Magento\Framework\App\ObjectManager::getInstance()->get(
@@ -630,7 +630,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      *
      * @deprecated 101.1.0
      */
-    private function getFileInfo()
+    private function getFileInfo(): FileInfo
     {
         if ($this->fileInfo === null) {
             $this->fileInfo = ObjectManager::getInstance()->get(FileInfo::class);

@@ -2327,7 +2327,7 @@ class Product extends \Magento\Catalog\Model\AbstractModel implements
      *
      * @return bool
      */
-    private function isStockStatusChanged()
+    private function isStockStatusChanged(): bool
     {
         $stockItem = null;
         $extendedAttributes = $this->getExtensionAttributes();
@@ -2627,7 +2627,7 @@ class Product extends \Magento\Catalog\Model\AbstractModel implements
     /**
      * @return ProductLinkRepositoryInterface
      */
-    private function getLinkRepository()
+    private function getLinkRepository(): ProductLinkRepositoryInterface
     {
         if (null === $this->linkRepository) {
             $this->linkRepository = \Magento\Framework\App\ObjectManager::getInstance()
@@ -2639,7 +2639,7 @@ class Product extends \Magento\Catalog\Model\AbstractModel implements
     /**
      * @return Product\Gallery\Processor
      */
-    private function getMediaGalleryProcessor()
+    private function getMediaGalleryProcessor(): Product\Gallery\Processor
     {
         if (null === $this->mediaGalleryProcessor) {
             $this->mediaGalleryProcessor = \Magento\Framework\App\ObjectManager::getInstance()

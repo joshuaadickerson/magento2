@@ -81,7 +81,7 @@ class DeleteOutdatedPriceValues
      *
      * @return bool
      */
-    private function isPriceScopeSetToGlobal()
+    private function isPriceScopeSetToGlobal(): bool
     {
         $priceScope = $this->scopeConfig->getValue(Store::XML_PATH_PRICE_SCOPE);
         if ($priceScope === null) {

@@ -116,7 +116,7 @@ class AttributePersistor extends \Magento\Eav\Model\ResourceModel\AttributePersi
      * @param AbstractAttribute $attribute
      * @return bool
      */
-    private function isWebsiteAttribute(AbstractAttribute $attribute)
+    private function isWebsiteAttribute(AbstractAttribute $attribute): bool
     {
         return $attribute instanceof CatalogEavAttribute && $attribute->isScopeWebsite();
     }

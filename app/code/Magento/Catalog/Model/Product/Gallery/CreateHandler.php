@@ -356,7 +356,7 @@ class CreateHandler implements ExtensionInterface
      * @param string $file
      * @return string
      */
-    private function getSafeFilename($file)
+    private function getSafeFilename(string $file): string
     {
         $file = DIRECTORY_SEPARATOR . ltrim($file, DIRECTORY_SEPARATOR);
 
@@ -442,7 +442,7 @@ class CreateHandler implements ExtensionInterface
      *
      * @return array
      */
-    private function getMediaAttributeCodes()
+    private function getMediaAttributeCodes(): array
     {
         if ($this->mediaAttributeCodes === null) {
             $this->mediaAttributeCodes = $this->mediaConfig->getMediaAttributeCodes();

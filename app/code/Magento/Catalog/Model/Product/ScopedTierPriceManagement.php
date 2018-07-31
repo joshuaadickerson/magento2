@@ -78,9 +78,9 @@ class ScopedTierPriceManagement implements ScopedProductTierPriceManagementInter
     /**
      * @param array $tierPrices
      * @param ProductTierPriceInterface $tierPrice
-     * @return ProductTierPriceInterface[]|null
+     * @return ProductTierPriceInterface[]
      */
-    private function prepareTierPrices(array $tierPrices, ProductTierPriceInterface $tierPrice)
+    private function prepareTierPrices(array $tierPrices, ProductTierPriceInterface $tierPrice): array
     {
         $this->validate($tierPrice);
         $websiteId = $this->getWebsiteId();
@@ -106,7 +106,7 @@ class ScopedTierPriceManagement implements ScopedProductTierPriceManagementInter
     /**
      * @return int
      */
-    private function getWebsiteId()
+    private function getWebsiteId(): int
     {
         $websiteIdentifier = 0;
         $value = $this->config->getValue('catalog/price/scope', ScopeInterface::SCOPE_WEBSITE);
@@ -122,7 +122,7 @@ class ScopedTierPriceManagement implements ScopedProductTierPriceManagementInter
      * @throws \Magento\Framework\Exception\InputException
      * @return void
      */
-    private function validate(ProductTierPriceInterface $tierPrice)
+    private function validate(ProductTierPriceInterface $tierPrice): void
     {
         $data = ['qty' => $tierPrice->getQty(), 'price' => $tierPrice->getValue()];
         foreach ($data as $value) {

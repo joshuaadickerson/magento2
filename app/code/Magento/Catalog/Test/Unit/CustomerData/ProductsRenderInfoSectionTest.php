@@ -80,7 +80,7 @@ class ProductsRenderInfoSectionTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    private function prepareProductIds()
+    private function prepareProductIds(): void
     {
         $actionFirst = $this->createMock(ProductFrontendActionInterface::class);
         $actionSecond = $this->createMock(ProductFrontendActionInterface::class);

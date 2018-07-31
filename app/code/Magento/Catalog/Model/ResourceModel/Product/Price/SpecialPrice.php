@@ -248,7 +248,7 @@ class SpecialPrice implements \Magento\Catalog\Api\SpecialPriceInterface
      * @param string $table
      * @return void
      */
-    private function updateItems(array $items, $table)
+    private function updateItems(array $items, string $table): void
     {
         foreach (array_chunk($items, $this->itemsPerOperation) as $itemsBunch) {
             $this->attributeResource->getConnection()->insertOnDuplicate(
@@ -264,7 +264,7 @@ class SpecialPrice implements \Magento\Catalog\Api\SpecialPriceInterface
      *
      * @return int
      */
-    private function getPriceAttributeId()
+    private function getPriceAttributeId(): int
     {
         if (!$this->priceAttributeId) {
             $this->priceAttributeId = $this->attributeRepository->get('special_price')->getAttributeId();
@@ -278,7 +278,7 @@ class SpecialPrice implements \Magento\Catalog\Api\SpecialPriceInterface
      *
      * @return int
      */
-    private function getPriceFromAttributeId()
+    private function getPriceFromAttributeId(): int
     {
         if (!$this->priceFromAttributeId) {
             $this->priceFromAttributeId = $this->attributeRepository->get('special_from_date')->getAttributeId();
@@ -292,7 +292,7 @@ class SpecialPrice implements \Magento\Catalog\Api\SpecialPriceInterface
      *
      * @return int
      */
-    private function getPriceToAttributeId()
+    private function getPriceToAttributeId(): int
     {
         if (!$this->priceToAttributeId) {
             $this->priceToAttributeId = $this->attributeRepository->get('special_to_date')->getAttributeId();
@@ -307,7 +307,7 @@ class SpecialPrice implements \Magento\Catalog\Api\SpecialPriceInterface
      * @param array $skus
      * @return array
      */
-    private function retrieveAffectedIds(array $skus)
+    private function retrieveAffectedIds(array $skus): array
     {
         $affectedIds = [];
 

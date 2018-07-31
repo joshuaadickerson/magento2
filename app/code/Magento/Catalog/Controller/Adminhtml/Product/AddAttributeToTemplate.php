@@ -178,7 +178,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
      * @return SearchCriteriaBuilder
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    private function getBasicAttributeSearchCriteriaBuilder()
+    private function getBasicAttributeSearchCriteriaBuilder(): SearchCriteriaBuilder
     {
         $attributeIds = (array)$this->getRequest()->getParam('attributeIds', []);
 
@@ -194,7 +194,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return AttributeRepositoryInterface
      */
-    private function getAttributeRepository()
+    private function getAttributeRepository(): AttributeRepositoryInterface
     {
         if (null === $this->attributeRepository) {
             $this->attributeRepository = \Magento\Framework\App\ObjectManager::getInstance()
@@ -206,7 +206,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return AttributeSetRepositoryInterface
      */
-    private function getAttributeSetRepository()
+    private function getAttributeSetRepository(): AttributeSetRepositoryInterface
     {
         if (null === $this->attributeSetRepository) {
             $this->attributeSetRepository = \Magento\Framework\App\ObjectManager::getInstance()
@@ -218,7 +218,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return AttributeGroupRepositoryInterface
      */
-    private function getAttributeGroupRepository()
+    private function getAttributeGroupRepository(): AttributeGroupRepositoryInterface
     {
         if (null === $this->attributeGroupRepository) {
             $this->attributeGroupRepository = \Magento\Framework\App\ObjectManager::getInstance()
@@ -230,7 +230,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return SearchCriteriaBuilder
      */
-    private function getSearchCriteriaBuilder()
+    private function getSearchCriteriaBuilder(): SearchCriteriaBuilder
     {
         if (null === $this->searchCriteriaBuilder) {
             $this->searchCriteriaBuilder = \Magento\Framework\App\ObjectManager::getInstance()
@@ -242,7 +242,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return AttributeManagementInterface
      */
-    private function getAttributeManagement()
+    private function getAttributeManagement(): AttributeManagementInterface
     {
         if (null === $this->attributeManagement) {
             $this->attributeManagement = \Magento\Framework\App\ObjectManager::getInstance()
@@ -254,7 +254,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return LoggerInterface
      */
-    private function getLogger()
+    private function getLogger(): LoggerInterface
     {
         if (null === $this->logger) {
             $this->logger = \Magento\Framework\App\ObjectManager::getInstance()
@@ -266,7 +266,7 @@ class AddAttributeToTemplate extends \Magento\Catalog\Controller\Adminhtml\Produ
     /**
      * @return ExtensionAttributesFactory
      */
-    private function getExtensionAttributesFactory()
+    private function getExtensionAttributesFactory(): ExtensionAttributesFactory
     {
         if (null === $this->extensionAttributesFactory) {
             $this->extensionAttributesFactory = \Magento\Framework\App\ObjectManager::getInstance()

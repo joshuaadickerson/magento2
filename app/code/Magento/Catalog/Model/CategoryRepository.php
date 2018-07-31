@@ -212,7 +212,7 @@ class CategoryRepository implements \Magento\Catalog\Api\CategoryRepositoryInter
      *
      * @deprecated 101.0.0
      */
-    private function getExtensibleDataObjectConverter()
+    private function getExtensibleDataObjectConverter(): \Magento\Framework\Api\ExtensibleDataObjectConverter
     {
         if ($this->extensibleDataObjectConverter === null) {
             $this->extensibleDataObjectConverter = \Magento\Framework\App\ObjectManager::getInstance()
@@ -224,7 +224,7 @@ class CategoryRepository implements \Magento\Catalog\Api\CategoryRepositoryInter
     /**
      * @return \Magento\Framework\EntityManager\MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()

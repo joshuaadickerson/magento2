@@ -283,7 +283,7 @@ class EditTest extends \PHPUnit\Framework\TestCase
     /**
      * Mock for method "_initCategory"
      */
-    private function mockInitCategoryCall()
+    private function mockInitCategoryCall(): void
     {
         /**
          * @var \Magento\Framework\Registry

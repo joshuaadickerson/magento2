@@ -67,7 +67,7 @@ class CategoryManagement implements \Magento\Catalog\Api\CategoryManagementInter
      *
      * @return bool
      */
-    private function isAdminStore()
+    private function isAdminStore(): bool
     {
         return $this->getScopeResolver()->getScope()->getCode() == \Magento\Store\Model\Store::ADMIN_CODE;
     }
@@ -77,7 +77,7 @@ class CategoryManagement implements \Magento\Catalog\Api\CategoryManagementInter
      *
      * @return \Magento\Framework\App\ScopeResolverInterface
      */
-    private function getScopeResolver()
+    private function getScopeResolver(): \Magento\Framework\App\ScopeResolverInterface
     {
         if ($this->scopeResolver == null) {
             $this->scopeResolver = \Magento\Framework\App\ObjectManager::getInstance()
@@ -92,7 +92,7 @@ class CategoryManagement implements \Magento\Catalog\Api\CategoryManagementInter
      *
      * @return \Magento\Catalog\Model\Category
      */
-    private function getTopLevelCategory()
+    private function getTopLevelCategory(): \Magento\Catalog\Model\Category
     {
         $categoriesCollection = $this->categoriesFactory->create();
         return $categoriesCollection->addFilter('level', ['eq' => 0])->getFirstItem();

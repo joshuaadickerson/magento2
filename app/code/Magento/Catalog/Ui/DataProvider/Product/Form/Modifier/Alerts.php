@@ -106,7 +106,7 @@ class Alerts extends AbstractModifier
     /**
      * @return bool
      */
-    private function canShowTab()
+    private function canShowTab(): bool
     {
         $alertPriceAllow = $this->scopeConfig->getValue(
             'catalog/productalert/allow_price',
@@ -124,7 +124,7 @@ class Alerts extends AbstractModifier
      * Prepares config for the alert stock products fieldset
      * @return array
      */
-    private function getAlertStockFieldset()
+    private function getAlertStockFieldset(): array
     {
         return [
             'arguments' => [
@@ -149,7 +149,7 @@ class Alerts extends AbstractModifier
      * Prepares config for the alert price products fieldset
      * @return array
      */
-    private function getAlertPriceFieldset()
+    private function getAlertPriceFieldset(): array
     {
         return [
             'arguments' => [

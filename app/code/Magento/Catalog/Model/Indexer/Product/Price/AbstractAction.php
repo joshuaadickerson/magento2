@@ -425,7 +425,7 @@ abstract class AbstractAction
      * @param array $changedIds
      * @return array
      */
-    private function getProductsTypes(array $changedIds = [])
+    private function getProductsTypes(array $changedIds = []): array
     {
         $select = $this->_connection->select()->from(
             $this->_defaultIndexerResource->getTable('catalog_product_entity'),
@@ -450,7 +450,7 @@ abstract class AbstractAction
      * @param array $productsIds
      * @return array
      */
-    private function getParentProductsTypes(array $productsIds)
+    private function getParentProductsTypes(array $productsIds): array
     {
         $select = $this->_connection->select()->from(
             ['l' => $this->_defaultIndexerResource->getTable('catalog_product_relation')],

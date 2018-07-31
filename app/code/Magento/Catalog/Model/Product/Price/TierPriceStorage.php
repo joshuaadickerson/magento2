@@ -166,7 +166,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param bool $groupBySku [optional]
      * @return array
      */
-    private function getExistingPrices(array $skus, $groupBySku = false)
+    private function getExistingPrices(array $skus, bool $groupBySku = false): array
     {
         $ids = $this->retrieveAffectedIds($skus);
         $rawPrices = $this->tierPricePersistence->get($ids);
@@ -193,7 +193,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $prices
      * @return array
      */
-    private function retrieveFormattedPrices(array $prices)
+    private function retrieveFormattedPrices(array $prices): array
     {
         $formattedPrices = [];
 
@@ -214,7 +214,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param TierPriceInterface[] $prices
      * @return array
      */
-    private function retrieveAffectedProductIdsForPrices(array $prices)
+    private function retrieveAffectedProductIdsForPrices(array $prices): array
     {
         $skus = array_unique(
             array_map(function ($price) {
@@ -231,7 +231,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $skus
      * @return array
      */
-    private function retrieveAffectedIds(array $skus)
+    private function retrieveAffectedIds(array $skus): array
     {
         $affectedIds = [];
 
@@ -248,7 +248,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $prices
      * @return array
      */
-    private function retrieveAffectedPriceIds(array $prices)
+    private function retrieveAffectedPriceIds(array $prices): array
     {
         $affectedIds = $this->retrieveAffectedProductIdsForPrices($prices);
         $formattedPrices = $this->retrieveFormattedPrices($prices);
@@ -269,7 +269,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $existingPrices
      * @return int|null
      */
-    private function retrievePriceId(array $price, array $existingPrices)
+    private function retrievePriceId(array $price, array $existingPrices): ?int
     {
         $linkField = $this->tierPricePersistence->getEntityLinkField();
 
@@ -294,7 +294,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $price
      * @return bool
      */
-    private function isCorrectPriceValue(array $existingPrice, array $price)
+    private function isCorrectPriceValue(array $existingPrice, array $price): bool
     {
         return ($existingPrice['value'] != 0 && $existingPrice['value'] == $price['value'])
             || ($existingPrice['percentage_value'] !== null
@@ -304,10 +304,10 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
     /**
      * Generate lookup to retrieve SKU by product ID.
      *
-     * @param array $skus
+     * @param string[] $skus
      * @return array
      */
-    private function buildSkuByIdLookup($skus)
+    private function buildSkuByIdLookup(array $skus): array
     {
         $lookup = [];
         foreach ($this->productIdLocator->retrieveProductIdsBySkus($skus) as $sku => $ids) {
@@ -324,7 +324,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      *
      * @return void
      */
-    private function invalidateFullPageCache()
+    private function invalidateFullPageCache(): void
     {
         if ($this->config->isEnabled()) {
             $this->typeList->invalidate('full_page');
@@ -337,7 +337,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $ids
      * @return void
      */
-    private function reindexPrices(array $ids)
+    private function reindexPrices(array $ids): void
     {
         foreach (array_chunk($ids, $this->indexerChunkValue) as $affectedIds) {
             $this->priceIndexer->execute($affectedIds);
@@ -351,7 +351,7 @@ class TierPriceStorage implements \Magento\Catalog\Api\TierPriceStorageInterface
      * @param array $ids
      * @return array
      */
-    private function removeIncorrectPrices(array $prices, array $ids)
+    private function removeIncorrectPrices(array $prices, array $ids): array
     {
         foreach ($ids as $id) {
             unset($prices[$id]);

@@ -53,7 +53,7 @@ class InvalidSkuProcessorTest extends \PHPUnit\Framework\TestCase
      * @param string $productSku
      * @return void
      */
-    private function prepareRetrieveInvalidSkuListMethod($productType, $productSku)
+    private function prepareRetrieveInvalidSkuListMethod(string $productType, string $productSku): void
     {
         $idsBySku = [$productSku => [235235235 => $productType]];
         $this->productIdLocator->expects($this->atLeastOnce())->method('retrieveProductIdsBySkus')

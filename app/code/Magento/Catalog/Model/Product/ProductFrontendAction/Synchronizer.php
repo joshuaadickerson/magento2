@@ -92,7 +92,7 @@ class Synchronizer
      * @param string $namespace
      * @return int
      */
-    private function getLifeTimeByNamespace($namespace)
+    private function getLifeTimeByNamespace(string $namespace): int
     {
         $configurationObject = $this->frontendStorageConfigurationPool->get($namespace);
         if ($configurationObject) {
@@ -115,7 +115,7 @@ class Synchronizer
      * @param string $typeId namespace (type of action)
      * @return array
      */
-    private function filterNewestActions(array $productsData, $typeId)
+    private function filterNewestActions(array $productsData, string $typeId): array
     {
         $lifetime = $this->getLifeTimeByNamespace($typeId);
         $actionsNumber = $lifetime * self::TIME_TO_DO_ONE_ACTION;
@@ -133,7 +133,7 @@ class Synchronizer
      * @param array $actions
      * @return array
      */
-    private function getProductIdsByActions(array $actions)
+    private function getProductIdsByActions(array $actions): array
     {
         $productIds = [];
 

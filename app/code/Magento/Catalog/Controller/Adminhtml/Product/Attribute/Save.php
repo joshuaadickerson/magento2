@@ -324,7 +324,7 @@ class Save extends Attribute
      * @param array $data
      * @return void
      */
-    private function preprocessOptionsData(&$data)
+    private function preprocessOptionsData(array &$data): void
     {
         if (isset($data['serialized_options'])) {
             $serializedOptions = json_decode($data['serialized_options'], JSON_OBJECT_AS_ARRAY);
@@ -343,7 +343,7 @@ class Save extends Attribute
      * @param array $response
      * @return Json|Redirect
      */
-    private function returnResult($path = '', array $params = [], array $response = [])
+    private function returnResult(string $path = '', array $params = [], array $response = [])
     {
         if ($this->isAjax()) {
             $layout = $this->layoutFactory->create();
@@ -361,7 +361,7 @@ class Save extends Attribute
      *
      * @return boolean
      */
-    private function isAjax()
+    private function isAjax(): bool
     {
         return $this->getRequest()->getParam('isAjax');
     }

@@ -117,13 +117,13 @@ class AttributeTest extends \PHPUnit\Framework\TestCase
     /**
      * Sets object non-public property.
      *
-     * @param mixed $object
+     * @param object $object
      * @param string $propertyName
      * @param mixed $value
      *
      * @return void
      */
-    private function setObjectProperty($object, string $propertyName, $value) : void
+    private function setObjectProperty(object $object, string $propertyName, $value) : void
     {
         $reflectionClass = new \ReflectionClass($object);
         $reflectionProperty = $reflectionClass->getProperty($propertyName);

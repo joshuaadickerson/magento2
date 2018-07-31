@@ -189,7 +189,7 @@ class PricePersistence
      *
      * @return int
      */
-    private function getAttributeId()
+    private function getAttributeId(): int
     {
         if (!$this->attributeId) {
             $this->attributeId = $this->attributeRepository->get($this->attributeCode)->getAttributeId();
@@ -204,7 +204,7 @@ class PricePersistence
      * @param array $skus
      * @return array
      */
-    private function retrieveAffectedIds(array $skus)
+    private function retrieveAffectedIds(array $skus): array
     {
         $affectedIds = [];
 

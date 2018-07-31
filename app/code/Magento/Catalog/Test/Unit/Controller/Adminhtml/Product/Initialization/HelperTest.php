@@ -646,7 +646,7 @@ class HelperTest extends \PHPUnit\Framework\TestCase
      * @param array $types
      * @return array
      */
-    private function assembleLinkTypes($types)
+    private function assembleLinkTypes(array $types): array
     {
         $linkTypes = [];
         $linkTypeCode = 1;
@@ -665,7 +665,7 @@ class HelperTest extends \PHPUnit\Framework\TestCase
     /**
      * @param array $links
      */
-    private function assembleProductRepositoryMock($links)
+    private function assembleProductRepositoryMock(array $links): void
     {
         $repositoryReturnMap = [];
 

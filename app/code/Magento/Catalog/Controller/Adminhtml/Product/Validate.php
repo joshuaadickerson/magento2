@@ -151,7 +151,7 @@ class Validate extends \Magento\Catalog\Controller\Adminhtml\Product
      * @return StoreManagerInterface
      * @deprecated 101.0.0
      */
-    private function getStoreManager()
+    private function getStoreManager(): StoreManagerInterface
     {
         if (null === $this->storeManager) {
             $this->storeManager = \Magento\Framework\App\ObjectManager::getInstance()

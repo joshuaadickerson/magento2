@@ -103,7 +103,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      * @throws \Exception if metadataPool doesn't contain metadata for ProductInterface
      * @throws \DomainException
      */
-    private function getProductIdsWithParents(array $childProductIds)
+    private function getProductIdsWithParents(array $childProductIds): array
     {
         /** @var \Magento\Framework\EntityManager\EntityMetadataInterface $metadata */
         $metadata = $this->metadataPool->getMetadata(\Magento\Catalog\Api\Data\ProductInterface::class);
@@ -131,7 +131,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      * @param array $entityIds
      * @return void
      */
-    private function registerProducts($entityIds)
+    private function registerProducts(array $entityIds): void
     {
         $this->cacheContext->registerEntities(Product::CACHE_TAG, $entityIds);
     }
@@ -142,7 +142,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      * @param array $categoryIds
      * @return void
      */
-    private function registerCategories(array $categoryIds)
+    private function registerCategories(array $categoryIds): void
     {
         if ($categoryIds) {
             $this->cacheContext->registerEntities(Category::CACHE_TAG, $categoryIds);
@@ -215,7 +215,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      *
      * @return \Magento\Framework\Indexer\CacheContext
      */
-    private function getCategoryIdsFromIndex(array $productIds)
+    private function getCategoryIdsFromIndex(array $productIds): \Magento\Framework\Indexer\CacheContext
     {
         $categoryIds = [];
         foreach ($this->storeManager->getStores() as $store) {

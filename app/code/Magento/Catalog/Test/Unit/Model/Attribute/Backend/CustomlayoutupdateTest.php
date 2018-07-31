@@ -67,7 +67,7 @@ class CustomlayoutupdateTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Framework\View\Model\Layout\Update\ValidatorFactory
      */
-    private function getMockedLayoutUpdateValidatorFactory()
+    private function getMockedLayoutUpdateValidatorFactory(): \Magento\Framework\View\Model\Layout\Update\ValidatorFactory
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Framework\View\Model\Layout\Update\ValidatorFactory::class);
         $mockBuilder->disableOriginalConstructor();
@@ -84,7 +84,7 @@ class CustomlayoutupdateTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Framework\View\Model\Layout\Update\Validator
      */
-    private function getMockedValidator()
+    private function getMockedValidator(): \Magento\Framework\View\Model\Layout\Update\Validator
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Framework\View\Model\Layout\Update\Validator::class);
         $mockBuilder->disableOriginalConstructor();
@@ -118,7 +118,7 @@ class CustomlayoutupdateTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Eav\Model\Entity\Attribute\AbstractAttribute
      */
-    private function getMockedAttribute()
+    private function getMockedAttribute(): \Magento\Eav\Model\Entity\Attribute\AbstractAttribute
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Eav\Model\Entity\Attribute\AbstractAttribute::class);
         $mockBuilder->disableOriginalConstructor();

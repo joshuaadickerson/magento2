@@ -135,7 +135,7 @@ class Topmenu
      *
      * @return \Magento\Catalog\Model\Category
      */
-    private function getCurrentCategory()
+    private function getCurrentCategory(): \Magento\Catalog\Model\Category
     {
         $catalogLayer = $this->layerResolver->get();
 
@@ -154,8 +154,11 @@ class Topmenu
      * @param bool $isParentActive
      * @return array
      */
-    private function getCategoryAsArray($category, $currentCategory, $isParentActive)
-    {
+    private function getCategoryAsArray(
+        \Magento\Catalog\Model\Category $category,
+        \Magento\Catalog\Model\Category $currentCategory,
+        bool $isParentActive
+    ): array {
         return [
             'name' => $category->getName(),
             'id' => 'category-node-' . $category->getId(),

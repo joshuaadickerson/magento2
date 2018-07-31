@@ -124,7 +124,7 @@ class GalleryTest extends \PHPUnit\Framework\TestCase
      *
      * @return ImagesConfigFactoryInterface
      */
-    private function getImagesConfigFactory()
+    private function getImagesConfigFactory(): ImagesConfigFactoryInterface
     {
         $this->galleryImagesConfigMock = $this->createConfiguredMock(
             Collection::class,
@@ -141,9 +141,9 @@ class GalleryTest extends \PHPUnit\Framework\TestCase
     /**
      * getGalleryImagesConfigItems
      *
-     * @return array
+     * @return DataObject[]
      */
-    private function getGalleryImagesConfigItems()
+    private function getGalleryImagesConfigItems(): array
     {
         return  [
             new DataObject([

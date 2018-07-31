@@ -99,7 +99,7 @@ class Full extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
     /**
      * @return void
      */
-    private function createTables()
+    private function createTables(): void
     {
         foreach ($this->storeManager->getStores() as $store) {
             $this->tableMaintainer->createTablesForStore($store->getId());
@@ -109,7 +109,7 @@ class Full extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
     /**
      * @return void
      */
-    private function clearReplicaTables()
+    private function clearReplicaTables(): void
     {
         foreach ($this->storeManager->getStores() as $store) {
             $this->connection->truncateTable($this->tableMaintainer->getMainReplicaTable($store->getId()));
@@ -119,7 +119,7 @@ class Full extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
     /**
      * @return void
      */
-    private function switchTables()
+    private function switchTables(): void
     {
         $tablesToSwitch = [];
         foreach ($this->storeManager->getStores() as $store) {
@@ -167,7 +167,7 @@ class Full extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      *
      * @param \Magento\Store\Model\Store $store
      */
-    private function reindexStore($store)
+    private function reindexStore(\Magento\Store\Model\Store $store): void
     {
         $this->reindexRootCategory($store);
         $this->reindexAnchorCategories($store);
@@ -180,7 +180,7 @@ class Full extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      * @param \Magento\Store\Model\Store $store
      * @return void
      */
-    private function publishData($store)
+    private function publishData(\Magento\Store\Model\Store $store): void
     {
         $select = $this->connection->select()->from($this->tableMaintainer->getMainTmpTable($store->getId()));
         $columns = array_keys(
@@ -238,8 +238,11 @@ class Full extends \Magento\Catalog\Model\Indexer\Category\Product\AbstractActio
      * @param \Magento\Store\Model\Store $store
      * @return void
      */
-    private function reindexCategoriesBySelect(\Magento\Framework\DB\Select $basicSelect, $whereCondition, $store)
-    {
+    private function reindexCategoriesBySelect(
+        \Magento\Framework\DB\Select $basicSelect,
+        string $whereCondition,
+        \Magento\Store\Model\Store $store
+    ): void {
         $this->tableMaintainer->createMainTmpTable($store->getId());
 
         $entityMetadata = $this->metadataPool->getMetadata(\Magento\Catalog\Api\Data\ProductInterface::class);

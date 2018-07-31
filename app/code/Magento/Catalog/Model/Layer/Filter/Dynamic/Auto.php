@@ -101,9 +101,9 @@ class Auto implements AlgorithmInterface
     }
 
     /**
-     * @return number
+     * @return int
      */
-    private function getRange()
+    private function getRange(): int
     {
         $maxPrice = $this->getMaxPriceInt();
         $index = 1;

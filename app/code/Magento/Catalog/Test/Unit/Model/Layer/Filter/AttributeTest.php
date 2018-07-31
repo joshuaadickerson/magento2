@@ -256,7 +256,7 @@ class AttributeTest extends \PHPUnit\Framework\TestCase
      * @param int $count
      * @return \Magento\Catalog\Model\Layer\Filter\Item|MockObject
      */
-    private function createFilterItem($index, $label, $value, $count)
+    private function createFilterItem(int $index, string $label, string $value, int $count): MockObject
     {
         $filterItem = $this->getMockBuilder(\Magento\Catalog\Model\Layer\Filter\Item::class)
             ->disableOriginalConstructor()

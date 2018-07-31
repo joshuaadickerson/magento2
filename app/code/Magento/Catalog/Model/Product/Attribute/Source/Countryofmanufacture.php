@@ -84,7 +84,7 @@ class Countryofmanufacture extends AbstractSource implements OptionSourceInterfa
      * @return \Magento\Framework\Serialize\SerializerInterface
      * @deprecated 101.1.0
      */
-    private function getSerializer()
+    private function getSerializer(): \Magento\Framework\Serialize\SerializerInterface
     {
         if ($this->serializer === null) {
             $this->serializer = \Magento\Framework\App\ObjectManager::getInstance()

@@ -113,7 +113,7 @@ class StoreGroupTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($this->subject, $this->model->afterSave($this->subject, $this->subject, $this->groupMock));
     }
 
-    private function mockIndexerMethods()
+    private function mockIndexerMethods(): void
     {
         $this->indexerMock->expects($this->once())->method('invalidate');
         $this->indexerRegistryMock->expects($this->once())

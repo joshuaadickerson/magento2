@@ -75,7 +75,7 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      * @param array $value Attribute value
      * @return string
      */
-    private function getUploadedImageName($value)
+    private function getUploadedImageName(array $value): string
     {
         if (is_array($value) && isset($value[0]['name'])) {
             return $value[0]['name'];
@@ -117,11 +117,11 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      *
      * @deprecated 101.0.0
      */
-    private function getImageUploader()
+    private function getImageUploader(): \Magento\Catalog\Model\ImageUploader
     {
         if ($this->imageUploader === null) {
             $this->imageUploader = \Magento\Framework\App\ObjectManager::getInstance()
-                ->get(\Magento\Catalog\CategoryImageUpload::class);
+                ->get(\Magento\Catalog\Model\ImageUploader::class);
         }
 
         return $this->imageUploader;
@@ -133,9 +133,9 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      * @param array $value
      * @return bool
      */
-    private function isTmpFileAvailable($value)
+    private function isTmpFileAvailable(array $value): bool
     {
-        return is_array($value) && isset($value[0]['tmp_name']);
+        return isset($value[0]['tmp_name']);
     }
 
     /**
@@ -144,9 +144,9 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      * @param array|null $value
      * @return bool
      */
-    private function fileResidesOutsideCategoryDir($value)
+    private function fileResidesOutsideCategoryDir(array $value)
     {
-        if (!is_array($value) || !isset($value[0]['url'])) {
+        if (!isset($value[0]['url'])) {
             return false;
         }
 

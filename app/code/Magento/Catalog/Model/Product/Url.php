@@ -74,7 +74,7 @@ class Url extends \Magento\Framework\DataObject
      *
      * @return \Magento\Framework\UrlInterface
      */
-    private function getUrlInstance()
+    private function getUrlInstance(): \Magento\Framework\UrlInterface
     {
         return $this->urlFactory->create();
     }

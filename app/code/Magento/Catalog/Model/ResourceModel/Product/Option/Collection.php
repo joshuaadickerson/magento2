@@ -332,7 +332,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     /**
      * @return JoinProcessorInterface
      */
-    private function getJoinProcessor()
+    private function getJoinProcessor(): JoinProcessorInterface
     {
         if (null === $this->joinProcessor) {
             $this->joinProcessor = \Magento\Framework\App\ObjectManager::getInstance()

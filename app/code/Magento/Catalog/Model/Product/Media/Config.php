@@ -179,7 +179,7 @@ class Config implements ConfigInterface
     /**
      * @return Attribute
      */
-    private function getAttributeHelper()
+    private function getAttributeHelper(): Attribute
     {
         if (null === $this->attributeHelper) {
             $this->attributeHelper = \Magento\Framework\App\ObjectManager::getInstance()

@@ -349,7 +349,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
      * Join Product To Links
      * @return void
      */
-    private function joinProductsToLinks()
+    private function joinProductsToLinks(): void
     {
         if ($this->_hasLinkFilter) {
             $metaDataPool = $this->getProductEntityMetadata();

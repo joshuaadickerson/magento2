@@ -32,7 +32,7 @@ class UrlBuilderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \Magento\Framework\UrlInterface
      */
-    private function getMockedFrontendUrlBuilder()
+    private function getMockedFrontendUrlBuilder(): \Magento\Framework\UrlInterface
     {
         $mockBuilder = $this->getMockBuilder(\Magento\Framework\UrlInterface::class)
             ->disableOriginalConstructor();

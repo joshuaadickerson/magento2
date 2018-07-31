@@ -200,7 +200,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return $this
      */
-    private function customizeTierPrice()
+    private function customizeTierPrice(): AdvancedPricing
     {
         $tierPricePath = $this->arrayManager->findPath(
             ProductAttributeInterface::CODE_TIER_PRICE,
@@ -235,7 +235,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return array
      */
-    private function getCustomerGroups()
+    private function getCustomerGroups(): array
     {
         if (!$this->moduleManager->isEnabled('Magento_Customer')) {
             return [];
@@ -249,7 +249,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return bool
      */
-    private function isScopeGlobal()
+    private function isScopeGlobal(): bool
     {
         return $this->locator->getProduct()
             ->getResource()
@@ -262,7 +262,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return array
      */
-    private function getWebsites()
+    private function getWebsites(): array
     {
         $websites = [
             [
@@ -303,7 +303,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return int
      */
-    private function getDefaultCustomerGroup()
+    private function getDefaultCustomerGroup(): int
     {
         return $this->groupManagement->getAllCustomersGroup()->getId();
     }
@@ -328,7 +328,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return bool
      */
-    private function isShowWebsiteColumn()
+    private function isShowWebsiteColumn(): bool
     {
         if ($this->isScopeGlobal() || $this->storeManager->isSingleStoreMode()) {
             return false;
@@ -341,7 +341,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return bool
      */
-    private function isMultiWebsites()
+    private function isMultiWebsites(): bool
     {
         return !$this->storeManager->isSingleStoreMode();
     }
@@ -351,7 +351,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return bool
      */
-    private function isAllowChangeWebsite()
+    private function isAllowChangeWebsite(): bool
     {
         if (!$this->isShowWebsiteColumn() || $this->locator->getProduct()->getStoreId()) {
             return false;
@@ -364,7 +364,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return $this
      */
-    private function addAdvancedPriceLink()
+    private function addAdvancedPriceLink(): AdvancedPricing
     {
         $pricePath = $this->arrayManager->findPath(
             ProductAttributeInterface::CODE_PRICE,
@@ -417,7 +417,7 @@ class AdvancedPricing extends AbstractModifier
      * @return array
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    private function getTierPriceStructure($tierPricePath)
+    private function getTierPriceStructure(string $tierPricePath): array
     {
         return [
             'arguments' => [
@@ -557,7 +557,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return $this
      */
-    private function specialPriceDataToInline()
+    private function specialPriceDataToInline(): AdvancedPricing
     {
         $pathFrom = $this->arrayManager->findPath('special_from_date', $this->meta, null, 'children');
         $pathTo = $this->arrayManager->findPath('special_to_date', $this->meta, null, 'children');
@@ -613,7 +613,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return $this
      */
-    private function customizeAdvancedPricing()
+    private function customizeAdvancedPricing(): AdvancedPricing
     {
         $this->meta['advanced-pricing']['arguments']['data']['config']['opened'] = true;
         $this->meta['advanced-pricing']['arguments']['data']['config']['collapsible'] = false;
@@ -672,7 +672,7 @@ class AdvancedPricing extends AbstractModifier
      *
      * @return \Magento\Store\Api\Data\StoreInterface
      */
-    private function getStore()
+    private function getStore(): \Magento\Store\Api\Data\StoreInterface
     {
         return $this->locator->getStore();
     }

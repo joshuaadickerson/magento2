@@ -128,7 +128,7 @@ class Validate extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute
      * @param array $deletedOptions
      * @return bool
      */
-    private function isUniqueAdminValues(array $optionsValues, array $deletedOptions)
+    private function isUniqueAdminValues(array $optionsValues, array $deletedOptions): bool
     {
         $adminValues = [];
         foreach ($optionsValues as $optionKey => $values) {
@@ -147,7 +147,7 @@ class Validate extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute
      * @param string[] $messages
      * @return DataObject
      */
-    private function setMessageToResponse($response, $messages)
+    private function setMessageToResponse(DataObject $response, array $messages): DataObject
     {
         $messageKey = $this->getRequest()->getParam('message_key', static::DEFAULT_MESSAGE_KEY);
         if ($messageKey === static::DEFAULT_MESSAGE_KEY) {
@@ -161,7 +161,7 @@ class Validate extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute
      * @param array|null $options
      * @return $this
      */
-    private function checkUniqueOption(DataObject $response, array $options = null)
+    private function checkUniqueOption(DataObject $response, array $options = null): Validate
     {
         if (is_array($options)
             && isset($options['value'])
@@ -188,7 +188,7 @@ class Validate extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute
      * @param array $optionsForCheck
      * @return void
      */
-    private function checkEmptyOption(DataObject $response, array $optionsForCheck = null)
+    private function checkEmptyOption(DataObject $response, array $optionsForCheck = null): void
     {
         foreach ($optionsForCheck as $optionValues) {
             if (isset($optionValues[0]) && $optionValues[0] == '') {

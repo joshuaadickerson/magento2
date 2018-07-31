@@ -79,7 +79,7 @@ class MoveTest extends \PHPUnit\Framework\TestCase
         $this->initObjectManager();
     }
 
-    private function fillContext()
+    private function fillContext(): void
     {
         $this->request = $this
             ->getMockBuilder(\Magento\Framework\App\RequestInterface::class)
@@ -91,7 +91,7 @@ class MoveTest extends \PHPUnit\Framework\TestCase
         $this->context->expects($this->once())->method('getMessageManager')->willReturn($this->messageManager);
     }
 
-    private function initObjectManager()
+    private function initObjectManager(): void
     {
         $this->objectManager = $this->createMock(ObjectManagerInterface::class);
         $moveController = new \ReflectionClass($this->moveController);

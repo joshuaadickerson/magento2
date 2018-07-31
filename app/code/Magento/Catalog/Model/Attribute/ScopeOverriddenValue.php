@@ -116,7 +116,7 @@ class ScopeOverriddenValue
      * @throws \Magento\Framework\Exception\LocalizedException
      * @return void
      */
-    private function initAttributeValues($entityType, $entity, $storeId)
+    private function initAttributeValues(string $entityType, \Magento\Catalog\Model\AbstractModel$entity, int $storeId): void
     {
         $metadata = $this->metadataPool->getMetadata($entityType);
         /** @var \Magento\Eav\Model\Entity\Attribute\AbstractAttribute $attribute */

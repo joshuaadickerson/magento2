@@ -474,7 +474,7 @@ class ProductRepositoryTest extends \PHPUnit\Framework\TestCase
      * @param int $productsCount
      * @return array
      */
-    private function getProductMocksForReducedCache($productsCount)
+    private function getProductMocksForReducedCache(int $productsCount): array
     {
         $productMocks = [];
 

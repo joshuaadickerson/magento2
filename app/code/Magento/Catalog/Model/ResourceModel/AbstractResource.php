@@ -251,7 +251,7 @@ abstract class AbstractResource extends \Magento\Eav\Model\Entity\AbstractEntity
      *
      * @return boolean
      */
-    private function isAttributePresentForNonDefaultStore($attribute, $conditions)
+    private function isAttributePresentForNonDefaultStore(AbstractAttribute $attribute, array $conditions): bool
     {
         $connection = $this->getConnection();
         $select = $connection->select()->from($attribute->getBackend()->getTable());

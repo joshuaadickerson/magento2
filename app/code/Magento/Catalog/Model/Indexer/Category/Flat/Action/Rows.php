@@ -136,7 +136,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Flat\AbstractAction
      * @param int[] $entityIds
      * @param bool $useTempTable
      */
-    private function reindexStore(Store $store, array $entityIds, $useTempTable)
+    private function reindexStore(Store $store, array $entityIds, bool $useTempTable): void
     {
         $tableName = $this->getTableNameByStore($store, $useTempTable);
         if (!$this->connection->isTableExists($tableName)) {
@@ -162,7 +162,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Flat\AbstractAction
      * @param array[] $attributesData
      * @return array
      */
-    private function buildIndexData(Store $store, $categoriesIdsChunk, $attributesData)
+    private function buildIndexData(Store $store, array $categoriesIdsChunk, array $attributesData): array
     {
         $linkField = $this->categoryMetadata->getLinkField();
 
@@ -197,7 +197,7 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Flat\AbstractAction
      * @return array
      * @throws NoSuchEntityException
      */
-    private function buildCategoryIndexData(Store $store, array $categoryData, array $categoryAttributesData)
+    private function buildCategoryIndexData(Store $store, array $categoryData, array $categoryAttributesData): array
     {
         $data = $this->prepareValuesToInsert(
             array_merge(
@@ -213,9 +213,9 @@ class Rows extends \Magento\Catalog\Model\Indexer\Category\Flat\AbstractAction
      * Insert or update index data
      *
      * @param string $tableName
-     * @param $data
+     * @param array $data
      */
-    private function updateIndexData($tableName, $data)
+    private function updateIndexData(string $tableName, array $data): void
     {
         foreach ($data as $row) {
             $updateFields = [];

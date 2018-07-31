@@ -161,7 +161,7 @@ class WebsiteAttributesSynchronizer
      * Marks flag as in progress in case if several crons enabled, so sync. won't be duplicated
      * @return void
      */
-    private function markSynchronizationInProgress()
+    private function markSynchronizationInProgress(): void
     {
         $this->flagManager->saveFlag(self::FLAG_NAME, self::FLAG_SYNCHRONIZATION_IN_PROGRESS);
     }
@@ -170,7 +170,7 @@ class WebsiteAttributesSynchronizer
      * Turn off synchronization flag
      * @return void
      */
-    private function markSynchronized()
+    private function markSynchronized(): void
     {
         $this->flagManager->saveFlag(self::FLAG_NAME, self::FLAG_SYNCHRONIZED);
     }
@@ -179,7 +179,7 @@ class WebsiteAttributesSynchronizer
      * @param string $tableName
      * @return void
      */
-    private function synchronizeTable($tableName)
+    private function synchronizeTable(string $tableName): void
     {
         foreach ($this->fetchAttributeValues($tableName) as $attributeValueItems) {
             $this->processAttributeValues($attributeValueItems, $tableName);
@@ -192,7 +192,7 @@ class WebsiteAttributesSynchronizer
      * @param string $tableName
      * @return void
      */
-    private function processAttributeValues(array $attributeValueItems, $tableName)
+    private function processAttributeValues(array $attributeValueItems, string $tableName): void
     {
         $this->resetProcessedAttributeValues();
 
@@ -214,10 +214,9 @@ class WebsiteAttributesSynchronizer
      * Yields batch of AttributeValues
      *
      * @param string $tableName
-     * @yield array
-     * @return void
+     * @return \Generator
      */
-    private function fetchAttributeValues($tableName)
+    private function fetchAttributeValues(string $tableName): \Generator
     {
         $batchSelectIterator = $this->batchQueryGenerator->generate(
             'value_id',
@@ -259,7 +258,7 @@ class WebsiteAttributesSynchronizer
     /**
      * @return array
      */
-    private function getGroupedStoreViews()
+    private function getGroupedStoreViews(): array
     {
         if (!empty($this->groupedStoreViews)) {
             return $this->groupedStoreViews;
@@ -290,7 +289,7 @@ class WebsiteAttributesSynchronizer
      * @param string $tableName
      * @return bool
      */
-    private function isAttributeValueProcessed(array $attributeValue, $tableName)
+    private function isAttributeValueProcessed(array $attributeValue, string $tableName): bool
     {
         return in_array(
             $this->getAttributeValueKey(
@@ -306,7 +305,7 @@ class WebsiteAttributesSynchronizer
      * Resets processed attribute values
      * @return void
      */
-    private function resetProcessedAttributeValues()
+    private function resetProcessedAttributeValues(): void
     {
         $this->processedAttributeValues = [];
     }
@@ -316,7 +315,7 @@ class WebsiteAttributesSynchronizer
      * @param string $tableName
      * @return void
      */
-    private function markAttributeValueProcessed(array $attributeValue, $tableName)
+    private function markAttributeValueProcessed(array $attributeValue, string $tableName): void
     {
         $this->processedAttributeValues[] = $this->getAttributeValueKey(
             $attributeValue[$this->getTableLinkField($tableName)],
@@ -331,7 +330,7 @@ class WebsiteAttributesSynchronizer
      * @param int $websiteId
      * @return string
      */
-    private function getAttributeValueKey($entityId, $attributeId, $websiteId)
+    private function getAttributeValueKey(int $entityId, int $attributeId, int $websiteId): string
     {
         return sprintf(
             self::MASK_ATTRIBUTE_VALUE,
@@ -346,7 +345,7 @@ class WebsiteAttributesSynchronizer
      * @param string $tableName
      * @return array|null
      */
-    private function generateAttributeValueInsertions(array $attributeValue, $tableName)
+    private function generateAttributeValueInsertions(array $attributeValue, string $tableName): ?array
     {
         $groupedStoreViews = $this->getGroupedStoreViews();
         if (empty($groupedStoreViews[$attributeValue['website_id']])) {
@@ -373,7 +372,7 @@ class WebsiteAttributesSynchronizer
      * @param string $tableName
      * @return void
      */
-    private function executeInsertions(array $insertions, $tableName)
+    private function executeInsertions(array $insertions, string $tableName): void
     {
         $rawQuery = sprintf(
             'INSERT INTO 
@@ -395,7 +394,7 @@ class WebsiteAttributesSynchronizer
      * @param array $insertions
      * @return array
      */
-    private function getPlaceholderValues(array $insertions)
+    private function getPlaceholderValues(array $insertions): array
     {
         $placeholderValues = [];
         foreach ($insertions as $insertion) {
@@ -414,7 +413,7 @@ class WebsiteAttributesSynchronizer
      * @param array $insertions
      * @return string
      */
-    private function prepareInsertValuesStatement(array $insertions)
+    private function prepareInsertValuesStatement(array $insertions): string
     {
         $statement = '';
 
@@ -430,7 +429,7 @@ class WebsiteAttributesSynchronizer
      * @return string
      * @throws LocalizedException
      */
-    private function getTableLinkField($tableName)
+    private function getTableLinkField(string $tableName): string
     {
         if (!isset($this->tableMetaDataClass[$tableName])) {
             throw new LocalizedException(

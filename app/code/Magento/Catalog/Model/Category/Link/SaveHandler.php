@@ -81,7 +81,7 @@ class SaveHandler implements ExtensionInterface
      * @param object $entity
      * @return array
      */
-    private function getCategoryLinksPositions($entity)
+    private function getCategoryLinksPositions(object $entity): array
     {
         $result = [];
         $currentCategoryLinks = $this->productCategoryLink->getCategoryLinks($entity, $entity->getCategoryIds());
@@ -104,7 +104,7 @@ class SaveHandler implements ExtensionInterface
      * @param array $oldCategoryPositions
      * @return array
      */
-    private function mergeCategoryLinks($newCategoryPositions, $oldCategoryPositions)
+    private function mergeCategoryLinks(array $newCategoryPositions, array $oldCategoryPositions): array
     {
         $result = [];
         if (empty($newCategoryPositions)) {

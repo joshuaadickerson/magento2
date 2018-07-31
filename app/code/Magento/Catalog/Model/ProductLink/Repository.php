@@ -244,7 +244,7 @@ class Repository implements \Magento\Catalog\Api\ProductLinkRepositoryInterface
     /**
      * @return \Magento\Catalog\Model\ResourceModel\Product\Link
      */
-    private function getLinkResource()
+    private function getLinkResource(): \Magento\Catalog\Model\ResourceModel\Product\Link
     {
         if (null === $this->linkResource) {
             $this->linkResource = \Magento\Framework\App\ObjectManager::getInstance()
@@ -256,7 +256,7 @@ class Repository implements \Magento\Catalog\Api\ProductLinkRepositoryInterface
     /**
      * @return LinkTypeProvider
      */
-    private function getLinkTypeProvider()
+    private function getLinkTypeProvider(): LinkTypeProvider
     {
         if (null === $this->linkTypeProvider) {
             $this->linkTypeProvider = \Magento\Framework\App\ObjectManager::getInstance()
@@ -268,7 +268,7 @@ class Repository implements \Magento\Catalog\Api\ProductLinkRepositoryInterface
     /**
      * @return \Magento\Framework\EntityManager\MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (null === $this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()

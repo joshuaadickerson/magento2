@@ -139,7 +139,7 @@ class TierPriceFactory
      * @param TierPriceInterface $price
      * @return int
      */
-    private function retrievePriceForAllGroupsValue(TierPriceInterface $price)
+    private function retrievePriceForAllGroupsValue(TierPriceInterface $price): int
     {
         return strcasecmp($price->getCustomerGroup(), $this->allGroupsValue) === 0 ? $this->allGroupsId : 0;
     }
@@ -151,7 +151,7 @@ class TierPriceFactory
      * @return int
      * @throws NoSuchEntityException
      */
-    private function retrieveGroupValue($code)
+    private function retrieveGroupValue(string $code): int
     {
         if (!isset($this->customerGroupsByCode[$code])) {
             $searchCriteria = $this->searchCriteriaBuilder->addFilters(

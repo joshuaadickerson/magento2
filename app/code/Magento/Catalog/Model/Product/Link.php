@@ -189,11 +189,11 @@ class Link extends \Magento\Framework\Model\AbstractModel
     /**
      * @return Link\SaveHandler
      */
-    private function getProductLinkSaveHandler()
+    private function getProductLinkSaveHandler(): Link\SaveHandler
     {
         if (null === $this->saveProductLinks) {
             $this->saveProductLinks = \Magento\Framework\App\ObjectManager::getInstance()
-                ->get(\Magento\Catalog\Model\Product\Link\SaveHandler::class);
+                ->get(Link\SaveHandler::class);
         }
         return $this->saveProductLinks;
     }

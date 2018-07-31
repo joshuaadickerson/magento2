@@ -65,7 +65,7 @@ class TableMaintainer
      *
      * @return AdapterInterface
      */
-    private function getConnection()
+    private function getConnection(): AdapterInterface
     {
         if (!isset($this->connection)) {
             $this->connection = $this->resource->getConnection();
@@ -79,7 +79,7 @@ class TableMaintainer
      * @param string|string[] $table
      * @return string
      */
-    private function getTable($table)
+    private function getTable($table): string
     {
         return $this->resource->getTableName($table);
     }
@@ -92,7 +92,7 @@ class TableMaintainer
      *
      * @return void
      */
-    private function createTable($mainTableName, $newTableName)
+    private function createTable(string $mainTableName, string $newTableName): void
     {
         if (!$this->getConnection()->isTableExists($newTableName)) {
             $this->getConnection()->createTable(
@@ -108,7 +108,7 @@ class TableMaintainer
      *
      * @return void
      */
-    private function dropTable($tableName)
+    private function dropTable(string $tableName): void
     {
         if ($this->getConnection()->isTableExists($tableName)) {
             $this->getConnection()->dropTable($tableName);
