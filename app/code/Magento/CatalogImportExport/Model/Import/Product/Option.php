@@ -14,6 +14,7 @@ use Magento\Catalog\Model\ResourceModel\Product\Option\Value\Collection as Produ
 use Magento\Catalog\Model\ResourceModel\Product\Option\Value\CollectionFactory as ProductOptionValueCollectionFactory;
 use Magento\Store\Model\Store;
 use Magento\ImportExport\Model\Import;
+use PHP_CodeSniffer\Tests\Core\File\testFECNClass;
 
 /**
  * Entity class which provide possibility to import product custom options
@@ -1121,7 +1122,7 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param array $optionRow
      * @return array
      */
-    private function processOptionRow($name, $optionRow)
+    private function processOptionRow(string $name, array $optionRow): array
     {
         $result = [
             self::COLUMN_TYPE => $name ? $optionRow['type'] : '',
@@ -1183,7 +1184,7 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param array $optionRow
      * @return array
      */
-    private function addFileOptions($result, $optionRow)
+    private function addFileOptions(array $result, array $optionRow): array
     {
         foreach (['file_extension', 'image_size_x', 'image_size_y'] as $fileOptionKey) {
             if (!isset($optionRow[$fileOptionKey])) {
@@ -1490,11 +1491,11 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * Warning: arguments are modified by reference
      *
      * @param array $typeValues
-     * @param array $typePrices
-     * @param array $typeTitles
+     * @param array &$typePrices
+     * @param array &$typeTitles
      * @return void
      */
-    private function restoreOriginalOptionTypeIds(array &$typeValues, array &$typePrices, array &$typeTitles)
+    private function restoreOriginalOptionTypeIds(array &$typeValues, array &$typePrices, array &$typeTitles): void
     {
         foreach ($typeValues as $optionId => &$optionTypes) {
             foreach ($optionTypes as &$optionType) {
@@ -1523,7 +1524,7 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $optionTypeTitle
      * @return int|null
      */
-    private function getExistingOptionTypeId($optionId, $storeId, $optionTypeTitle)
+    private function getExistingOptionTypeId(int $optionId, int $storeId, string $optionTypeTitle): ?int
     {
         if (!isset($this->optionTypeTitles[$storeId])) {
             /** @var ProductOptionValueCollection $optionTypeCollection */
@@ -1984,7 +1985,7 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return string
      */
-    private function getProductEntityLinkField()
+    private function getProductEntityLinkField(): string
     {
         if (!$this->productEntityLinkField) {
             $this->productEntityLinkField = $this->getMetadataPool()
@@ -1999,7 +2000,7 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return string
      */
-    private function getProductIdentifierField()
+    private function getProductIdentifierField(): string
     {
         if (!$this->productEntityIdentifierField) {
             $this->productEntityIdentifierField = $this->getMetadataPool()

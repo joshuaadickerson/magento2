@@ -1166,7 +1166,7 @@ class Product extends \Magento\ImportExport\Model\Export\Entity\AbstractEntity
      * @SuppressWarnings(PHPMD.NPathComplexity)
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    private function appendMultirowData(&$dataRow, $multiRawData)
+    private function appendMultirowData(array &$dataRow, array $multiRawData): array
     {
         $productId = $dataRow['product_id'];
         $productLinkId = $dataRow['product_link_id'];
@@ -1499,7 +1499,7 @@ class Product extends \Magento\ImportExport\Model\Export\Entity\AbstractEntity
      *
      * @return \Magento\Framework\EntityManager\MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (!$this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()
@@ -1530,7 +1530,7 @@ class Product extends \Magento\ImportExport\Model\Export\Entity\AbstractEntity
      * @param string $string
      * @return string
      */
-    private function quoteCategoryDelimiter($string)
+    private function quoteCategoryDelimiter(string $string): string
     {
         return str_replace(
             CategoryProcessor::DELIMITER_CATEGORY,

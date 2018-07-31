@@ -192,7 +192,7 @@ class CategoryProcessor
      *
      * @return $this
      */
-    private function addFailedCategory($category, $exception)
+    private function addFailedCategory(string $category, \Magento\Framework\Exception\AlreadyExistsException $exception): CategoryProcessor
     {
         $this->failedCategories[] =
             [
@@ -245,7 +245,7 @@ class CategoryProcessor
      * @param string $string
      * @return string
      */
-    private function standardizeString($string)
+    private function standardizeString(string $string): string
     {
         return mb_strtolower($string);
     }
@@ -256,7 +256,7 @@ class CategoryProcessor
      * @param string $string
      * @return string
      */
-    private function quoteDelimiter($string)
+    private function quoteDelimiter(string $string): string
     {
         return str_replace(self::DELIMITER_CATEGORY, '\\' . self::DELIMITER_CATEGORY, $string);
     }
@@ -267,7 +267,7 @@ class CategoryProcessor
      * @param string $string
      * @return string
      */
-    private function unquoteDelimiter($string)
+    private function unquoteDelimiter(string $string): string
     {
         return str_replace('\\' . self::DELIMITER_CATEGORY, self::DELIMITER_CATEGORY, $string);
     }

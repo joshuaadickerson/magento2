@@ -686,7 +686,7 @@ class OptionTest extends \Magento\ImportExport\Test\Unit\Model\Import\AbstractIm
      *  old format data
      * @return void
      */
-    private function _bypassModelMethodGetMultiRowFormat($rowData)
+    private function _bypassModelMethodGetMultiRowFormat(array $rowData): void
     {
         $this->modelMock->expects($this->any())
                         ->method('_getMultiRowFormat')

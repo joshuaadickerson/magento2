@@ -246,7 +246,7 @@ class MediaGalleryProcessor
      *
      * @return void
      */
-    private function initMediaGalleryResources()
+    private function initMediaGalleryResources(): void
     {
         if (null == $this->mediaGalleryTableName) {
             $this->productEntityTableName = $this->getResource()->getTable('catalog_product_entity');
@@ -274,7 +274,7 @@ class MediaGalleryProcessor
         array $mediaGalleryData,
         array $newMediaValues,
         array $valueToProductId
-    ) {
+    ): void {
         $multiInsertData = [];
         $dataForSkinnyTable = [];
         foreach ($mediaGalleryData as $mediaGalleryRows) {
@@ -329,7 +329,7 @@ class MediaGalleryProcessor
      *
      * @return string
      */
-    private function getProductEntityLinkField()
+    private function getProductEntityLinkField(): string
     {
         if (!$this->productEntityLinkField) {
             $this->productEntityLinkField = $this->metadataPool->getMetadata(ProductInterface::class)->getLinkField();
@@ -341,7 +341,7 @@ class MediaGalleryProcessor
     /**
      * @return \Magento\CatalogImportExport\Model\Import\Proxy\Product\ResourceModel
      */
-    private function getResource()
+    private function getResource(): \Magento\CatalogImportExport\Model\Import\Proxy\Product\ResourceModel
     {
         if (!$this->resourceModel) {
             $this->resourceModel = $this->resourceFactory->create();

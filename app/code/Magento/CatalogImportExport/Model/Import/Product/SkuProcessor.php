@@ -178,7 +178,7 @@ class SkuProcessor
      *
      * @return \Magento\Framework\EntityManager\MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): \Magento\Framework\EntityManager\MetadataPool
     {
         if (!$this->metadataPool) {
             $this->metadataPool = \Magento\Framework\App\ObjectManager::getInstance()
@@ -192,7 +192,7 @@ class SkuProcessor
      *
      * @return string
      */
-    private function getProductEntityLinkField()
+    private function getProductEntityLinkField(): string
     {
         if (!$this->productEntityLinkField) {
             $this->productEntityLinkField = $this->getMetadataPool()
@@ -207,7 +207,7 @@ class SkuProcessor
      *
      * @return string
      */
-    private function getProductIdentifierField()
+    private function getProductIdentifierField(): string
     {
         if (!$this->productEntityIdentifierField) {
             $this->productEntityIdentifierField = $this->getMetadataPool()

@@ -1657,7 +1657,7 @@ class ProductTest extends \Magento\ImportExport\Test\Unit\Model\Import\AbstractI
      *  Param should go with rewritten getOptionEntity method.
      * @return \Magento\CatalogImportExport\Model\Import\Product\Option|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function _suppressValidateRowOptionValidatorInvalidRows($importProduct)
+    private function _suppressValidateRowOptionValidatorInvalidRows(\Magento\CatalogImportExport\Model\Import\Product $importProduct): \PHPUnit_Framework_MockObject_MockObject
     {
         //suppress option validation
         $this->_rewriteGetOptionEntityInImportProduct($importProduct);
@@ -1674,7 +1674,7 @@ class ProductTest extends \Magento\ImportExport\Test\Unit\Model\Import\AbstractI
      * @param \Magento\CatalogImportExport\Model\Import\Product
      * @return \Magento\CatalogImportExport\Model\Import\Product\Validator|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function _setValidatorMockInImportProduct($importProduct)
+    private function _setValidatorMockInImportProduct(\Magento\CatalogImportExport\Model\Import\Product $importProduct): \PHPUnit_Framework_MockObject_MockObject
     {
         $this->validator->expects($this->once())->method('isValid')->willReturn(true);
         $this->setPropertyValue($importProduct, 'validator', $this->validator);
@@ -1690,7 +1690,7 @@ class ProductTest extends \Magento\ImportExport\Test\Unit\Model\Import\AbstractI
      *  Param should go with rewritten getOptionEntity method.
      * @return \Magento\CatalogImportExport\Model\Import\Product\Option|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function _rewriteGetOptionEntityInImportProduct($importProduct)
+    private function _rewriteGetOptionEntityInImportProduct(\Magento\CatalogImportExport\Model\Import\Product $importProduct): \PHPUnit_Framework_MockObject_MockObject
     {
         $option = $this->getMockBuilder(\Magento\CatalogImportExport\Model\Import\Product\Option::class)
             ->disableOriginalConstructor()

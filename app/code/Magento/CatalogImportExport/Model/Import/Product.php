@@ -1134,7 +1134,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return $this
      */
-    private function initImagesArrayKeys()
+    private function initImagesArrayKeys(): Product
     {
         $this->_imagesArrayKeys = $this->imageTypeProcessor->getImageTypes();
         return $this;
@@ -1470,7 +1470,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * Return additional data, needed to select.
      * @return array
      */
-    private function getOldSkuFieldsForSelect()
+    private function getOldSkuFieldsForSelect(): array
     {
         return ['type_id', 'attribute_set_id'];
     }
@@ -1480,7 +1480,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param array $newProducts
      * @return void
      */
-    private function updateOldSku(array $newProducts)
+    private function updateOldSku(array $newProducts): void
     {
         $oldSkus = [];
         foreach ($newProducts as $info) {
@@ -1503,7 +1503,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return array
      */
-    private function getNewSkuFieldsForSelect()
+    private function getNewSkuFieldsForSelect(): array
     {
         $fields = ['sku', $this->getProductEntityLinkField()];
         if ($this->getProductEntityLinkField() != $this->getProductIdentifierField()) {
@@ -2089,7 +2089,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $fileName
      * @return string
      */
-    private function getSystemFile($fileName)
+    private function getSystemFile(string $fileName): string
     {
         $filePath = 'catalog' . DIRECTORY_SEPARATOR . 'product' . DIRECTORY_SEPARATOR . $fileName;
         /** @var \Magento\Framework\Filesystem\Directory\ReadInterface $read */
@@ -2196,7 +2196,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param array $productIdsToReindex
      * @return void
      */
-    private function reindexProducts($productIdsToReindex = [])
+    private function reindexProducts(array $productIdsToReindex = []): void
     {
         $indexer = $this->indexerRegistry->get('catalog_product_category');
         if (is_array($productIdsToReindex) && count($productIdsToReindex) > 0 && !$indexer->isScheduled()) {
@@ -2455,7 +2455,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param array $rowData
      * @return bool
      */
-    private function isNeedToValidateUrlKey($rowData)
+    private function isNeedToValidateUrlKey(array $rowData): bool
     {
         return (!empty($rowData[self::URL_KEY]) || !empty($rowData[self::COL_NAME]))
             && (empty($rowData[self::COL_VISIBILITY])
@@ -2469,7 +2469,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $sku
      * @return array
      */
-    private function prepareNewSkuData($sku)
+    private function prepareNewSkuData(string $sku): array
     {
         $data = [];
         foreach ($this->getExistingSku($sku) as $key => $value) {
@@ -2485,10 +2485,9 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * Parse attributes names and values string to array.
      *
      * @param array $rowData
-     *
      * @return array
      */
-    private function _parseAdditionalAttributes($rowData)
+    private function _parseAdditionalAttributes(array $rowData): array
     {
         if (empty($rowData['additional_attributes'])) {
             return $rowData;
@@ -2509,7 +2508,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $additionalAttributes Attributes data that will be parsed
      * @return array
      */
-    private function getAdditionalAttributes($additionalAttributes)
+    private function getAdditionalAttributes(string $additionalAttributes): array
     {
         return empty($this->_parameters[Import::FIELDS_ENCLOSURE])
             ? $this->parseAttributesWithoutWrappedValues($additionalAttributes)
@@ -2529,7 +2528,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *      code=value,code2=value2...,codeN=valueN
      * @return array
      */
-    private function parseAttributesWithoutWrappedValues($attributesData)
+    private function parseAttributesWithoutWrappedValues(string $attributesData): array
     {
         $attributeNameValuePairs = explode($this->getMultipleValueSeparator(), $attributesData);
         $preparedAttributes = [];
@@ -2568,7 +2567,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return array
      */
-    private function parseAttributesWithWrappedValues($attributesData)
+    private function parseAttributesWithWrappedValues(string $attributesData): array
     {
         $attributes = [];
         preg_match_all(
@@ -2612,7 +2611,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return string
      */
-    private function getMultiLineSeparatorForRegexp()
+    private function getMultiLineSeparatorForRegexp(): string
     {
         if (!$this->multiLineSeparatorForRegexp) {
             $this->multiLineSeparatorForRegexp = in_array(self::PSEUDO_MULTI_LINE_SEPARATOR, str_split('[\^$.|?*+(){}'))
@@ -2626,10 +2625,9 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * Set values in use_config_ fields.
      *
      * @param array $rowData
-     *
      * @return array
      */
-    private function _setStockUseConfigFieldsValues($rowData)
+    private function _setStockUseConfigFieldsValues(array $rowData): array
     {
         $useConfigFields = [];
         foreach ($rowData as $key => $value) {
@@ -2656,7 +2654,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return array
      */
-    private function _customFieldsMapping($rowData)
+    private function _customFieldsMapping(array $rowData): array
     {
         foreach ($this->_fieldsMap as $systemFieldName => $fileFieldName) {
             if (array_key_exists($fileFieldName, $rowData)) {
@@ -2797,7 +2795,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return string
      */
-    private function getProductEntityLinkField()
+    private function getProductEntityLinkField(): string
     {
         if (!$this->productEntityLinkField) {
             $this->productEntityLinkField = $this->getMetadataPool()
@@ -2812,7 +2810,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      *
      * @return string
      */
-    private function getProductIdentifierField()
+    private function getProductIdentifierField(): string
     {
         if (!$this->productEntityIdentifierField) {
             $this->productEntityIdentifierField = $this->getMetadataPool()
@@ -2828,7 +2826,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param array $labels
      * @return void
      */
-    private function updateMediaGalleryLabels(array $labels)
+    private function updateMediaGalleryLabels(array $labels): void
     {
         if (!empty($labels)) {
             $this->mediaProcessor->updateMediaGalleryLabels($labels);
@@ -2841,7 +2839,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $labelRow
      * @return array
      */
-    private function parseMultipleValues($labelRow)
+    private function parseMultipleValues(string $labelRow): array
     {
         return $this->parseMultiselectValues(
             $labelRow,
@@ -2855,7 +2853,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $sku
      * @return bool
      */
-    private function isSkuExist($sku)
+    private function isSkuExist(string $sku): bool
     {
         $sku = strtolower($sku);
         return isset($this->_oldSku[$sku]);
@@ -2867,7 +2865,7 @@ class Product extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
      * @param string $sku
      * @return array
      */
-    private function getExistingSku($sku)
+    private function getExistingSku(string $sku): array
     {
         return $this->_oldSku[strtolower($sku)];
     }

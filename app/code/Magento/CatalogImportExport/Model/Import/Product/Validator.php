@@ -86,7 +86,7 @@ class Validator extends AbstractValidator implements RowValidatorInterface
      * @param string $value
      * @return bool
      */
-    private function validateOption($attrCode, $possibleOptions, $value)
+    private function validateOption(string $attrCode, array $possibleOptions, string $value): bool
     {
         if (!isset($possibleOptions[strtolower($value)])) {
             $this->_addMessages(
