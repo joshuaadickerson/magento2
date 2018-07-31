@@ -202,9 +202,9 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @param string $lastTransactionId
-     * @return \Braintree\ResourceCollection|MockObject
+     * @return \Braintree\ResourceCollection|PHPUnit_Framework_MockObject_MockObject
      */
-    private function getNotExpiredExpectedCollection($lastTransactionId)
+    private function getNotExpiredExpectedCollection(string $lastTransactionId): \PHPUnit_Framework_MockObject_MockObject
     {
         $isExpectations = [
             'id' => ['is' => $lastTransactionId],
@@ -324,7 +324,7 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
      * Creates mock for payment data object and order payment
      * @return MockObject
      */
-    private function getPaymentDataObjectMock()
+    private function getPaymentDataObjectMock(): MockObject
     {
         $this->paymentMock = $this->getMockBuilder(Payment::class)
             ->disableOriginalConstructor()
@@ -352,7 +352,7 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
     /**
      * Creates mock for gateway command object
      */
-    private function initCommandMock()
+    private function initCommandMock(): void
     {
         $this->commandMock = $this->getMockBuilder(GatewayCommand::class)
             ->disableOriginalConstructor()
@@ -367,7 +367,7 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
     /**
      * Creates mock for filter object
      */
-    private function initFilterBuilderMock()
+    private function initFilterBuilderMock(): void
     {
         $this->filterBuilderMock = $this->getMockBuilder(FilterBuilder::class)
             ->disableOriginalConstructor()
@@ -378,7 +378,7 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
     /**
      * Builds search criteria
      */
-    private function buildSearchCriteria()
+    private function buildSearchCriteria(): void
     {
         $this->filterBuilderMock->expects(static::exactly(2))
             ->method('setField')
@@ -404,7 +404,7 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for search criteria object
      */
-    private function initSearchCriteriaBuilderMock()
+    private function initSearchCriteriaBuilderMock(): void
     {
         $this->searchCriteriaBuilderMock = $this->getMockBuilder(SearchCriteriaBuilder::class)
             ->disableOriginalConstructor()
@@ -415,7 +415,7 @@ class CaptureStrategyCommandTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for transaction repository
      */
-    private function initTransactionRepositoryMock()
+    private function initTransactionRepositoryMock(): void
     {
         $this->transactionRepositoryMock = $this->getMockBuilder(TransactionRepositoryInterface::class)
             ->disableOriginalConstructor()

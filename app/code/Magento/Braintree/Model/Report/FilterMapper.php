@@ -43,7 +43,7 @@ class FilterMapper
      * Init fields map with Braintree filters
      * @return void
      */
-    private function initFieldsToFiltersMap()
+    private function initFieldsToFiltersMap(): void
     {
         $this->searchFieldsToFiltersMap = [
             'id' => $this->braintreeSearchAdapter->id(),
@@ -87,7 +87,7 @@ class FilterMapper
      * @param array $conditionMap
      * @return bool
      */
-    private function applyConditions($fieldFilter, array $conditionMap)
+    private function applyConditions(object $fieldFilter, array $conditionMap): bool
     {
         $applier = $this->appliersPool->getApplier($fieldFilter);
 

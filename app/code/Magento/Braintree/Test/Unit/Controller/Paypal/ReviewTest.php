@@ -255,7 +255,7 @@ class ReviewTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Redirect|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getResultRedirectMock()
+    private function getResultRedirectMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Redirect::class)
             ->disableOriginalConstructor()
@@ -265,7 +265,7 @@ class ReviewTest extends \PHPUnit\Framework\TestCase
     /**
      * @return AbstractBlock|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getChildBlockMock()
+    private function getChildBlockMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(AbstractBlock::class)
             ->disableOriginalConstructor()
@@ -275,7 +275,7 @@ class ReviewTest extends \PHPUnit\Framework\TestCase
     /**
      * @return CheckoutReview|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getBlockMock()
+    private function getBlockMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(CheckoutReview::class)
             ->disableOriginalConstructor()
@@ -285,7 +285,7 @@ class ReviewTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Layout|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getLayoutMock()
+    private function getLayoutMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Layout::class)
             ->disableOriginalConstructor()
@@ -295,7 +295,7 @@ class ReviewTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Page|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getResultPageMock()
+    private function getResultPageMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Page::class)
             ->disableOriginalConstructor()
@@ -305,7 +305,7 @@ class ReviewTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Quote|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getQuoteMock()
+    private function getQuoteMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Quote::class)
             ->disableOriginalConstructor()

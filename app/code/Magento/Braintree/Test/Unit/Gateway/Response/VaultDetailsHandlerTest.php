@@ -144,7 +144,7 @@ class VaultDetailsHandlerTest extends TestCase
      *
      * @return Successful
      */
-    private function getBraintreeTransaction()
+    private function getBraintreeTransaction(): Successful
     {
         $attributes = [
             'id' => self::$transactionId,
@@ -213,7 +213,7 @@ class VaultDetailsHandlerTest extends TestCase
      *
      * @return void
      */
-    private function initPaymentExtensionAttributesMock()
+    private function initPaymentExtensionAttributesMock(): void
     {
         $this->paymentExtension = $this->getMockBuilder(OrderPaymentExtensionInterface::class)
             ->setMethods(['setVaultPaymentToken', 'getVaultPaymentToken'])

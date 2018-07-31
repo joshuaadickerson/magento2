@@ -130,7 +130,7 @@ class TransactionRefundTest extends \PHPUnit\Framework\TestCase
      *
      * @return TransferInterface|MockObject
      */
-    private function getTransferObjectMock()
+    private function getTransferObjectMock(): MockObject
     {
         $transferObjectMock = $this->createMock(TransferInterface::class);
         $transferObjectMock->expects($this->once())
@@ -145,7 +145,7 @@ class TransactionRefundTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function getTransferData()
+    private function getTransferData(): array
     {
         return [
             'transaction_id' => $this->transactionId,

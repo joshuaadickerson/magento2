@@ -41,7 +41,7 @@ class TransactionType implements OptionSourceInterface
     /**
      * @return array
      */
-    private function getAvailableTransactionTypes()
+    private function getAvailableTransactionTypes(): array
     {
         // @codingStandardsIgnoreStart
         return [

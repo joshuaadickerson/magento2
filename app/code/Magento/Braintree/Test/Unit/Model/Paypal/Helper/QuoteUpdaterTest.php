@@ -121,7 +121,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
         $this->quoteUpdater->execute(self::TEST_NONCE, $details, $quoteMock);
     }
 
-    private function disabledQuoteAddressValidationStep()
+    private function disabledQuoteAddressValidationStep(): void
     {
         $this->billingAddressMock->expects(self::once())
             ->method('setShouldIgnoreValidation')
@@ -137,7 +137,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @return array
      */
-    private function getDetails()
+    private function getDetails(): array
     {
         return [
             'email' => 'bt_buyer_us@paypal.com',
@@ -169,7 +169,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @param array $details
      */
-    private function updateShippingAddressStep(array $details)
+    private function updateShippingAddressStep(array $details): void
     {
         $this->shippingAddressMock->expects(self::once())
             ->method('setLastname')
@@ -191,7 +191,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
      * @param \PHPUnit_Framework_MockObject_MockObject $addressMock
      * @param array $addressData
      */
-    private function updateAddressDataStep(\PHPUnit_Framework_MockObject_MockObject $addressMock, array $addressData)
+    private function updateAddressDataStep(\PHPUnit_Framework_MockObject_MockObject $addressMock, array $addressData): void
     {
         $addressMock->expects(self::once())
             ->method('setStreet')
@@ -214,7 +214,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
      * @param \PHPUnit_Framework_MockObject_MockObject $quoteMock
      * @param array $details
      */
-    private function updateQuoteAddressStep(\PHPUnit_Framework_MockObject_MockObject $quoteMock, array $details)
+    private function updateQuoteAddressStep(\PHPUnit_Framework_MockObject_MockObject $quoteMock, array $details): void
     {
         $quoteMock->expects(self::exactly(2))
             ->method('getIsVirtual')
@@ -227,7 +227,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @param array $details
      */
-    private function updateBillingAddressStep(array $details)
+    private function updateBillingAddressStep(array $details): void
     {
         $this->configMock->expects(self::once())
             ->method('isRequiredBillingAddress')
@@ -250,7 +250,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
      * @param \PHPUnit_Framework_MockObject_MockObject $quoteMock
      * @param array $details
      */
-    private function updateQuoteStep(\PHPUnit_Framework_MockObject_MockObject $quoteMock, array $details)
+    private function updateQuoteStep(\PHPUnit_Framework_MockObject_MockObject $quoteMock, array $details): void
     {
         $quoteMock->expects(self::once())
             ->method('setMayEditShippingAddress')
@@ -280,7 +280,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Quote|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getQuoteMock()
+    private function getQuoteMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $quoteMock = $this->getMockBuilder(Quote::class)
             ->setMethods(
@@ -312,7 +312,7 @@ class QuoteUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Payment|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getPaymentMock()
+    private function getPaymentMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Payment::class)
             ->disableOriginalConstructor()

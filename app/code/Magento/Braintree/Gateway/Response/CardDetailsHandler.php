@@ -82,7 +82,7 @@ class CardDetailsHandler implements HandlerInterface
      * @param string $type
      * @return array
      */
-    private function getCreditCardType($type)
+    private function getCreditCardType(string $type): array
     {
         $replaced = str_replace(' ', '-', strtolower($type));
         $mapper = $this->config->getCcTypesMapper();

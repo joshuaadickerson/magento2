@@ -61,7 +61,7 @@ class ConvertSerializedDataToJson implements DataPatchInterface, PatchVersionInt
      *
      * @return void
      */
-    private function convertSerializedDataToJson()
+    private function convertSerializedDataToJson(): void
     {
         $fieldDataConverter = $this->fieldDataConverterFactory->create(
             \Magento\Framework\DB\DataConverter\SerializedToJson::class

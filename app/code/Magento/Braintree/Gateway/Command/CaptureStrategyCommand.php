@@ -123,7 +123,7 @@ class CaptureStrategyCommand implements CommandInterface
      * @param PaymentDataObjectInterface $paymentDO
      * @return string
      */
-    private function getCommand(PaymentDataObjectInterface $paymentDO)
+    private function getCommand(PaymentDataObjectInterface $paymentDO): string
     {
         $payment = $paymentDO->getPayment();
         ContextHelper::assertOrderPayment($payment);
@@ -150,7 +150,7 @@ class CaptureStrategyCommand implements CommandInterface
      * @param OrderAdapterInterface $orderAdapter
      * @return bool
      */
-    private function isExpiredAuthorization(OrderPaymentInterface $payment, OrderAdapterInterface $orderAdapter)
+    private function isExpiredAuthorization(OrderPaymentInterface $payment, OrderAdapterInterface $orderAdapter): bool
     {
         $adapter = $this->braintreeAdapterFactory->create($orderAdapter->getStoreId());
         $collection = $adapter->search(
@@ -169,7 +169,7 @@ class CaptureStrategyCommand implements CommandInterface
      * @param OrderPaymentInterface $payment
      * @return bool
      */
-    private function isExistsCaptureTransaction(OrderPaymentInterface $payment)
+    private function isExistsCaptureTransaction(OrderPaymentInterface $payment): bool
     {
         $this->searchCriteriaBuilder->addFilters(
             [

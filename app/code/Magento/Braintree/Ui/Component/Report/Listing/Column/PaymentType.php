@@ -41,7 +41,7 @@ class PaymentType implements OptionSourceInterface
     /**
      * @return array
      */
-    private function getAvailablePaymentTypes()
+    private function getAvailablePaymentTypes(): array
     {
         // @codingStandardsIgnoreStart
         return [

@@ -62,7 +62,7 @@ class ThreeDSecureDataBuilder implements BuilderInterface
      * @param float $amount
      * @return bool
      */
-    private function is3DSecureEnabled(OrderAdapterInterface $order, $amount)
+    private function is3DSecureEnabled(OrderAdapterInterface $order, float $amount): bool
     {
         $storeId = $order->getStoreId();
         if (!$this->config->isVerify3DSecure($storeId)

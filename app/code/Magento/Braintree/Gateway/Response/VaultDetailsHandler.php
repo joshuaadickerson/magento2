@@ -118,10 +118,10 @@ class VaultDetailsHandler implements HandlerInterface
     }
 
     /**
-     * @param Transaction $transaction
+     * @param \Braintree\Transaction $transaction
      * @return string
      */
-    private function getExpirationDate(Transaction $transaction)
+    private function getExpirationDate(\Braintree\Transaction $transaction): string
     {
         $expDate = new \DateTime(
             $transaction->creditCardDetails->expirationYear
@@ -142,7 +142,7 @@ class VaultDetailsHandler implements HandlerInterface
      * @param array $details
      * @return string
      */
-    private function convertDetailsToJSON($details)
+    private function convertDetailsToJSON(array $details): string
     {
         $json = $this->serializer->serialize($details);
         return $json ? $json : '{}';
@@ -154,7 +154,7 @@ class VaultDetailsHandler implements HandlerInterface
      * @param string $type
      * @return array
      */
-    private function getCreditCardType($type)
+    private function getCreditCardType(string $type): array
     {
         $replaced = str_replace(' ', '-', strtolower($type));
         $mapper = $this->config->getCcTypesMapper();
@@ -167,7 +167,7 @@ class VaultDetailsHandler implements HandlerInterface
      * @param InfoInterface $payment
      * @return OrderPaymentExtensionInterface
      */
-    private function getExtensionAttributes(InfoInterface $payment)
+    private function getExtensionAttributes(InfoInterface $payment): OrderPaymentExtensionInterface
     {
         $extensionAttributes = $payment->getExtensionAttributes();
         if (null === $extensionAttributes) {

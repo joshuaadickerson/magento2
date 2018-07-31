@@ -100,7 +100,7 @@ class TransactionSubmitForSettlementTest extends \PHPUnit\Framework\TestCase
      *
      * @return TransferInterface|MockObject
      */
-    private function getTransferObjectMock()
+    private function getTransferObjectMock(): MockObject
     {
         $mock = $this->createMock(TransferInterface::class);
         $mock->expects($this->once())

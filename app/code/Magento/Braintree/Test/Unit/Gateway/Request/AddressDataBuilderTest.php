@@ -174,7 +174,7 @@ class AddressDataBuilderTest extends \PHPUnit\Framework\TestCase
      * @param array $addressData
      * @return AddressAdapterInterface|MockObject
      */
-    private function getAddressMock($addressData)
+    private function getAddressMock(array $addressData): MockObject
     {
         $addressMock = $this->createMock(AddressAdapterInterface::class);
 

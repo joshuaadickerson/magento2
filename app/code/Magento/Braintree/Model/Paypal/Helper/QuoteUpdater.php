@@ -74,7 +74,7 @@ class QuoteUpdater extends AbstractHelper
      * @param array $details
      * @return void
      */
-    private function updateQuote(Quote $quote, array $details)
+    private function updateQuote(Quote $quote, array $details): void
     {
         $quote->setMayEditShippingAddress(false);
         $quote->setMayEditShippingMethod(true);
@@ -102,7 +102,7 @@ class QuoteUpdater extends AbstractHelper
      * @param array $details
      * @return void
      */
-    private function updateQuoteAddress(Quote $quote, array $details)
+    private function updateQuoteAddress(Quote $quote, array $details): void
     {
         if (!$quote->getIsVirtual()) {
             $this->updateShippingAddress($quote, $details);
@@ -119,7 +119,7 @@ class QuoteUpdater extends AbstractHelper
      * @param array $details
      * @return void
      */
-    private function updateShippingAddress(Quote $quote, array $details)
+    private function updateShippingAddress(Quote $quote, array $details): void
     {
         $shippingAddress = $quote->getShippingAddress();
 
@@ -144,7 +144,7 @@ class QuoteUpdater extends AbstractHelper
      * @param array $details
      * @return void
      */
-    private function updateBillingAddress(Quote $quote, array $details)
+    private function updateBillingAddress(Quote $quote, array $details): void
     {
         $billingAddress = $quote->getBillingAddress();
 
@@ -171,7 +171,7 @@ class QuoteUpdater extends AbstractHelper
      * @param array $addressData
      * @return void
      */
-    private function updateAddressData(Address $address, array $addressData)
+    private function updateAddressData(Address $address, array $addressData): void
     {
         $extendedAddress = isset($addressData['extendedAddress'])
             ? $addressData['extendedAddress']

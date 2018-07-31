@@ -121,7 +121,7 @@ class TransactionSaleTest extends \PHPUnit\Framework\TestCase
      *
      * @return TransferInterface|MockObject
      */
-    private function getTransferObjectMock()
+    private function getTransferObjectMock(): MockObject
     {
         $transferObjectMock = $this->createMock(TransferInterface::class);
         $transferObjectMock->expects($this->once())
@@ -136,7 +136,7 @@ class TransactionSaleTest extends \PHPUnit\Framework\TestCase
      *
      * @return \stdClass
      */
-    private function getResponseObject()
+    private function getResponseObject(): \stdClass
     {
         $obj = new \stdClass;
         $obj->success = true;
@@ -149,7 +149,7 @@ class TransactionSaleTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function getTransferData()
+    private function getTransferData(): array
     {
         return [
             'test-data-key' => 'test-data-value'

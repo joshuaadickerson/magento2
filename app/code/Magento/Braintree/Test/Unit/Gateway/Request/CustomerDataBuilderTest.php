@@ -125,7 +125,7 @@ class CustomerDataBuilderTest extends \PHPUnit\Framework\TestCase
      * @param array $billingData
      * @return AddressAdapterInterface|MockObject
      */
-    private function getBillingMock($billingData)
+    private function getBillingMock(array $billingData): MockObject
     {
         $addressMock = $this->createMock(AddressAdapterInterface::class);
 

@@ -228,7 +228,7 @@ class TransactionsCollection extends Collection implements SearchResultInterface
      * @param object $filter
      * @return void
      */
-    private function addFilterToList($filter)
+    private function addFilterToList(object $filter): void
     {
         if (null !== $filter) {
             $this->filtersList[] = $filter;
@@ -238,7 +238,7 @@ class TransactionsCollection extends Collection implements SearchResultInterface
     /**
      * @return array
      */
-    private function getFilters()
+    private function getFilters(): array
     {
         return $this->filtersList;
     }

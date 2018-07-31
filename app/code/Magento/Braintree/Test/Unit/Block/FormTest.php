@@ -149,7 +149,7 @@ class FormTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for credit card type
      */
-    private function initCcTypeMock()
+    private function initCcTypeMock(): void
     {
         $this->ccTypeMock = $this->getMockBuilder(CcType::class)
             ->disableOriginalConstructor()
@@ -164,7 +164,7 @@ class FormTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for session quote
      */
-    private function initSessionQuoteMock()
+    private function initSessionQuoteMock(): void
     {
         $this->sessionQuoteMock = $this->getMockBuilder(Quote::class)
             ->disableOriginalConstructor()
@@ -185,7 +185,7 @@ class FormTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for gateway config
      */
-    private function initGatewayConfigMock()
+    private function initGatewayConfigMock(): void
     {
         $this->gatewayConfigMock = $this->getMockBuilder(GatewayConfig::class)
             ->disableOriginalConstructor()

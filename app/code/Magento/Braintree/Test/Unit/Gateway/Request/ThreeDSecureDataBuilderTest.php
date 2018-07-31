@@ -161,7 +161,7 @@ class ThreeDSecureDataBuilderTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    private function initOrderMock()
+    private function initOrderMock(): void
     {
         $this->billingAddressMock = $this->getMockBuilder(AddressAdapter::class)
             ->disableOriginalConstructor()

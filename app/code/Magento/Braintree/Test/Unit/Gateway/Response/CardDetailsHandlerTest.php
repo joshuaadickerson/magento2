@@ -84,7 +84,7 @@ class CardDetailsHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for gateway config
      */
-    private function initConfigMock()
+    private function initConfigMock(): void
     {
         $this->configMock = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
@@ -107,7 +107,7 @@ class CardDetailsHandlerTest extends \PHPUnit\Framework\TestCase
      * Create mock for payment data object and order payment
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getPaymentDataObjectMock()
+    private function getPaymentDataObjectMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $this->paymentMock = $this->getMockBuilder(Payment::class)
             ->disableOriginalConstructor()
@@ -136,7 +136,7 @@ class CardDetailsHandlerTest extends \PHPUnit\Framework\TestCase
      * Create Braintree transaction
      * @return \Braintree\Transaction
      */
-    private function getBraintreeTransaction()
+    private function getBraintreeTransaction(): \Braintree\Transaction
     {
         $attributes = [
             'creditCard' => [

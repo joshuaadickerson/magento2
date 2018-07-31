@@ -80,7 +80,7 @@ class GetNonce extends Action
      * @param ResultInterface $response
      * @return ResultInterface
      */
-    private function processBadRequest(ResultInterface $response)
+    private function processBadRequest(ResultInterface $response): ResultInterface
     {
         $response->setHttpResponseCode(Exception::HTTP_BAD_REQUEST);
         $response->setData(['message' => __('Sorry, but something went wrong')]);

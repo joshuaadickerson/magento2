@@ -375,7 +375,7 @@ class ConfigTest extends \PHPUnit\Framework\TestCase
      * @param string $field
      * @return string
      */
-    private function getPath($field)
+    private function getPath(string $field): string
     {
         return sprintf(Config::DEFAULT_PATH_PATTERN, self::METHOD_CODE, $field);
     }

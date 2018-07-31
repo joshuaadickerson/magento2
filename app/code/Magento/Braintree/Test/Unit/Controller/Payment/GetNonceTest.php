@@ -188,7 +188,7 @@ class GetNonceTest extends \PHPUnit\Framework\TestCase
     /**
      * Create mock for result factory object
      */
-    private function initResultFactoryMock()
+    private function initResultFactoryMock(): void
     {
         $this->resultMock = $this->getMockBuilder(ResultInterface::class)
             ->setMethods(['setHttpResponseCode', 'renderResult', 'setHeader', 'setData'])

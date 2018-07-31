@@ -196,7 +196,7 @@ class PlaceOrderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return ResultInterface|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getResultMock()
+    private function getResultMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(ResultInterface::class)
             ->setMethods(['setPath'])
@@ -206,7 +206,7 @@ class PlaceOrderTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Quote|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getQuoteMock()
+    private function getQuoteMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Quote::class)
             ->disableOriginalConstructor()

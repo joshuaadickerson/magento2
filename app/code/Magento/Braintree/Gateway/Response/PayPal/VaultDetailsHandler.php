@@ -81,7 +81,7 @@ class VaultDetailsHandler implements HandlerInterface
      * @param \Braintree\Transaction $transaction
      * @return PaymentTokenInterface|null
      */
-    private function getVaultPaymentToken(Transaction $transaction)
+    private function getVaultPaymentToken(Transaction $transaction): ?PaymentTokenInterface
     {
         // Check token existing in gateway response
         $token = $transaction->paypalDetails->token;
@@ -104,7 +104,7 @@ class VaultDetailsHandler implements HandlerInterface
     /**
      * @return string
      */
-    private function getExpirationDate()
+    private function getExpirationDate(): string
     {
         $expDate = $this->dateTimeFactory->create('now', new \DateTimeZone('UTC'));
         $expDate->add(new \DateInterval('P1Y'));
@@ -116,7 +116,7 @@ class VaultDetailsHandler implements HandlerInterface
      * @param InfoInterface $payment
      * @return OrderPaymentExtensionInterface
      */
-    private function getExtensionAttributes(InfoInterface $payment)
+    private function getExtensionAttributes(InfoInterface $payment): OrderPaymentExtensionInterface
     {
         $extensionAttributes = $payment->getExtensionAttributes();
         if ($extensionAttributes === null) {

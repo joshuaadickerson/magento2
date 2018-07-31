@@ -87,7 +87,7 @@ class ThreeDSecureDetailsHandlerTest extends \PHPUnit\Framework\TestCase
      * Create mock for payment data object and order payment
      * @return MockObject
      */
-    private function getPaymentDataObjectMock()
+    private function getPaymentDataObjectMock(): MockObject
     {
         $mock = $this->getMockBuilder(PaymentDataObject::class)
             ->setMethods(['getPayment'])
@@ -105,7 +105,7 @@ class ThreeDSecureDetailsHandlerTest extends \PHPUnit\Framework\TestCase
      * Create Braintree transaction
      * @return MockObject
      */
-    private function getBraintreeTransaction()
+    private function getBraintreeTransaction(): MockObject
     {
         $attributes = [
             'id' => self::TRANSACTION_ID,
@@ -121,7 +121,7 @@ class ThreeDSecureDetailsHandlerTest extends \PHPUnit\Framework\TestCase
      * Get 3d secure details
      * @return array
      */
-    private function getThreeDSecureInfo()
+    private function getThreeDSecureInfo(): array
     {
         $attributes = [
             'liabilityShifted' => 'Yes',

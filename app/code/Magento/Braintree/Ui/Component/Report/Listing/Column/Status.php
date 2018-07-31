@@ -41,7 +41,7 @@ class Status implements OptionSourceInterface
     /**
      * @return array
      */
-    private function getAvailableStatuses()
+    private function getAvailableStatuses(): array
     {
         // @codingStandardsIgnoreStart
         return [

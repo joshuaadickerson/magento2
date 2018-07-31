@@ -187,7 +187,7 @@ class DateRangeTest extends \PHPUnit\Framework\TestCase
      *
      * @return Filter|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getFilterMock($name, $expectedType, $expectedDate, &$i)
+    private function getFilterMock($name, $expectedType, $expectedDate, &$i): \PHPUnit_Framework_MockObject_MockObject
     {
         $this->filterBuilderMock->expects(static::at($i++))
             ->method('setConditionType')

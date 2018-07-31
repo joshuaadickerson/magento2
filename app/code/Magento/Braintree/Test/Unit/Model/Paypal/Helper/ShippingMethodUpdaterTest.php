@@ -116,7 +116,7 @@ class ShippingMethodUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @param \PHPUnit_Framework_MockObject_MockObject $quoteMock
      */
-    private function disabledQuoteAddressValidationStep(\PHPUnit_Framework_MockObject_MockObject $quoteMock)
+    private function disabledQuoteAddressValidationStep(\PHPUnit_Framework_MockObject_MockObject $quoteMock): void
     {
         $billingAddressMock = $this->getBillingAddressMock($quoteMock);
 
@@ -142,7 +142,7 @@ class ShippingMethodUpdaterTest extends \PHPUnit\Framework\TestCase
      * @param \PHPUnit_Framework_MockObject_MockObject $quoteMock
      * @return Address|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getBillingAddressMock(\PHPUnit_Framework_MockObject_MockObject $quoteMock)
+    private function getBillingAddressMock(\PHPUnit_Framework_MockObject_MockObject $quoteMock): \PHPUnit_Framework_MockObject_MockObject
     {
         if (!isset($this->billingAddressMock)) {
             $this->billingAddressMock = $this->getMockBuilder(Address::class)
@@ -161,7 +161,7 @@ class ShippingMethodUpdaterTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Quote|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getQuoteMock()
+    private function getQuoteMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Quote::class)
             ->setMethods(

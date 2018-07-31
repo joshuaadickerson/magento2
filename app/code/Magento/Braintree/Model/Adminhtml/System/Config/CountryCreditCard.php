@@ -128,7 +128,7 @@ class CountryCreditCard extends Value
      * @param array $inputCountriesList
      * @return array
      */
-    private function appendUniqueCountries(array $countriesList, array $inputCountriesList)
+    private function appendUniqueCountries(array $countriesList, array $inputCountriesList): array
     {
         $result = array_merge($countriesList, $inputCountriesList);
         return array_values(array_unique($result));

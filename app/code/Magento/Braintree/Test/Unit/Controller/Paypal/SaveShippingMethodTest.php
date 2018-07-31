@@ -289,7 +289,7 @@ class SaveShippingMethodTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Review|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getBlockMock()
+    private function getBlockMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Review::class)
             ->disableOriginalConstructor()
@@ -299,7 +299,7 @@ class SaveShippingMethodTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Layout|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getLayoutMock()
+    private function getLayoutMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Layout::class)
             ->disableOriginalConstructor()
@@ -309,7 +309,7 @@ class SaveShippingMethodTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Quote|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getQuoteMock()
+    private function getQuoteMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Quote::class)
             ->disableOriginalConstructor()
@@ -319,7 +319,7 @@ class SaveShippingMethodTest extends \PHPUnit\Framework\TestCase
     /**
      * @return Page|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getResponsePageMock()
+    private function getResponsePageMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Page::class)
             ->disableOriginalConstructor()

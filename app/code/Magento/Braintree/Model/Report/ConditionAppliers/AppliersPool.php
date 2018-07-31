@@ -28,9 +28,10 @@ class AppliersPool
     /**
      * Check appliers's types
      *
+     * @throws \InvalidArgumentException
      * @return bool
      */
-    private function checkAppliers()
+    private function checkAppliers(): bool
     {
         foreach ($this->appliersPool as $applier) {
             if (!($applier instanceof ApplierInterface)) {

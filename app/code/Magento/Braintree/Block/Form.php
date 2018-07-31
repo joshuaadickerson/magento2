@@ -13,6 +13,7 @@ use Magento\Framework\View\Element\Template\Context;
 use Magento\Payment\Block\Form\Cc;
 use Magento\Payment\Helper\Data;
 use Magento\Payment\Model\Config;
+use Magento\Payment\Model\MethodInterface;
 use Magento\Vault\Model\VaultPaymentInterface;
 
 /**
@@ -99,7 +100,7 @@ class Form extends Cc
      * Get card types available for Braintree
      * @return array
      */
-    private function getConfiguredCardTypes()
+    private function getConfiguredCardTypes(): array
     {
         $types = $this->ccType->getCcTypeLabelMap();
         $configCardTypes = array_fill_keys(
@@ -116,7 +117,7 @@ class Form extends Cc
      * @param string $countryId
      * @return array
      */
-    private function filterCardTypesForCountry(array $configCardTypes, $countryId)
+    private function filterCardTypesForCountry(array $configCardTypes, string $countryId): array
     {
         $filtered = $configCardTypes;
         $countryCardTypes = $this->gatewayConfig->getCountryAvailableCardTypes(
@@ -134,9 +135,9 @@ class Form extends Cc
 
     /**
      * Get configured vault payment for Braintree
-     * @return VaultPaymentInterface
+     * @return MethodInterface
      */
-    private function getVaultPayment()
+    private function getVaultPayment(): MethodInterface
     {
         return $this->paymentDataHelper->getMethodInstance(ConfigProvider::CC_VAULT_CODE);
     }

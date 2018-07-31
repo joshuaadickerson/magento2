@@ -146,7 +146,7 @@ class TransactionMap implements DocumentInterface
      * @param string $key
      * @return mixed
      */
-    private function getMappedValue($key)
+    private function getMappedValue(string $key)
     {
         if (!in_array($key, static::$simpleFieldsMap)) {
             return null;
@@ -160,7 +160,7 @@ class TransactionMap implements DocumentInterface
     /**
      * @return array
      */
-    private function getMappedValues()
+    private function getMappedValues(): array
     {
         $result = [];
 
@@ -179,7 +179,7 @@ class TransactionMap implements DocumentInterface
      * @param string $key
      * @return Transaction|mixed|null
      */
-    private function getTransactionFieldValue($key)
+    private function getTransactionFieldValue(string $key)
     {
         $keys = explode(self::TRANSACTION_FIELD_MAP_DELIMITER, $key);
         $result = $this->transaction;
@@ -199,7 +199,7 @@ class TransactionMap implements DocumentInterface
      * @param string $val
      * @return string
      */
-    private function convertToText($val)
+    private function convertToText(string $val): string
     {
         if (is_object($val)) {
             switch (get_class($val)) {
