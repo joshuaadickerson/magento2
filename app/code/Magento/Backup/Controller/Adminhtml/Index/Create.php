@@ -112,7 +112,7 @@ class Create extends \Magento\Backup\Controller\Adminhtml\Index
      *
      * @return bool
      */
-    private function isRequestAllowed()
+    private function isRequestAllowed(): bool
     {
         return $this->getRequest()->isAjax() && $this->getRequest()->isPost();
     }
