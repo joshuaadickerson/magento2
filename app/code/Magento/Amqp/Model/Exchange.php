@@ -49,7 +49,7 @@ class Exchange extends \Magento\Framework\Amqp\Exchange
      *
      * @deprecated 100.2.0
      */
-    private function getPublisherConfig()
+    private function getPublisherConfig(): PublisherConfig
     {
         return \Magento\Framework\App\ObjectManager::getInstance()->get(PublisherConfig::class);
     }
@@ -61,7 +61,7 @@ class Exchange extends \Magento\Framework\Amqp\Exchange
      *
      * @deprecated 100.2.0
      */
-    private function getResponseQueueNameBuilder()
+    private function getResponseQueueNameBuilder(): ResponseQueueNameBuilder
     {
         return \Magento\Framework\App\ObjectManager::getInstance()->get(ResponseQueueNameBuilder::class);
     }

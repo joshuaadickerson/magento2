@@ -217,7 +217,7 @@ class ConfigOptionsList implements ConfigOptionsListInterface
      * @param string $key
      * @return bool
      */
-    private function isDataEmpty(array $data, $key)
+    private function isDataEmpty(array $data, string $key): bool
     {
         if (isset($data[$key]) && $data[$key] !== '') {
             return false;
