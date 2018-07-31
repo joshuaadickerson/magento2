@@ -73,7 +73,7 @@ class UserConfig implements AppInterface
      *
      * @return void
      */
-    private function updateUserConfigData()
+    private function updateUserConfigData(): void
     {
         foreach ($this->request as $key => $val) {
             $configModel = $this->configFactory->create();

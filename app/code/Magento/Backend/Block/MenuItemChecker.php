@@ -41,7 +41,7 @@ class MenuItemChecker
      * @param Item $item
      * @return bool
      */
-    private function isActiveItemEqualOrChild($activeItem, $item)
+    private function isActiveItemEqualOrChild(Item $activeItem, Item $item): bool
     {
         return ($activeItem->getId() == $item->getId())
         || ($item->getChildren()->get($activeItem->getId()) !== null);

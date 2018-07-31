@@ -49,7 +49,7 @@ class MassEnable extends \Magento\Backend\Controller\Adminhtml\Cache
      *
      * @return void
      */
-    private function enableCache()
+    private function enableCache(): void
     {
         try {
             $types = $this->getRequest()->getParam('types');
@@ -81,7 +81,7 @@ class MassEnable extends \Magento\Backend\Controller\Adminhtml\Cache
      * @return State
      * @deprecated 100.2.0
      */
-    private function getState()
+    private function getState(): State
     {
         if ($this->state === null) {
             $this->state = ObjectManager::getInstance()->get(State::class);

@@ -106,7 +106,7 @@ abstract class AbstractMassaction extends \Magento\Backend\Block\Widget
      * @param DataObject $item
      * @return bool
      */
-    private function isVisible(DataObject $item)
+    private function isVisible(DataObject $item): bool
     {
         /** @var VisibilityChecker $checker */
         $checker = $item->getData('visible');

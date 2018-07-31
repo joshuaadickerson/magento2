@@ -92,7 +92,7 @@ class AdminConfig extends Config
      *
      * @return string
      */
-    private function extractAdminPath()
+    private function extractAdminPath(): string
     {
         $backendApp = $this->backendAppList->getCurrentApp();
         $cookiePath = null;

@@ -114,7 +114,7 @@ class FrontNameResolver implements \Magento\Framework\App\Area\FrontNameResolver
      * @param string $url
      * @return mixed|string
      */
-    private function getHostWithPort($url)
+    private function getHostWithPort(string $url): ?string
     {
         $scheme = parse_url(trim($url), PHP_URL_SCHEME);
         $host = parse_url(trim($url), PHP_URL_HOST);

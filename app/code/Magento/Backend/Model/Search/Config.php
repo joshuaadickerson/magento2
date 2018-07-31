@@ -98,8 +98,11 @@ class Config extends \Magento\Framework\DataObject
      * @return void
      * @SuppressWarnings(PHPMD.LongVariable)
      */
-    private function findInStructure(ElementIterator $structureElementIterator, $searchTerm, $pathLabel = '')
-    {
+    private function findInStructure(
+        ElementIterator $structureElementIterator,
+        string $searchTerm,
+        string $pathLabel = ''
+    ): void {
         if (empty($searchTerm)) {
             return;
         }

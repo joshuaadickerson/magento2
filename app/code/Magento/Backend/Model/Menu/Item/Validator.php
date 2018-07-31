@@ -94,7 +94,7 @@ class Validator
      * @param array $data
      * @return bool
      */
-    private function checkMenuItemIsRemoved($data)
+    private function checkMenuItemIsRemoved(array $data): bool
     {
         return isset($data['id'], $data['removed']) && $data['removed'] === true;
     }
@@ -104,8 +104,9 @@ class Validator
      * @param array $data
      *
      * @throws \BadMethodCallException
+     * @return void
      */
-    private function assertContainsRequiredParameters($data)
+    private function assertContainsRequiredParameters(array $data): void
     {
         foreach ($this->_required as $param) {
             if (!isset($data[$param])) {
@@ -120,7 +121,7 @@ class Validator
      * @param string $id
      * @throws \InvalidArgumentException
      */
-    private function assertIdentifierIsNotUsed($id)
+    private function assertIdentifierIsNotUsed(string $id): void
     {
         if (array_search($id, $this->_ids) !== false) {
             throw new \InvalidArgumentException('Item with id ' . $id . ' already exists');
@@ -134,7 +135,7 @@ class Validator
      * @param mixed $value
      * @throws \InvalidArgumentException
      */
-    private function validateMenuItemParameter($param, $value)
+    private function validateMenuItemParameter(string $param, $value): void
     {
         if ($value === null) {
             return;

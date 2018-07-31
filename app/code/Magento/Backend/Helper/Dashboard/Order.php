@@ -6,6 +6,7 @@
 namespace Magento\Backend\Helper\Dashboard;
 
 use Magento\Framework\App\ObjectManager;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Adminhtml dashboard helper for orders
@@ -41,14 +42,14 @@ class Order extends \Magento\Backend\Helper\Dashboard\AbstractDashboard
     /**
      * The getter function to get the new StoreManager dependency
      *
-     * @return \Magento\Store\Model\StoreManagerInterface
+     * @return StoreManagerInterface
      *
      * @deprecated 100.1.0
      */
-    private function getStoreManager()
+    private function getStoreManager(): StoreManagerInterface
     {
         if ($this->_storeManager === null) {
-            $this->_storeManager = ObjectManager::getInstance()->get(\Magento\Store\Model\StoreManagerInterface::class);
+            $this->_storeManager = ObjectManager::getInstance()->get(StoreManagerInterface::class);
         }
         return $this->_storeManager;
     }

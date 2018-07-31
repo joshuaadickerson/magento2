@@ -19,7 +19,7 @@ class Save extends \Magento\Backend\Controller\Adminhtml\System\Store
      * @param array $postData
      * @return array
      */
-    private function processWebsiteSave($postData)
+    private function processWebsiteSave(array $postData): array
     {
         $postData['website']['name'] = $this->filterManager->removeTags($postData['website']['name']);
         $websiteModel = $this->_objectManager->create(\Magento\Store\Model\Website::class);
@@ -44,7 +44,7 @@ class Save extends \Magento\Backend\Controller\Adminhtml\System\Store
      * @throws \Magento\Framework\Exception\LocalizedException
      * @return array
      */
-    private function processStoreSave($postData)
+    private function processStoreSave(array $postData): array
     {
         /** @var \Magento\Store\Model\Store $storeModel */
         $storeModel = $this->_objectManager->create(\Magento\Store\Model\Store::class);
@@ -80,7 +80,7 @@ class Save extends \Magento\Backend\Controller\Adminhtml\System\Store
      * @throws \Magento\Framework\Exception\LocalizedException
      * @return array
      */
-    private function processGroupSave($postData)
+    private function processGroupSave(array $postData): array
     {
         $postData['group']['name'] = $this->filterManager->removeTags($postData['group']['name']);
         /** @var \Magento\Store\Model\Group $groupModel */
@@ -157,7 +157,7 @@ class Save extends \Magento\Backend\Controller\Adminhtml\System\Store
      * @param \Magento\Store\Model\Group $groupModel
      * @return bool
      */
-    private function isSelectedDefaultStoreActive(array $postData, \Magento\Store\Model\Group $groupModel)
+    private function isSelectedDefaultStoreActive(array $postData, \Magento\Store\Model\Group $groupModel): bool
     {
         if (!empty($postData['group']['default_store_id'])) {
             $defaultStoreId = $postData['group']['default_store_id'];

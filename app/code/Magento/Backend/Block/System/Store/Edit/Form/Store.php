@@ -183,7 +183,7 @@ class Store extends \Magento\Backend\Block\System\Store\Edit\AbstractForm
         \Magento\Framework\Data\Form $form,
         \Magento\Store\Model\Store $storeModel,
         \Magento\Framework\Data\Form\Element\Fieldset $fieldset
-    ) {
+    ): \Magento\Framework\Data\Form\Element\Fieldset {
         if ($storeModel->getId() && $storeModel->getGroup()->getDefaultStoreId() == $storeModel->getId()) {
             if ($storeModel->getGroup() && $storeModel->getGroup()->getStoresCount() > 1) {
                 $form->getElement('store_group_id')->setDisabled(true);
@@ -205,6 +205,7 @@ class Store extends \Magento\Backend\Block\System\Store\Edit\AbstractForm
                 );
             }
         }
+
         return $fieldset;
     }
 }

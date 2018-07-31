@@ -5,6 +5,7 @@
  * See COPYING.txt for license details.
  */
 namespace Magento\Backend\Controller\Adminhtml\Auth;
+use Magento\Backend\Model\View\Result\Redirect;
 
 /**
  * @api
@@ -60,7 +61,7 @@ class Login extends \Magento\Backend\Controller\Adminhtml\Auth
      * @param string $path
      * @return \Magento\Backend\Model\View\Result\Redirect
      */
-    private function getRedirect($path)
+    private function getRedirect(string $path): Redirect
     {
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();

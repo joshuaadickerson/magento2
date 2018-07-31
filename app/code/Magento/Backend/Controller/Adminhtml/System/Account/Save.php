@@ -28,7 +28,7 @@ class Save extends \Magento\Backend\Controller\Adminhtml\System\Account
      * @return SecurityCookie
      * @deprecated 100.1.0
      */
-    private function getSecurityCookie()
+    private function getSecurityCookie(): SecurityCookie
     {
         if (!($this->securityCookie instanceof SecurityCookie)) {
             return \Magento\Framework\App\ObjectManager::getInstance()->get(SecurityCookie::class);

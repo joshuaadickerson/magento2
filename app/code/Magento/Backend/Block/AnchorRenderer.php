@@ -75,7 +75,7 @@ class AnchorRenderer
      * @param Item $menuItem
      * @return string
      */
-    private function _renderItemAnchorTitle($menuItem)
+    private function _renderItemAnchorTitle(Item $menuItem): string
     {
         return $menuItem->hasTooltip() ? 'title="' . __($menuItem->getTooltip()) . '"' : '';
     }
@@ -86,7 +86,7 @@ class AnchorRenderer
      * @param Item $menuItem
      * @return string
      */
-    private function _renderItemOnclickFunction($menuItem)
+    private function _renderItemOnclickFunction(Item $menuItem): string
     {
         return $menuItem->hasClickCallback() ? ' onclick="' . $menuItem->getClickCallback() . '"' : '';
     }

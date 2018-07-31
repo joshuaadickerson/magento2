@@ -257,7 +257,7 @@ class Tabs extends \Magento\Backend\Block\Widget
      *
      * @return array
      */
-    private function reorderTabs()
+    private function reorderTabs(): array
     {
         $orderByIdentity = [];
         $orderByPosition = [];
@@ -287,7 +287,7 @@ class Tabs extends \Magento\Backend\Block\Widget
      *
      * @return array
      */
-    private function applyTabsCorrectOrder(array $orderByPosition, array $orderByIdentity)
+    private function applyTabsCorrectOrder(array $orderByPosition, array $orderByIdentity): array
     {
         $positionFactor = 1;
 
@@ -323,7 +323,7 @@ class Tabs extends \Magento\Backend\Block\Widget
      *
      * @return array
      */
-    private function finalTabsSortOrder(array $orderByPosition)
+    private function finalTabsSortOrder(array $orderByPosition): array
     {
         ksort($orderByPosition);
 

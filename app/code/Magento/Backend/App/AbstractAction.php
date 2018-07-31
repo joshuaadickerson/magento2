@@ -193,8 +193,10 @@ abstract class AbstractAction extends \Magento\Framework\App\Action\Action
      * @param string $containerName
      * @return $this
      */
-    private function _moveBlockToContainer(\Magento\Framework\View\Element\AbstractBlock $block, $containerName)
-    {
+    private function _moveBlockToContainer(
+        \Magento\Framework\View\Element\AbstractBlock $block,
+        string $containerName
+    ): AbstractAction {
         $this->_view->getLayout()->setChild($containerName, $block->getNameInLayout(), '');
         return $this;
     }
