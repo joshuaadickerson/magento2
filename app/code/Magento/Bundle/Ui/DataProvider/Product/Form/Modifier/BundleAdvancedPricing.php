@@ -76,7 +76,7 @@ class BundleAdvancedPricing extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function modifyMsrpMeta(array $meta)
+    private function modifyMsrpMeta(array $meta): array
     {
         $meta = $this->arrayManager->merge(
             $this->arrayManager->findPath(

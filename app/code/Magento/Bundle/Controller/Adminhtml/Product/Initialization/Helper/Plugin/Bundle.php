@@ -5,6 +5,7 @@
  */
 namespace Magento\Bundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin;
 
+use Magento\Bundle\Api\Data\LinkInterface;
 use Magento\Bundle\Api\Data\OptionInterfaceFactory as OptionFactory;
 use Magento\Bundle\Api\Data\LinkInterfaceFactory as LinkFactory;
 use Magento\Catalog\Api\Data\ProductCustomOptionInterfaceFactory;
@@ -201,15 +202,15 @@ class Bundle
      * @param \Magento\Catalog\Model\Product $product
      * @param array $linkData
      *
-     * @return \Magento\Bundle\Api\Data\LinkInterface
+     * @return LinkInterface
      */
     private function buildLink(
         \Magento\Catalog\Model\Product $product,
         array $linkData
-    ) {
+    ): LinkInterface {
         $link = $this->linkFactory->create(['data' => $linkData]);
 
-        if ((int)$product->getPriceType() !== \Magento\Bundle\Model\Product\Price::PRICE_TYPE_DYNAMIC) {
+        if ((int) $product->getPriceType() !== \Magento\Bundle\Model\Product\Price::PRICE_TYPE_DYNAMIC) {
             if (array_key_exists('selection_price_value', $linkData)) {
                 $link->setPrice($linkData['selection_price_value']);
             }

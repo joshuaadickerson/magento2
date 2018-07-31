@@ -201,7 +201,7 @@ class Calculator implements BundleCalculatorInterface
      * @return SelectionPriceListProviderInterface
      * @deprecated 100.2.0
      */
-    private function getSelectionPriceListProvider()
+    private function getSelectionPriceListProvider(): SelectionPriceListProviderInterface
     {
         if (null === $this->selectionPriceListProvider) {
             $this->selectionPriceListProvider = \Magento\Framework\App\ObjectManager::getInstance()

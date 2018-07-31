@@ -136,7 +136,7 @@ class BundleOptionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    private function prepareOptionMocks(array $selectionCollection)
+    private function prepareOptionMocks(array $selectionCollection): void
     {
         $this->saleableItemMock->expects($this->atLeastOnce())
             ->method('getStoreId')
@@ -240,7 +240,7 @@ class BundleOptionsTest extends \PHPUnit\Framework\TestCase
      * @param array $amountData
      * @return BaseAmount|MockObject
      */
-    private function createAmountMock(array $amountData)
+    private function createAmountMock(array $amountData): MockObject
     {
         /** @var BaseAmount|MockObject $amount */
         $amount = $this->getMockBuilder(BaseAmount::class)
@@ -259,7 +259,7 @@ class BundleOptionsTest extends \PHPUnit\Framework\TestCase
      * @param array $optionData
      * @return BundleOption|MockObject
      */
-    private function createOptionMock(array $optionData)
+    private function createOptionMock(array $optionData): MockObject
     {
         /** @var BundleOption|MockObject $option */
         $option = $this->createPartialMock(BundleOption::class, ['isMultiSelection', '__wakeup']);
@@ -283,7 +283,7 @@ class BundleOptionsTest extends \PHPUnit\Framework\TestCase
      * @param array $selectionData
      * @return Product|MockObject
      */
-    private function createSelectionMock(array $selectionData)
+    private function createSelectionMock(array $selectionData): MockObject
     {
         $selection = $this->getMockBuilder(Product::class)
             ->setMethods(['isSalable', 'getAmount', 'getQuantity', 'getProduct', '__wakeup'])

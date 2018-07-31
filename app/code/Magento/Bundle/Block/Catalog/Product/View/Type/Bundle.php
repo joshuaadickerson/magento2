@@ -89,7 +89,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      * @deprecated 100.2.0
      * @return \Magento\CatalogRule\Model\ResourceModel\Product\CollectionProcessor
      */
-    private function getCatalogRuleProcessor()
+    private function getCatalogRuleProcessor(): \Magento\CatalogRule\Model\ResourceModel\Product\CollectionProcessor
     {
         if ($this->catalogRuleProcessor === null) {
             $this->catalogRuleProcessor = \Magento\Framework\App\ObjectManager::getInstance()
@@ -224,7 +224,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      *
      * @return array
      */
-    private function getSelectionItemData(Product $product, Product $selection)
+    private function getSelectionItemData(Product $product, Product $selection): array
     {
         $qty = ($selection->getSelectionQty() * 1) ?: '1';
 
@@ -270,7 +270,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      * @param Product $selection
      * @return array
      */
-    private function getTierPrices(Product $product, Product $selection)
+    private function getTierPrices(Product $product, Product $selection): array
     {
         // recalculate currency
         $tierPrices = $selection->getPriceInfo()
@@ -310,7 +310,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      * @param Product $product
      * @return array
      */
-    private function getSelections(Option $option, Product $product)
+    private function getSelections(Option $option, Product $product): array
     {
         $selections = [];
         $selectionCount = count($option->getSelections());
@@ -336,7 +336,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      * @param int $position
      * @return array
      */
-    private function getOptionItemData(Option $option, Product $product, $position)
+    private function getOptionItemData(Option $option, Product $product, int $position): array
     {
         return [
             'selections' => $this->getSelections($option, $product),
@@ -353,7 +353,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      * @param array $options
      * @return array
      */
-    private function getConfigData(Product $product, array $options)
+    private function getConfigData(Product $product, array $options): array
     {
         $isFixedPrice = $this->getProduct()->getPriceType() == \Magento\Bundle\Model\Product\Price::PRICE_TYPE_FIXED;
 

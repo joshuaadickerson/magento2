@@ -53,7 +53,7 @@ class Item
      * @param \Magento\Sales\Model\Order\Item $item
      * @return float|integer
      */
-    private function getQtyToCancelBundle($item)
+    private function getQtyToCancelBundle(\Magento\Sales\Model\Order\Item $item)
     {
         if ($item->isDummy(true)) {
             return min($item->getQtyToInvoice(), $item->getSimpleQtyToShip());

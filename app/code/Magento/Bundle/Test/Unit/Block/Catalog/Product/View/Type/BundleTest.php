@@ -288,8 +288,11 @@ class BundleTest extends \PHPUnit\Framework\TestCase
      * @param string $priceType
      * @return void
      */
-    private function updateBundleBlock($options, $priceInfo, $priceType)
-    {
+    private function updateBundleBlock(
+        array $options,
+        \PHPUnit_Framework_MockObject_MockObject $priceInfo,
+        string $priceType
+    ): void {
         $this->eventManager->expects($this->any())->method('dispatch')->willReturn(true);
         $optionCollection = $this->getMockBuilder(\Magento\Bundle\Model\ResourceModel\Option\Collection::class)
             ->disableOriginalConstructor()
@@ -331,10 +334,10 @@ class BundleTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @param $price
+     * @param mixed $price
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getPriceInfoMock($price)
+    private function getPriceInfoMock($price): \PHPUnit_Framework_MockObject_MockObject
     {
         $priceInfoMock = $this->getMockBuilder(\Magento\Framework\Pricing\PriceInfo\Base::class)
             ->disableOriginalConstructor()
@@ -362,7 +365,7 @@ class BundleTest extends \PHPUnit\Framework\TestCase
      * @param $prices
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getPriceMock($prices)
+    private function getPriceMock(array $prices): \PHPUnit_Framework_MockObject_MockObject
     {
         $methods = [];
         foreach (array_keys($prices) as $methodName) {
@@ -387,8 +390,11 @@ class BundleTest extends \PHPUnit\Framework\TestCase
      * @param array $selectionAmounts
      * @return \Magento\Framework\Pricing\Amount\AmountInterface|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getAmountPriceMock($value, $baseAmount, array $selectionAmounts)
-    {
+    private function getAmountPriceMock(
+        float $value,
+        $baseAmount,
+        array $selectionAmounts
+    ): \PHPUnit_Framework_MockObject_MockObject {
         $amountPrice = $this->getMockBuilder(\Magento\Framework\Pricing\Amount\AmountInterface::class)
             ->disableOriginalConstructor()
             ->setMethods(['getValue', 'getBaseAmount', 'getOptionSelectionAmount'])
@@ -418,18 +424,18 @@ class BundleTest extends \PHPUnit\Framework\TestCase
      * @param int $id
      * @param string $title
      * @param \Magento\Catalog\Model\Product[] $selections
-     * @param int|string $type
+     * @param string $type
      * @param bool $isRequired
      * @return \PHPUnit_Framework_MockObject_MockObject
      * @internal param bool $isDefault
      */
     private function createOption(
-        $id,
-        $title,
+        int $id,
+        string $title,
         array $selections = [],
-        $type = 'checkbox',
-        $isRequired = false
-    ) {
+        string $type = 'checkbox',
+        bool $isRequired = false
+    ): \PHPUnit_Framework_MockObject_MockObject {
         $option = $this->getMockBuilder(\Magento\Bundle\Model\Option::class)
             ->disableOriginalConstructor()
             ->setMethods(
@@ -462,14 +468,14 @@ class BundleTest extends \PHPUnit\Framework\TestCase
      * @return \Magento\Catalog\Model\Product|\PHPUnit_Framework_MockObject_MockObject
      */
     private function createOptionSelection(
-        $id,
-        $name,
-        $qty,
+        int $id,
+        string $name,
+        float $qty,
         array $tierPriceList = [],
-        $isCanChangeQty = true,
-        $isDefault = false,
-        $isSalable = true
-    ) {
+        bool $isCanChangeQty = true,
+        bool $isDefault = false,
+        bool $isSalable = true
+    ): \PHPUnit_Framework_MockObject_MockObject {
         $selection = $this->getMockBuilder(\Magento\Catalog\Model\Product::class)
             ->setMethods(
                 [

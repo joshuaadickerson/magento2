@@ -186,7 +186,7 @@ class BundlePanel extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function removeFixedTierPrice(array $meta)
+    private function removeFixedTierPrice(array $meta): array
     {
         $tierPricePath = $this->arrayManager->findPath(
             ProductAttributeInterface::CODE_TIER_PRICE,
@@ -233,7 +233,7 @@ class BundlePanel extends AbstractModifier
      * @param array $meta
      * @return array
      */
-    private function modifyShipmentType(array $meta)
+    private function modifyShipmentType(array $meta): array
     {
         $meta = $this->arrayManager->merge(
             $this->arrayManager->findPath(

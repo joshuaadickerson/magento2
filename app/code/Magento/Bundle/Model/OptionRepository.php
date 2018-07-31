@@ -229,10 +229,10 @@ class OptionRepository implements \Magento\Bundle\Api\ProductOptionRepositoryInt
 
     /**
      * @param string $sku
-     * @return \Magento\Catalog\Api\Data\ProductInterface
+     * @return ProductInterface
      * @throws \Magento\Framework\Exception\InputException
      */
-    private function getProduct($sku)
+    private function getProduct(string $sku): ProductInterface
     {
         $product = $this->productRepository->get($sku, true, null, true);
         if ($product->getTypeId() != \Magento\Catalog\Model\Product\Type::TYPE_BUNDLE) {
@@ -249,7 +249,7 @@ class OptionRepository implements \Magento\Bundle\Api\ProductOptionRepositoryInt
      *
      * @return array
      */
-    private function compareLinks(array $firstArray, array $secondArray)
+    private function compareLinks(array $firstArray, array $secondArray): array
     {
         $result = [];
 

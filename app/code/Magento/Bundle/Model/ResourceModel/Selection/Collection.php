@@ -5,12 +5,9 @@
  */
 namespace Magento\Bundle\Model\ResourceModel\Selection;
 
-use Magento\Customer\Api\GroupManagementInterface;
 use Magento\Framework\DataObject;
 use Magento\Framework\DB\Select;
-use Magento\Framework\EntityManager\MetadataPool;
 use Magento\Catalog\Model\ResourceModel\Product\Collection\ProductLimitationFactory;
-use Magento\Framework\App\ObjectManager;
 
 /**
  * Bundle Selections Resource Collection
@@ -270,7 +267,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
      * @return \Magento\CatalogRule\Model\ResourceModel\Product\CollectionProcessor
      * @deprecated 100.2.0
      */
-    private function getCatalogRuleProcessor()
+    private function getCatalogRuleProcessor(): \Magento\CatalogRule\Model\ResourceModel\Product\CollectionProcessor
     {
         if (null === $this->catalogRuleProcessor) {
             $this->catalogRuleProcessor = \Magento\Framework\App\ObjectManager::getInstance()

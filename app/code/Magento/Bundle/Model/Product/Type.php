@@ -793,7 +793,7 @@ class Type extends \Magento\Catalog\Model\Product\Type\AbstractType
      * @param array $array
      * @return int[]|int[][]
      */
-    private function recursiveIntval(array $array)
+    private function recursiveIntval(array $array): array
     {
         foreach ($array as $key => $value) {
             if (is_array($value)) {
@@ -812,7 +812,7 @@ class Type extends \Magento\Catalog\Model\Product\Type\AbstractType
      * @param array $array
      * @return int[]
      */
-    private function multiToFlatArray(array $array)
+    private function multiToFlatArray(array $array): array
     {
         $flatArray = [];
         foreach ($array as $key => $value) {

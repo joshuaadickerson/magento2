@@ -70,7 +70,7 @@ class UpdateBundleRelatedEntityTytpes implements DataPatchInterface, PatchVersio
      * @param EavSetup $eavSetup
      * @return void
      */
-    private function upgradePriceType(EavSetup $eavSetup)
+    private function upgradePriceType(EavSetup $eavSetup): void
     {
         $eavSetup->updateAttribute(
             ProductAttributeInterface::ENTITY_TYPE_CODE,
@@ -94,7 +94,7 @@ class UpdateBundleRelatedEntityTytpes implements DataPatchInterface, PatchVersio
      * @param EavSetup $eavSetup
      * @return void
      */
-    private function upgradeSkuType(EavSetup $eavSetup)
+    private function upgradeSkuType(EavSetup $eavSetup): void
     {
         $eavSetup->updateAttribute(
             ProductAttributeInterface::ENTITY_TYPE_CODE,
@@ -119,7 +119,7 @@ class UpdateBundleRelatedEntityTytpes implements DataPatchInterface, PatchVersio
      * @param EavSetup $eavSetup
      * @return void
      */
-    private function upgradeWeightType(EavSetup $eavSetup)
+    private function upgradeWeightType(EavSetup $eavSetup): void
     {
         $eavSetup->updateAttribute(
             ProductAttributeInterface::ENTITY_TYPE_CODE,
@@ -144,7 +144,7 @@ class UpdateBundleRelatedEntityTytpes implements DataPatchInterface, PatchVersio
      * @param EavSetup $eavSetup
      * @return void
      */
-    private function upgradeShipmentType(EavSetup $eavSetup)
+    private function upgradeShipmentType(EavSetup $eavSetup): void
     {
         $attributeSetId = $eavSetup->getDefaultAttributeSetId(ProductAttributeInterface::ENTITY_TYPE_CODE);
         $eavSetup->addAttributeToGroup(

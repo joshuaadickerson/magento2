@@ -2275,7 +2275,7 @@ class TypeTest extends \PHPUnit\Framework\TestCase
      * @param int $selectionQty
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getRequiredOptionMock($id, $selectionQty)
+    private function getRequiredOptionMock(int $id, int $selectionQty): \PHPUnit_Framework_MockObject_MockObject
     {
         $option = $this->getMockBuilder(\Magento\Bundle\Model\Option::class)
             ->setMethods(
@@ -2313,7 +2313,7 @@ class TypeTest extends \PHPUnit\Framework\TestCase
      * @param array $selectedOptions
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getSelectionCollectionMock(array $selectedOptions)
+    private function getSelectionCollectionMock(array $selectedOptions): \PHPUnit_Framework_MockObject_MockObject
     {
         $selectionCollectionMock = $this->getMockBuilder(
             \Magento\Bundle\Model\ResourceModel\Selection\Collection::class
@@ -2332,7 +2332,7 @@ class TypeTest extends \PHPUnit\Framework\TestCase
      * @param array $options
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getOptionCollectionMock(array $options)
+    private function getOptionCollectionMock(array $options): \PHPUnit_Framework_MockObject_MockObject
     {
         $optionCollectionMock = $this->getMockBuilder(\Magento\Bundle\Model\ResourceModel\Option\Collection::class)
             ->setMethods(['getIterator'])
@@ -2467,7 +2467,7 @@ class TypeTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getSelectionCollection()
+    private function getSelectionCollection(): \PHPUnit_Framework_MockObject_MockObject
     {
         $selectionCollection = $this->getMockBuilder(\Magento\Bundle\Model\ResourceModel\Selection\Collection::class)
             ->disableOriginalConstructor()
@@ -2767,7 +2767,7 @@ class TypeTest extends \PHPUnit\Framework\TestCase
     /**
      * @return void
      */
-    private function expectProductEntityMetadata()
+    private function expectProductEntityMetadata(): void
     {
         $entityMetadataMock = $this->getMockBuilder(EntityMetadataInterface::class)
             ->getMockForAbstractClass();

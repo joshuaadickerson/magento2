@@ -125,7 +125,7 @@ class SaveAction
      * @param \Magento\Bundle\Api\Data\OptionInterface $option
      * @return void
      */
-    private function updateOptionSelection(ProductInterface $product, OptionInterface $option)
+    private function updateOptionSelection(ProductInterface $product, OptionInterface $option): void
     {
         $optionId = $option->getOptionId();
         $existingLinks = $this->linkManagement->getChildren($product->getSku(), $optionId);
@@ -167,7 +167,7 @@ class SaveAction
      *
      * @return array
      */
-    private function compareLinks(array $firstArray, array $secondArray)
+    private function compareLinks(array $firstArray, array $secondArray): array
     {
         $result = [];
 

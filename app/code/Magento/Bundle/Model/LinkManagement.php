@@ -7,6 +7,7 @@
 
 namespace Magento\Bundle\Model;
 
+use Magento\Bundle\Api\Data\LinkInterface;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\App\ObjectManager;
@@ -335,9 +336,9 @@ class LinkManagement implements \Magento\Bundle\Api\ProductLinkManagementInterfa
     /**
      * @param \Magento\Catalog\Model\Product $selection
      * @param \Magento\Catalog\Model\Product $product
-     * @return \Magento\Bundle\Api\Data\LinkInterface
+     * @return LinkInterface
      */
-    private function buildLink(\Magento\Catalog\Model\Product $selection, \Magento\Catalog\Model\Product $product)
+    private function buildLink(\Magento\Catalog\Model\Product $selection, \Magento\Catalog\Model\Product $product): LinkInterface
     {
         $selectionPriceType = $selectionPrice = null;
 
@@ -367,7 +368,7 @@ class LinkManagement implements \Magento\Bundle\Api\ProductLinkManagementInterfa
      * @param \Magento\Catalog\Api\Data\ProductInterface $product
      * @return \Magento\Bundle\Api\Data\OptionInterface[]
      */
-    private function getOptions(\Magento\Catalog\Api\Data\ProductInterface $product)
+    private function getOptions(\Magento\Catalog\Api\Data\ProductInterface $product): array
     {
         /** @var \Magento\Bundle\Model\Product\Type $productTypeInstance */
         $productTypeInstance = $product->getTypeInstance();
@@ -391,7 +392,7 @@ class LinkManagement implements \Magento\Bundle\Api\ProductLinkManagementInterfa
      * Get MetadataPool instance
      * @return MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): MetadataPool
     {
         if (!$this->metadataPool) {
             $this->metadataPool = ObjectManager::getInstance()->get(MetadataPool::class);

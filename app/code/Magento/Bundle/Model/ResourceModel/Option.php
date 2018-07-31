@@ -191,7 +191,7 @@ class Option extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * Get MetadataPool instance
      * @return MetadataPool
      */
-    private function getMetadataPool()
+    private function getMetadataPool(): MetaDataPool
     {
         if (!$this->metadataPool) {
             $this->metadataPool = ObjectManager::getInstance()->get(MetadataPool::class);

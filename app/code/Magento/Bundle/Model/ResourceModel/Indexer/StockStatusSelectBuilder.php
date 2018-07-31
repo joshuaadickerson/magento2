@@ -92,7 +92,7 @@ class StockStatusSelectBuilder
      * @param string $attributeCode
      * @return \Magento\Catalog\Model\ResourceModel\Eav\Attribute
      */
-    private function getAttribute($attributeCode)
+    private function getAttribute(string $attributeCode): \Magento\Catalog\Model\ResourceModel\Eav\Attribute
     {
         return $this->eavConfig->getAttribute(\Magento\Catalog\Model\Product::ENTITY, $attributeCode);
     }

@@ -1010,7 +1010,7 @@ class LinkManagementTest extends \PHPUnit\Framework\TestCase
         $this->model->removeChild($productSku, $optionId, $childSku);
     }
 
-    private function getOptions()
+    private function getOptions(): void
     {
         $this->product->expects($this->any())->method('getTypeInstance')->will($this->returnValue($this->productType));
         $this->product->expects($this->once())->method('getStoreId')->will($this->returnValue($this->storeId));
