@@ -137,7 +137,7 @@ class RowCustomizer implements RowCustomizerInterface
      * Retrieve list of bundle specific columns
      * @return array
      */
-    private function getBundleColumns()
+    private function getBundleColumns(): array
     {
         return array_merge($this->bundleColumns, [$this->shipmentTypeColumn]);
     }
@@ -353,7 +353,7 @@ class RowCustomizer implements RowCustomizerInterface
      * @param string $type
      * @return string
      */
-    private function getShipmentTypeValue($type)
+    private function getShipmentTypeValue(string $type): string
     {
         return isset($this->shipmentTypeMapping[$type]) ? $this->shipmentTypeMapping[$type] : null;
     }
@@ -397,7 +397,7 @@ class RowCustomizer implements RowCustomizerInterface
      * @param string $additionalAttributes
      * @return array
      */
-    private function parseAdditionalAttributes($additionalAttributes)
+    private function parseAdditionalAttributes(string $additionalAttributes): array
     {
         $attributeNameValuePairs = explode(ImportModel::DEFAULT_GLOBAL_MULTI_VALUE_SEPARATOR, $additionalAttributes);
         $preparedAttributes = [];
