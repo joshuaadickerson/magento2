@@ -105,7 +105,7 @@ class DataProvider implements SuggestedQueriesInterface
      * @param QueryInterface $query
      * @return array
      */
-    private function getSearchRecommendations(\Magento\Search\Model\QueryInterface $query)
+    private function getSearchRecommendations(\Magento\Search\Model\QueryInterface $query): array
     {
         $recommendations = [];
 
@@ -128,10 +128,10 @@ class DataProvider implements SuggestedQueriesInterface
     /**
      * @return bool
      */
-    private function isSearchRecommendationsEnabled()
+    private function isSearchRecommendationsEnabled(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::CONFIG_IS_ENABLED,
+        return (bool) $this->scopeConfig->getValue(
+            SuggestedQueriesInterface::SEARCH_RECOMMENDATIONS_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
     }
@@ -139,10 +139,10 @@ class DataProvider implements SuggestedQueriesInterface
     /**
      * @return int
      */
-    private function getSearchRecommendationsCount()
+    private function getSearchRecommendationsCount(): int
     {
-        return (int)$this->scopeConfig->getValue(
-            self::CONFIG_RESULTS_COUNT,
+        return (int) $this->scopeConfig->getValue(
+            SuggestedQueriesInterface::SEARCH_RECOMMENDATIONS_COUNT,
             ScopeInterface::SCOPE_STORE
         );
     }

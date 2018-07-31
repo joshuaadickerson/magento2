@@ -69,10 +69,10 @@ class SuggestedQueries implements SuggestedQueriesInterface
     /**
      * Returns DataProvider for SuggestedQueries
      *
-     * @return SuggestedQueriesInterface|SuggestedQueriesInterface[]
+     * @return SuggestedQueriesInterface
      * @throws \Exception
      */
-    private function getDataProvider()
+    private function getDataProvider(): SuggestedQueriesInterface
     {
         if (empty($this->dataProvider)) {
             $currentEngine = $this->engineResolver->getCurrentSearchEngine();
