@@ -91,7 +91,7 @@ class IntegrationManager
      *
      * @return \Magento\Integration\Model\Integration
      */
-    private function generateIntegration()
+    private function generateIntegration(): Integration
     {
         $integration = $this->integrationService->findByName(
             $this->config->getConfigDataValue('analytics/integration_name')
@@ -108,7 +108,7 @@ class IntegrationManager
      * @param int $status
      * @return array
      */
-    private function getIntegrationData($status = Integration::STATUS_INACTIVE)
+    private function getIntegrationData(int $status = Integration::STATUS_INACTIVE): array
     {
         $integrationData = [
             'name' => $this->config->getConfigDataValue('analytics/integration_name'),

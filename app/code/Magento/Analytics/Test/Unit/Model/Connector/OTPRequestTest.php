@@ -84,9 +84,9 @@ class OTPRequestTest extends \PHPUnit\Framework\TestCase
     /**
      * Returns test parameters for request.
      *
-     * @return array
+     * @return string[]
      */
-    private function getTestData()
+    private function getTestData(): array
     {
         return [
             'otp' => 'thisisotp',

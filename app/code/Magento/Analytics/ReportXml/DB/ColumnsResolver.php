@@ -48,7 +48,7 @@ class ColumnsResolver
      *
      * @return \Magento\Framework\DB\Adapter\AdapterInterface
      */
-    private function getConnection()
+    private function getConnection(): \Magento\Framework\DB\Adapter\AdapterInterface
     {
         if (!$this->connection) {
             $this->connection = $this->resourceConnection->getConnection();

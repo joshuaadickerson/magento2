@@ -52,7 +52,7 @@ class BaseUrlConfigPlugin
      * @param Value $result
      * @return bool
      */
-    private function isPluginApplicable(Value $result)
+    private function isPluginApplicable(Value $result): bool
     {
         return $result->isValueChanged()
             && ($result->getPath() === Store::XML_PATH_SECURE_BASE_URL)

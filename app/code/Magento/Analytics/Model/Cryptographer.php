@@ -91,7 +91,7 @@ class Cryptographer
      * @return string
      * @throws LocalizedException
      */
-    private function getKey()
+    private function getKey(): string
     {
         $token = $this->analyticsToken->getToken();
         if (!$token) {
@@ -105,7 +105,7 @@ class Cryptographer
      *
      * @return string
      */
-    private function getCipherMethod()
+    private function getCipherMethod(): string
     {
         return $this->cipherMethod;
     }
@@ -115,7 +115,7 @@ class Cryptographer
      *
      * @return string
      */
-    private function getInitializationVector()
+    private function getInitializationVector(): string
     {
         $ivSize = openssl_cipher_iv_length($this->getCipherMethod());
         return openssl_random_pseudo_bytes($ivSize);
@@ -127,7 +127,7 @@ class Cryptographer
      * @param string $cipherMethod
      * @return bool
      */
-    private function validateCipherMethod($cipherMethod)
+    private function validateCipherMethod(string $cipherMethod): bool
     {
         $methods = openssl_get_cipher_methods();
         return (false !== array_search($cipherMethod, $methods));

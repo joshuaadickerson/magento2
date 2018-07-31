@@ -27,7 +27,7 @@ class Vertical extends \Magento\Config\Block\System\Config\Form\Field
      * @param string $html
      * @return string
      */
-    private function decorateRowHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element, $html)
+    private function decorateRowHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element, string $html): string
     {
         $rowHtml = sprintf('<tr><td colspan="4">%s</td></tr>', $html);
         $rowHtml .= sprintf(

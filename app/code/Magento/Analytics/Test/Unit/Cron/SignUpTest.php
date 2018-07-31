@@ -118,7 +118,7 @@ class SignUpTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    private function addDeleteAnalyticsCronExprAsserts()
+    private function addDeleteAnalyticsCronExprAsserts(): void
     {
         $this->configWriterMock
             ->expects($this->once())

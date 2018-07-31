@@ -52,7 +52,7 @@ class LinkProvider implements LinkProviderInterface
      * @param FileInfo $fileInfo
      * @return string
      */
-    private function getBaseUrl(FileInfo $fileInfo)
+    private function getBaseUrl(FileInfo $fileInfo): string
     {
         return $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA) . $fileInfo->getPath();
     }
@@ -63,7 +63,7 @@ class LinkProvider implements LinkProviderInterface
      * @param FileInfo $fileInfo
      * @return bool
      */
-    private function isFileReady(FileInfo $fileInfo)
+    private function isFileReady(FileInfo $fileInfo): bool
     {
         return $fileInfo->getPath() && $fileInfo->getInitializationVector();
     }

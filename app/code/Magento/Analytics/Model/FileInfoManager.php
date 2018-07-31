@@ -105,7 +105,7 @@ class FileInfoManager
      * @param string $value
      * @return string
      */
-    private function encodeValue($value)
+    private function encodeValue(string $value): string
     {
         return base64_encode($value);
     }
@@ -116,7 +116,7 @@ class FileInfoManager
      * @param string $value
      * @return string
      */
-    private function decodeValue($value)
+    private function decodeValue(string $value): string
     {
         return base64_decode($value);
     }

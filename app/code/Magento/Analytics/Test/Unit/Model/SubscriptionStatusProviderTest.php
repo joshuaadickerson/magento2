@@ -184,7 +184,7 @@ class SubscriptionStatusProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @param array $mapping
      */
-    private function expectFlagManagerReturn(array $mapping)
+    private function expectFlagManagerReturn(array $mapping): void
     {
         $this->flagManagerMock
             ->method('getFlagData')

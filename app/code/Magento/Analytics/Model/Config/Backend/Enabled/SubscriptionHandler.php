@@ -111,7 +111,7 @@ class SubscriptionHandler
      *
      * @return bool
      */
-    private function setCronSchedule()
+    private function setCronSchedule(): bool
     {
         $this->configWriter->save(self::CRON_STRING_PATH, join(' ', self::CRON_EXPR_ARRAY));
         return true;
@@ -122,7 +122,7 @@ class SubscriptionHandler
      *
      * @return bool
      */
-    private function setAttemptsFlag()
+    private function setAttemptsFlag(): bool
     {
         return $this->flagManager
             ->saveFlag(self::ATTEMPTS_REVERSE_COUNTER_FLAG_CODE, $this->attemptsInitValue);
@@ -163,7 +163,7 @@ class SubscriptionHandler
      *
      * @return bool
      */
-    private function disableCollectionData()
+    private function disableCollectionData(): bool
     {
         $this->configWriter->delete(CollectionTime::CRON_SCHEDULE_PATH);
 

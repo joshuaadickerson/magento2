@@ -85,7 +85,7 @@ class FileRecorder
      *
      * @return string
      */
-    private function getFileRelativePath()
+    private function getFileRelativePath(): string
     {
         return $this->fileSubdirectoryPath . hash('sha256', time())
             . '/' . $this->encodedFileName;
@@ -98,7 +98,7 @@ class FileRecorder
      * @param string $fileRelativePath
      * @return bool
      */
-    private function registerFile(EncodedContext $encodedContext, $fileRelativePath)
+    private function registerFile(EncodedContext $encodedContext, string $fileRelativePath): bool
     {
         $newFileInfo = $this->fileInfoFactory->create(
             [
@@ -118,7 +118,7 @@ class FileRecorder
      * @param WriteInterface $directory
      * @return bool
      */
-    private function removeOldFile(FileInfo $fileInfo, WriteInterface $directory)
+    private function removeOldFile(FileInfo $fileInfo, WriteInterface $directory): bool
     {
         if (!$fileInfo->getPath()) {
             return true;

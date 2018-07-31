@@ -68,7 +68,7 @@ class SelectHydrator
     /**
      * @return array
      */
-    private function getSelectParts()
+    private function getSelectParts(): array
     {
         return array_merge($this->predefinedSelectParts, $this->selectParts);
     }
@@ -116,7 +116,7 @@ class SelectHydrator
      * @param array $selectParts
      * @return Select
      */
-    private function processColumns(Select $select, array &$selectParts)
+    private function processColumns(Select $select, array &$selectParts): Select
     {
         if (!empty($selectParts[Select::COLUMNS]) && is_array($selectParts[Select::COLUMNS])) {
             $part = [];

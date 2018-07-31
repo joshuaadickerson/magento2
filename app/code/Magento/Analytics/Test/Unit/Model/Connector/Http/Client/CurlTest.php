@@ -193,7 +193,7 @@ class CurlTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function createJsonConverter()
+    private function createJsonConverter():\PHPUnit_Framework_MockObject_MockObject
     {
         $converterMock = $this->getMockBuilder(ConverterInterface::class)
             ->getMockForAbstractClass();

@@ -92,7 +92,7 @@ class SignUp
      *
      * @return bool
      */
-    private function deleteAnalyticsCronExpr()
+    private function deleteAnalyticsCronExpr(): bool
     {
         $this->configWriter->delete(SubscriptionHandler::CRON_STRING_PATH);
         $this->reinitableConfig->reinit();

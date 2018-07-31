@@ -72,7 +72,7 @@ class IntegrationManagerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function getIntegrationUserData($status)
+    private function getIntegrationUserData(string $status): array
     {
         return [
             'name' => 'ma-integration-user',

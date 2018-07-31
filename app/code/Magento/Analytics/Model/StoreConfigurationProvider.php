@@ -81,7 +81,7 @@ class StoreConfigurationProvider
      * @param int $scopeId
      * @return array
      */
-    private function generateReportForScope($scope, $scopeId)
+    private function generateReportForScope(string $scope, int $scopeId): array
     {
         $report = [];
         foreach ($this->configPaths as $configPath) {

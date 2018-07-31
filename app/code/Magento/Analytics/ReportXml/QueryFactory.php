@@ -74,10 +74,10 @@ class QueryFactory
     /**
      * Returns query connection name according to configuration
      *
-     * @param string $queryConfig
+     * @param array $queryConfig
      * @return string
      */
-    private function getQueryConnectionName($queryConfig)
+    private function getQueryConnectionName(array $queryConfig): string
     {
         $connectionName = 'default';
         if (isset($queryConfig['connection'])) {
@@ -92,7 +92,7 @@ class QueryFactory
      * @param string $queryName
      * @return Query
      */
-    private function constructQuery($queryName)
+    private function constructQuery(string $queryName): Query
     {
         $queryConfig = $this->config->get($queryName);
         $selectBuilder = $this->selectBuilderFactory->create();

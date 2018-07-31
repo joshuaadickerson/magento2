@@ -183,7 +183,7 @@ class SelectBuilder
      * @param array $joinConfig
      * @return Select
      */
-    private function processJoin(Select $select, $joinConfig)
+    private function processJoin(Select $select, array $joinConfig): Select
     {
         switch ($joinConfig['link-type']) {
             case 'left':

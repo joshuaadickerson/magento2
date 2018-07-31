@@ -118,7 +118,7 @@ class ExportDataHandler implements ExportDataHandlerInterface
      *
      * @return string
      */
-    private function getTmpFilesDirRelativePath()
+    private function getTmpFilesDirRelativePath(): string
     {
         return $this->subdirectoryPath . 'tmp/';
     }
@@ -128,7 +128,7 @@ class ExportDataHandler implements ExportDataHandlerInterface
      *
      * @return string
      */
-    private function getArchiveRelativePath()
+    private function getArchiveRelativePath(): string
     {
         return $this->subdirectoryPath . $this->archiveName;
     }
@@ -140,7 +140,7 @@ class ExportDataHandler implements ExportDataHandlerInterface
      * @param string $path
      * @return string
      */
-    private function prepareDirectory(WriteInterface $directory, $path)
+    private function prepareDirectory(WriteInterface $directory, string $path): string
     {
         $directory->delete($path);
 
@@ -154,7 +154,7 @@ class ExportDataHandler implements ExportDataHandlerInterface
      * @param string $path
      * @return string
      */
-    private function prepareFileDirectory(WriteInterface $directory, $path)
+    private function prepareFileDirectory(WriteInterface $directory, string $path): string
     {
         $directory->delete($path);
         if (dirname($path) !== '.') {
@@ -171,7 +171,7 @@ class ExportDataHandler implements ExportDataHandlerInterface
      * @param string $destination
      * @return bool
      */
-    private function pack($source, $destination)
+    private function pack(string $source, string $destination): bool
     {
         $this->archive->pack(
             $source,
@@ -192,7 +192,7 @@ class ExportDataHandler implements ExportDataHandlerInterface
      * @return string
      * @throws LocalizedException If source is not exist.
      */
-    private function validateSource(WriteInterface $directory, $path)
+    private function validateSource(WriteInterface $directory, string $path): string
     {
         if (!$directory->isExist($path)) {
             throw new LocalizedException(__('The "%1" source doesn\'t exist.', $directory->getAbsolutePath($path)));

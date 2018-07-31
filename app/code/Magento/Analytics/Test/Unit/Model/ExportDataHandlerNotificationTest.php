@@ -56,7 +56,7 @@ class ExportDataHandlerNotificationTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function createExportDataHandlerMock()
+    private function createExportDataHandlerMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(ExportDataHandler::class)->disableOriginalConstructor()->getMock();
     }
@@ -64,7 +64,7 @@ class ExportDataHandlerNotificationTest extends \PHPUnit\Framework\TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function createAnalyticsConnectorMock()
+    private function createAnalyticsConnectorMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         return $this->getMockBuilder(Connector::class)->disableOriginalConstructor()->getMock();
     }

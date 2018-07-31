@@ -155,9 +155,9 @@ class SignUpCommandTest extends \PHPUnit\Framework\TestCase
     /**
      * Returns test parameters for request.
      *
-     * @return array
+     * @return string[]
      */
-    private function getTestData()
+    private function getTestData(): array
     {
         return [
             'url' => 'http://www.mystore.com',

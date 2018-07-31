@@ -58,7 +58,7 @@ class ConditionResolver
      *
      * @return \Magento\Framework\DB\Adapter\AdapterInterface
      */
-    private function getConnection()
+    private function getConnection(): \Magento\Framework\DB\Adapter\AdapterInterface
     {
         if (!$this->connection) {
             $this->connection = $this->resourceConnection->getConnection();
@@ -69,11 +69,11 @@ class ConditionResolver
     /**
      * Returns value for condition
      *
-     * @param string $condition
+     * @param array $condition
      * @param string $referencedEntity
      * @return mixed|null|string|\Zend_Db_Expr
      */
-    private function getValue($condition, $referencedEntity)
+    private function getValue(array $condition, string $referencedEntity)
     {
         $value = null;
         $argument = isset($condition['_value']) ? $condition['_value'] : null;
@@ -106,8 +106,12 @@ class ConditionResolver
      * @param null|string $referencedEntity
      * @return string
      */
-    private function getCondition(SelectBuilder $selectBuilder, $tableName, $condition, $referencedEntity = null)
-    {
+    private function getCondition(
+        SelectBuilder $selectBuilder,
+        string $tableName,
+        array $condition,
+        string $referencedEntity = null
+    ): string {
         $columns = $selectBuilder->getColumns();
         if (isset($columns[$condition['attribute']])
             && $columns[$condition['attribute']] instanceof Expression
@@ -116,6 +120,7 @@ class ConditionResolver
         } else {
             $expression = $this->getConnection()->quoteIdentifier($tableName . '.' . $condition['attribute']);
         }
+
         return sprintf(
             $this->conditionMap[$condition['operator']],
             $expression,

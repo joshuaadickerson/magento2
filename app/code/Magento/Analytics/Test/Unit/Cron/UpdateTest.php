@@ -97,7 +97,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
     /**
      * @param bool $isExecuted
      */
-    private function addFinalOutputAsserts(bool $isExecuted = true)
+    private function addFinalOutputAsserts(bool $isExecuted = true): void
     {
         $this->flagManagerMock
             ->expects($this->exactly(2 * $isExecuted))
