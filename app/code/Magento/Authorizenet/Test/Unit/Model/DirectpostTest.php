@@ -694,9 +694,9 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Get mock for authorize.net request factory
-     * @return \PHPUnit\Framework\MockObject_MockBuilder
+     * @return \PHPUnit\Framework\MockObject_MockBuilder|Factory
      */
-    private function getRequestFactoryMock(): \PHPUnit\Framework\MockObject_MockBuilder
+    private function getRequestFactoryMock(): Factory
     {
         $requestFactory = $this->getMockBuilder(Factory::class)
             ->disableOriginalConstructor()
@@ -714,9 +714,9 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Get mock for order
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit_Framework_MockObject_MockObject|Order
      */
-    private function getOrderMock(): \PHPUnit_Framework_MockObject_MockObject
+    private function getOrderMock(): Order
     {
         $orderMock = $this->getMockBuilder(Order::class)
             ->disableOriginalConstructor()

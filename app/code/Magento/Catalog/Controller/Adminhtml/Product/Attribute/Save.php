@@ -359,10 +359,10 @@ class Save extends Attribute
     /**
      * Define whether request is Ajax
      *
-     * @return boolean
+     * @return bool
      */
     private function isAjax(): bool
     {
-        return $this->getRequest()->getParam('isAjax');
+        return (bool) $this->getRequest()->getParam('isAjax', false);
     }
 }

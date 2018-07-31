@@ -259,7 +259,7 @@ abstract class AbstractAction
      * @param array $productIds
      * @return void
      */
-    private function doReindex($productIds = [])
+    private function doReindex(array $productIds = []): void
     {
         $connection = $this->_getConnection();
 
@@ -285,7 +285,7 @@ abstract class AbstractAction
     /**
      * @return CacheCleaner
      */
-    private function getCacheCleaner()
+    private function getCacheCleaner(): CacheCleaner
     {
         if (null === $this->cacheCleaner) {
             $this->cacheCleaner = ObjectManager::getInstance()->get(CacheCleaner::class);

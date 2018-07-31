@@ -142,7 +142,7 @@ class AdvancedInventory extends AbstractModifier
      * @param StockItemInterface $stockItem
      * @return array
      */
-    private function getData(StockItemInterface $stockItem)
+    private function getData(StockItemInterface $stockItem): array
     {
         $result = $stockItem->getData();
 
@@ -177,7 +177,7 @@ class AdvancedInventory extends AbstractModifier
     /**
      * @return void
      */
-    private function prepareMeta()
+    private function prepareMeta(): void
     {
         $fieldCode = 'quantity_and_stock_status';
         $pathField = $this->arrayManager->findPath($fieldCode, $this->meta, null, 'children');

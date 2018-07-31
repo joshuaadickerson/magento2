@@ -196,10 +196,10 @@ class TransactionMap implements DocumentInterface
     /**
      * Convert value to text representation
      *
-     * @param string $val
+     * @param object|array $val
      * @return string
      */
-    private function convertToText(string $val): string
+    private function convertToText($val): string
     {
         if (is_object($val)) {
             switch (get_class($val)) {

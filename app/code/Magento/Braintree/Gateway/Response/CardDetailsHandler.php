@@ -80,9 +80,9 @@ class CardDetailsHandler implements HandlerInterface
      * Get type of credit card mapped from Braintree
      *
      * @param string $type
-     * @return array
+     * @return string
      */
-    private function getCreditCardType(string $type): array
+    private function getCreditCardType(string $type): string
     {
         $replaced = str_replace(' ', '-', strtolower($type));
         $mapper = $this->config->getCcTypesMapper();

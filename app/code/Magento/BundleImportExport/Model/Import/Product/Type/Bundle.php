@@ -663,9 +663,9 @@ class Bundle extends \Magento\CatalogImportExport\Model\Import\Product\Type\Abst
     /**
      * Insert parent/child product relations
      *
-     * @return AbstractType
+     * @return Bundle
      */
-    private function insertParentChildRelations(): AbstractType
+    private function insertParentChildRelations(): Bundle
     {
         foreach ($this->_cachedOptions as $productId => $options) {
             $childIds = [];

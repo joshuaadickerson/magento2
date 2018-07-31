@@ -127,7 +127,7 @@ class RuleTest extends \PHPUnit\Framework\TestCase
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getSerializerMock()
+    private function getSerializerMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $serializerMock = $this->getMockBuilder(\Magento\Framework\Serialize\Serializer\Json::class)
             ->disableOriginalConstructor()

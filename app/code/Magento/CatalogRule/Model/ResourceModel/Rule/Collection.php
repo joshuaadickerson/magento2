@@ -144,7 +144,7 @@ class Collection extends \Magento\Rule\Model\ResourceModel\Rule\Collection\Abstr
      * @return array
      * @deprecated 100.1.0
      */
-    private function getAssociatedEntitiesMap()
+    private function getAssociatedEntitiesMap(): array
     {
         if (!$this->_associatedEntitiesMap) {
             $this->_associatedEntitiesMap = \Magento\Framework\App\ObjectManager::getInstance()

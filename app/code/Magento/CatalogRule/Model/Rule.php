@@ -377,7 +377,7 @@ class Rule extends \Magento\Rule\Model\AbstractModel implements RuleInterface, I
      *
      * @return bool
      */
-    private function canPreMapProducts()
+    private function canPreMapProducts(): bool
     {
         $conditions = $this->getConditions();
 
@@ -859,10 +859,10 @@ class Rule extends \Magento\Rule\Model\AbstractModel implements RuleInterface, I
     }
 
     /**
-     * @return Data\Condition\Converter
+     * @return Converter
      * @deprecated 100.1.0
      */
-    private function getRuleConditionConverter()
+    private function getRuleConditionConverter(): Converter
     {
         if (null === $this->ruleConditionConverter) {
             $this->ruleConditionConverter = ObjectManager::getInstance()

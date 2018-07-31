@@ -61,7 +61,7 @@ class ProcessInventoryDataObserver implements ObserverInterface
      * @param Product $product
      * @return void
      */
-    private function processStockData(Product $product)
+    private function processStockData(Product $product): void
     {
         $quantityAndStockStatus = $product->getData('quantity_and_stock_status');
         if (is_array($quantityAndStockStatus)) {
@@ -87,7 +87,7 @@ class ProcessInventoryDataObserver implements ObserverInterface
      * @param array $quantityAndStockStatus
      * @return array
      */
-    private function prepareQuantityAndStockStatus(StockItemInterface $stockItem, array $quantityAndStockStatus)
+    private function prepareQuantityAndStockStatus(StockItemInterface $stockItem, array $quantityAndStockStatus): array
     {
         $stockItemId = $stockItem->getItemId();
 
@@ -121,7 +121,7 @@ class ProcessInventoryDataObserver implements ObserverInterface
      * @param array $quantityAndStockStatus
      * @return void
      */
-    private function setStockDataToProduct(Product $product, Item $stockItem, array $quantityAndStockStatus)
+    private function setStockDataToProduct(Product $product, Item $stockItem, array $quantityAndStockStatus): void
     {
         $stockData = array_replace((array)$product->getData('stock_data'), $quantityAndStockStatus);
         if ($stockItem->hasDataChanges()) {

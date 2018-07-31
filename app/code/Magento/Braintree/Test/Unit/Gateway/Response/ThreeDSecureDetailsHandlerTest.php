@@ -103,9 +103,9 @@ class ThreeDSecureDetailsHandlerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Create Braintree transaction
-     * @return MockObject
+     * @return Transaction
      */
-    private function getBraintreeTransaction(): MockObject
+    private function getBraintreeTransaction(): Transaction
     {
         $attributes = [
             'id' => self::TRANSACTION_ID,

@@ -100,9 +100,9 @@ class MenuCategoryData
 
     /**
      * Get catalog layer
-     * @return \Magento\Catalog\Model\Layer
+     * @return \Magento\Catalog\Model\Layer|null
      */
-    private function getCatalogLayer(): \Magento\Catalog\Model\Layer
+    private function getCatalogLayer(): ?\Magento\Catalog\Model\Layer
     {
         if ($this->catalogLayer === null) {
             $this->catalogLayer = $this->layerResolver->get();

@@ -92,9 +92,9 @@ class ConvertSerializedDataToJson implements DataPatchInterface, PatchVersionInt
      * Check if value is a serialized string
      *
      * @param string $value
-     * @return boolean
+     * @return bool
      */
-    private function isSerialized($value)
+    private function isSerialized($value): bool
     {
         return (boolean) preg_match('/^((s|i|d|b|a|O|C):|N;)/', $value);
     }

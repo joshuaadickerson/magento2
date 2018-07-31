@@ -169,7 +169,7 @@ class StockItemCriteriaMapper extends GenericMapper
      *
      * @deprecated 100.1.0
      */
-    private function getStockConfiguration()
+    private function getStockConfiguration(): StockConfigurationInterface
     {
         if ($this->stockConfiguration === null) {
             $this->stockConfiguration = \Magento\Framework\App\ObjectManager::getInstance()

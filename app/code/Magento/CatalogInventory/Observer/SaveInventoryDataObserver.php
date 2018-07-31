@@ -116,7 +116,7 @@ class SaveInventoryDataObserver implements ObserverInterface
      * @param Product $product
      * @return Item
      */
-    private function getStockItemToBeUpdated(Product $product)
+    private function getStockItemToBeUpdated(Product $product): Item
     {
         $extendedAttributes = $product->getExtensionAttributes();
         $stockItem = $extendedAttributes->getStockItem();
@@ -133,7 +133,7 @@ class SaveInventoryDataObserver implements ObserverInterface
      * @param Product $product
      * @return array
      */
-    private function getStockData(Product $product)
+    private function getStockData(Product $product): array
     {
         $stockData = $product->getStockData();
         $stockData['product_id'] = $product->getId();

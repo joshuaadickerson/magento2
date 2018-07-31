@@ -158,11 +158,12 @@ class ReindexRuleProductPrice
      * @param int $timeStamp
      * @return int
      */
-    private function roundTime($timeStamp)
+    private function roundTime(int $timeStamp): int
     {
-        if (is_numeric($timeStamp) && $timeStamp != 0) {
+        if ($timeStamp !== 0) {
             $timeStamp = $this->dateTime->timestamp($this->dateTime->date('Y-m-d 00:00:00', $timeStamp));
         }
+
         return $timeStamp;
     }
 }

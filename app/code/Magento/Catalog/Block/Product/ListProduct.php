@@ -198,7 +198,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      *
      * @param Collection $collection
      */
-    private function addToolbarBlock(Collection $collection): Collection
+    private function addToolbarBlock(Collection $collection): void
     {
         $toolbarLayout = $this->getToolbarFromLayout();
 

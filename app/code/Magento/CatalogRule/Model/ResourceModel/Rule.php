@@ -259,7 +259,7 @@ class Rule extends \Magento\Rule\Model\ResourceModel\AbstractResource
      * @return array
      * @deprecated 100.1.0
      */
-    private function getAssociatedEntitiesMap()
+    private function getAssociatedEntitiesMap(): array
     {
         if (!$this->_associatedEntitiesMap) {
             $this->_associatedEntitiesMap = \Magento\Framework\App\ObjectManager::getInstance()
@@ -273,7 +273,7 @@ class Rule extends \Magento\Rule\Model\ResourceModel\AbstractResource
      * @return \Magento\Framework\EntityManager\EntityManager
      * @deprecated 100.1.0
      */
-    private function getEntityManager()
+    private function getEntityManager(): \Magento\Framework\EntityManager\EntityManager
     {
         if (null === $this->entityManager) {
             $this->entityManager = \Magento\Framework\App\ObjectManager::getInstance()

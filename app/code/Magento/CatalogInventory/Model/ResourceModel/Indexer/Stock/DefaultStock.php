@@ -324,7 +324,7 @@ class DefaultStock extends AbstractIndexer implements StockInterface
      * @return void
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    private function deleteOldRecords(array $ids)
+    private function deleteOldRecords(array $ids): void
     {
         if (count($ids) !== 0) {
             $this->getConnection()->delete($this->getMainTable(), ['product_id in (?)' => $ids]);
@@ -404,7 +404,7 @@ class DefaultStock extends AbstractIndexer implements StockInterface
     /**
      * @return QueryProcessorComposite
      */
-    private function getQueryProcessorComposite()
+    private function getQueryProcessorComposite(): QueryProcessorComposite
     {
         if (null === $this->queryProcessorComposite) {
             $this->queryProcessorComposite = \Magento\Framework\App\ObjectManager::getInstance()

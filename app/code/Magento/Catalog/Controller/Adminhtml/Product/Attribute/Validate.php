@@ -126,13 +126,15 @@ class Validate extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute
      * Throws Exception if not unique values into options
      * @param array $optionsValues
      * @param array $deletedOptions
-     * @return bool
+     * @return array
+     *
+     * @todo this is named "is" which implies a boolean, but it is getting the duplicates
      */
-    private function isUniqueAdminValues(array $optionsValues, array $deletedOptions): bool
+    private function isUniqueAdminValues(array $optionsValues, array $deletedOptions): array
     {
         $adminValues = [];
         foreach ($optionsValues as $optionKey => $values) {
-            if (!(isset($deletedOptions[$optionKey]) and $deletedOptions[$optionKey] === '1')) {
+            if (!(isset($deletedOptions[$optionKey]) && $deletedOptions[$optionKey] === '1')) {
                 $adminValues[] = reset($values);
             }
         }

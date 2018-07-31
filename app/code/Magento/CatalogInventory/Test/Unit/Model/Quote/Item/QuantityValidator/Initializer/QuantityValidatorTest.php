@@ -454,7 +454,7 @@ class QuantityValidatorTest extends \PHPUnit\Framework\TestCase
      * @param $qty
      * @param $hasError
      */
-    private function setUpStubForQuantity($qty, $hasError)
+    private function setUpStubForQuantity($qty, bool $hasError): void
     {
         $this->productMock->expects($this->any())
             ->method('getTypeInstance')
@@ -544,7 +544,7 @@ class QuantityValidatorTest extends \PHPUnit\Framework\TestCase
             ->willReturn($this->resultMock);
     }
 
-    private function setUpStubForRemoveError()
+    private function setUpStubForRemoveError(): void
     {
         $quoteItems = [$this->quoteItemMock];
         $this->quoteItemMock->expects($this->any())

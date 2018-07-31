@@ -81,7 +81,7 @@ class SaveHandler implements ExtensionInterface
      * @param object $entity
      * @return array
      */
-    private function getCategoryLinksPositions(object $entity): array
+    private function getCategoryLinksPositions($entity): array
     {
         $result = [];
         $currentCategoryLinks = $this->productCategoryLink->getCategoryLinks($entity, $entity->getCategoryIds());

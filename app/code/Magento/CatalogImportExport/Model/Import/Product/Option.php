@@ -1326,11 +1326,16 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
     {
         if (!$this->_productsSkuToId || !empty($this->_newOptionsNewData)) {
             $columns = ['entity_id', 'sku'];
-            if ($this->getProductEntityLinkField() != $this->getProductIdentifierField()) {
-                $columns[] = $this->getProductEntityLinkField();
+
+            $productEntityLinkField = $this->getProductEntityLinkField();
+            $productIdentifierField = $this->getProductIdentifierField();
+
+            if ($productEntityLinkField != $productIdentifierField) {
+                $columns[] = $productEntityLinkField;
             }
+
             foreach ($this->_productModel->getProductEntitiesInfo($columns) as $product) {
-                $this->_productsSkuToId[$product['sku']] = $product[$this->getProductEntityLinkField()];
+                $this->_productsSkuToId[$product['sku']] = $product[$productEntityLinkField];
             }
         }
 
@@ -1998,15 +2003,16 @@ class Option extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
     /**
      * Get product entity identifier field
      *
-     * @return string
+     * @return string|null
      */
-    private function getProductIdentifierField(): string
+    private function getProductIdentifierField(): ?string
     {
         if (!$this->productEntityIdentifierField) {
             $this->productEntityIdentifierField = $this->getMetadataPool()
                 ->getMetadata(ProductInterface::class)
                 ->getIdentifierField();
         }
+
         return $this->productEntityIdentifierField;
     }
 

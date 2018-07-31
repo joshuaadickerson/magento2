@@ -188,7 +188,7 @@ class Conditions extends Generic implements TabInterface
      * @param string $jsFormName
      * @return void
      */
-    private function setConditionFormName(AbstractCondition $conditions, $formName, $jsFormName)
+    private function setConditionFormName(AbstractCondition $conditions, string $formName, string $jsFormName): void
     {
         $conditions->setFormName($formName);
         $conditions->setJsFormObject($jsFormName);

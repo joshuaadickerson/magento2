@@ -419,7 +419,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
      * @return $this
      * @throws NoSuchEntityException
      */
-    private function processLinks(\Magento\Catalog\Api\Data\ProductInterface $product, array $newLinks): ProductRepository
+    private function processLinks(\Magento\Catalog\Api\Data\ProductInterface $product, ?array $newLinks = null): ProductRepository
     {
         if ($newLinks === null) {
             // If product links were not specified, don't do anything

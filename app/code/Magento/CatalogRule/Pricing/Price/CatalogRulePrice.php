@@ -112,7 +112,7 @@ class CatalogRulePrice extends AbstractPrice implements BasePriceProviderInterfa
      * @return Rule
      * @deprecated 100.1.1
      */
-    private function getRuleResource()
+    private function getRuleResource(): Rule
     {
         if (null === $this->ruleResource) {
             $this->ruleResource = ObjectManager::getInstance()->get(Rule::class);

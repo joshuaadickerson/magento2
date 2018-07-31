@@ -70,10 +70,10 @@ class ConditionResolver
      * Returns value for condition
      *
      * @param array $condition
-     * @param string $referencedEntity
+     * @param string|null $referencedEntity
      * @return mixed|null|string|\Zend_Db_Expr
      */
-    private function getValue(array $condition, string $referencedEntity)
+    private function getValue(array $condition, ?string $referencedEntity = null)
     {
         $value = null;
         $argument = isset($condition['_value']) ? $condition['_value'] : null;

@@ -123,7 +123,7 @@ class AttributeTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    private function setObjectProperty(object $object, string $propertyName, $value) : void
+    private function setObjectProperty($object, string $propertyName, $value) : void
     {
         $reflectionClass = new \ReflectionClass($object);
         $reflectionProperty = $reflectionClass->getProperty($propertyName);

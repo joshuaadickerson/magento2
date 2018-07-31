@@ -187,18 +187,18 @@ class CategoryProcessor
     /**
      * Add failed category
      *
-     * @param string $category
-     * @param \Magento\Framework\Exception\AlreadyExistsException $exception
+     * @param \Magento\Catalog\Model\Category $category
+     * @param \Exception $exception
      *
      * @return $this
      */
-    private function addFailedCategory(string $category, \Magento\Framework\Exception\AlreadyExistsException $exception): CategoryProcessor
+    private function addFailedCategory(\Magento\Catalog\Model\Category $category, \Exception $exception): CategoryProcessor
     {
-        $this->failedCategories[] =
-            [
-                'category' => $category,
-                'exception' => $exception,
-            ];
+        $this->failedCategories[] = [
+            'category' => $category,
+            'exception' => $exception,
+        ];
+
         return $this;
     }
 

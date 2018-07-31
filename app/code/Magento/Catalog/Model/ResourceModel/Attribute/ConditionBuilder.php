@@ -115,7 +115,9 @@ class ConditionBuilder
     private function getWebsiteForWebsiteScope(array $scopes): ?Website
     {
         $store = $this->getStoreFromScopes($scopes);
-        return $store ? $store->getWebsite() : null;
+        $website = $store ? $store->getWebsite() : null;
+
+        return $website instanceof Website ? $website : null;
     }
 
     /**

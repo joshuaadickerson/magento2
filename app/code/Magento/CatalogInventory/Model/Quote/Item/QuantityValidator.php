@@ -68,10 +68,9 @@ class QuantityValidator
      *
      * @param \Magento\Framework\DataObject $result
      * @param \Magento\Quote\Model\Quote\Item $quoteItem
-     * @param bool $removeError
      * @return void
      */
-    private function addErrorInfoToQuote($result, $quoteItem)
+    private function addErrorInfoToQuote(\Magento\Framework\DataObject $result, \Magento\Quote\Model\Quote\Item $quoteItem): void
     {
         $quoteItem->addErrorInfo(
             'cataloginventory',

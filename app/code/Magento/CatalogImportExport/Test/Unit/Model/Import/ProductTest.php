@@ -1672,9 +1672,9 @@ class ProductTest extends \Magento\ImportExport\Test\Unit\Model\Import\AbstractI
      * Set validator mock in importProduct, return true for isValid method.
      *
      * @param \Magento\CatalogImportExport\Model\Import\Product
-     * @return \Magento\CatalogImportExport\Model\Import\Product\Validator|\PHPUnit_Framework_MockObject_MockObject
+     * @return \Magento\CatalogImportExport\Model\Import\Product|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function _setValidatorMockInImportProduct(\Magento\CatalogImportExport\Model\Import\Product $importProduct): \PHPUnit_Framework_MockObject_MockObject
+    private function _setValidatorMockInImportProduct(\Magento\CatalogImportExport\Model\Import\Product $importProduct): \Magento\CatalogImportExport\Model\Import\Product
     {
         $this->validator->expects($this->once())->method('isValid')->willReturn(true);
         $this->setPropertyValue($importProduct, 'validator', $this->validator);

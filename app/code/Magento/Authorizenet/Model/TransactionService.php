@@ -96,10 +96,9 @@ class TransactionService
      */
     protected function loadTransactionDetails(Authorizenet $context, $transactionId)
     {
-
         $requestBody = $this->getRequestBody(
-            $context->getConfigData('login'),
-            $context->getConfigData('trans_key'),
+            $context->getConfigData('login') ?? '',
+            $context->getConfigData('trans_key') ?? '',
             $transactionId
         );
 

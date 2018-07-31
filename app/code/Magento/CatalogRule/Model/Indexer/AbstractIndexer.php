@@ -137,11 +137,11 @@ abstract class AbstractIndexer implements IndexerActionInterface, MviewActionInt
     abstract protected function doExecuteRow($id);
 
     /**
-     * @return \Magento\Framework\App\CacheInterface|mixed
+     * @return \Magento\Framework\App\CacheInterface
      *
      * @deprecated 100.0.7
      */
-    private function getCacheManager()
+    private function getCacheManager(): \Magento\Framework\App\CacheInterface
     {
         if ($this->cacheManager === null) {
             $this->cacheManager = \Magento\Framework\App\ObjectManager::getInstance()->get(

@@ -85,7 +85,7 @@ class CacheCleaner
      * @param array $productIds
      * @return array
      */
-    private function getProductStockStatuses(array $productIds)
+    private function getProductStockStatuses(array $productIds): array
     {
         $select = $this->getConnection()->select()
             ->from(
@@ -109,7 +109,7 @@ class CacheCleaner
      * @param array $productStatusesAfter
      * @return array
      */
-    private function getProductIdsForCacheClean(array $productStatusesBefore, array $productStatusesAfter)
+    private function getProductIdsForCacheClean(array $productStatusesBefore, array $productStatusesAfter): array
     {
         $disabledProductsIds = array_diff(array_keys($productStatusesBefore), array_keys($productStatusesAfter));
         $enabledProductsIds = array_diff(array_keys($productStatusesAfter), array_keys($productStatusesBefore));
@@ -134,7 +134,7 @@ class CacheCleaner
     /**
      * @return AdapterInterface
      */
-    private function getConnection()
+    private function getConnection(): AdapterInterface
     {
         if (null === $this->connection) {
             $this->connection = $this->resource->getConnection();

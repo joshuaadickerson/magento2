@@ -312,10 +312,10 @@ abstract class AbstractGroupPrice extends Price
     }
 
     /**
-     * @param int $storeId
+     * @param int|null $storeId
      * @return int|null
      */
-    private function getWebsiteId(int $storeId): ?int
+    private function getWebsiteId(?int $storeId): ?int
     {
         $websiteId = null;
         if ($this->getAttribute()->isScopeGlobal()) {

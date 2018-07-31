@@ -51,7 +51,7 @@ class ProductLinksTest extends \PHPUnit\Framework\TestCase
     /**
      * @return array
      */
-    private function buildMocks()
+    private function buildMocks(): array
     {
         /** @var \Magento\Catalog\Model\ResourceModel\Product\Link\Product\Collection $collectionMock */
         $collectionMock = $this->createMock(

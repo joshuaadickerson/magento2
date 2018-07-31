@@ -469,7 +469,11 @@ class Eav extends AbstractModifier
             $searchCriteria = $this->prepareGroupSearchCriteria()->create();
             $attributeGroupSearchResult = $this->attributeGroupRepository->getList($searchCriteria);
             foreach ($attributeGroupSearchResult->getItems() as $group) {
-                $this->attributeGroups[$this->calculateGroupCode($group)] = $group;
+                $groupCode = $this->calculateGroupCode($group);
+
+                if ($groupCode) {
+                    $this->attributeGroups[$groupCode] = $group;
+                }
             }
         }
 
@@ -850,7 +854,7 @@ class Eav extends AbstractModifier
      * @param string $value
      * @return mixed
      */
-    private function getFormElementsMapValue(string $value)
+    private function getFormElementsMapValue(?string $value = null)
     {
         $valueMap = $this->formElementMapper->getMappings();
 
@@ -953,9 +957,9 @@ class Eav extends AbstractModifier
      * TODO: Remove after MAGETWO-48290 is complete
      *
      * @param AttributeGroupInterface $group
-     * @return string
+     * @return string|null
      */
-    private function calculateGroupCode(AttributeGroupInterface $group): string
+    private function calculateGroupCode(AttributeGroupInterface $group): ?string
     {
         $attributeGroupCode = $group->getAttributeGroupCode();
 

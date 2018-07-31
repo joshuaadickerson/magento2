@@ -172,7 +172,7 @@ class Full extends AbstractAction
      * @param array $indexers
      * @return void
      */
-    private function cleanIndexersTables(array $indexers)
+    private function cleanIndexersTables(array $indexers): void
     {
         $tables = array_map(
             function (StockInterface $indexer) {

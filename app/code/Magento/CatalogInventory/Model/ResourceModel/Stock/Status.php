@@ -286,7 +286,7 @@ class Status extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @param \Magento\Store\Model\Website $websiteId
      * @return int
      */
-    private function getWebsiteId($websiteId = null)
+    private function getWebsiteId(?\Magento\Store\Model\Website $websiteId = null): int
     {
         if (null === $websiteId) {
             $websiteId = $this->stockConfiguration->getDefaultScopeId();

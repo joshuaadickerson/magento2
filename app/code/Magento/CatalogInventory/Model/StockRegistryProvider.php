@@ -176,7 +176,7 @@ class StockRegistryProvider implements StockRegistryProviderInterface
     /**
      * @return StockRegistryStorage
      */
-    private function getStockRegistryStorage()
+    private function getStockRegistryStorage(): StockRegistryStorage
     {
         if (null === $this->stockRegistryStorage) {
             $this->stockRegistryStorage = \Magento\Framework\App\ObjectManager::getInstance()

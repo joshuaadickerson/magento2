@@ -72,10 +72,10 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      * Gets image name from $value array.
      * Will return empty string in a case when $value is not an array
      *
-     * @param array $value Attribute value
+     * @param mixed $value Attribute value
      * @return string
      */
-    private function getUploadedImageName(array $value): string
+    private function getUploadedImageName($value): string
     {
         if (is_array($value) && isset($value[0]['name'])) {
             return $value[0]['name'];
@@ -97,7 +97,7 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
         $attributeName = $this->getAttribute()->getName();
         $value = $object->getData($attributeName);
 
-        if ($this->fileResidesOutsideCategoryDir($value)) {
+        if (is_array($value) && $this->fileResidesOutsideCategoryDir($value)) {
             // use relative path for image attribute so we know it's outside of category dir when we fetch it
             $value[0]['name'] = $value[0]['url'];
         }
@@ -144,7 +144,7 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
      * @param array|null $value
      * @return bool
      */
-    private function fileResidesOutsideCategoryDir(array $value)
+    private function fileResidesOutsideCategoryDir(array $value): bool
     {
         if (!isset($value[0]['url'])) {
             return false;
@@ -168,7 +168,7 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
     {
         $value = $object->getData($this->additionalData . $this->getAttribute()->getName());
 
-        if ($this->isTmpFileAvailable($value) && $imageName = $this->getUploadedImageName($value)) {
+        if ($value && $this->isTmpFileAvailable($value) && $imageName = $this->getUploadedImageName($value)) {
             try {
                 $this->getImageUploader()->moveFileFromTmp($imageName);
             } catch (\Exception $e) {

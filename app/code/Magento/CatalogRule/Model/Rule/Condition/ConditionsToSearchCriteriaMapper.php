@@ -93,7 +93,7 @@ class ConditionsToSearchCriteriaMapper
      * @return null|\Magento\Framework\Api\CombinedFilterGroup
      * @throws InputException
      */
-    private function mapCombinedConditionToFilterGroup(CombinedCondition $combinedCondition)
+    private function mapCombinedConditionToFilterGroup(CombinedCondition $combinedCondition): ?\Magento\Framework\Api\CombinedFilterGroup
     {
         $filters = [];
 
@@ -180,7 +180,7 @@ class ConditionsToSearchCriteriaMapper
      * @return void
      * @throws InputException
      */
-    private function reverseSqlOperatorInFilter(Filter $filter)
+    private function reverseSqlOperatorInFilter(Filter $filter): void
     {
         $operatorsMap = [
             'eq' => 'neq',
