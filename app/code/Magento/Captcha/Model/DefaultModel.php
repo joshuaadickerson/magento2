@@ -4,6 +4,7 @@
  * See COPYING.txt for license details.
  */
 namespace Magento\Captcha\Model;
+use Magento\Captcha\Model\ResourceModel\Log;
 
 /**
  * Implementation of \Zend\Captcha\Image
@@ -102,7 +103,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      * @param string $key
      * @return string
      */
-    private function getFormIdKey($key)
+    private function getFormIdKey(string $key): string
     {
         return $this->formId . '_' . $key;
     }
@@ -163,7 +164,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      * @param string $login
      * @return bool
      */
-    private function isOverLimitAttempts($login)
+    private function isOverLimitAttempts(string $login): bool
     {
         return $this->isOverLimitIpAttempt() || $this->isOverLimitLoginAttempts($login);
     }
@@ -173,9 +174,9 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return int
      */
-    private function getAllowedAttemptsForSameLogin()
+    private function getAllowedAttemptsForSameLogin(): int
     {
-        return (int)$this->captchaData->getConfig('failed_attempts_login');
+        return (int) $this->captchaData->getConfig('failed_attempts_login');
     }
 
     /**
@@ -183,9 +184,9 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return int
      */
-    private function getAllowedAttemptsFromSameIp()
+    private function getAllowedAttemptsFromSameIp(): int
     {
-        return (int)$this->captchaData->getConfig('failed_attempts_ip');
+        return (int) $this->captchaData->getConfig('failed_attempts_ip');
     }
 
     /**
@@ -193,7 +194,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return bool
      */
-    private function isOverLimitIpAttempt()
+    private function isOverLimitIpAttempt(): bool
     {
         $countAttemptsByIp = $this->getResourceModel()->countAttemptsByRemoteAddress();
         return $countAttemptsByIp >= $this->getAllowedAttemptsFromSameIp();
@@ -205,7 +206,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      * @param string $login
      * @return bool
      */
-    private function isOverLimitLoginAttempts($login)
+    private function isOverLimitLoginAttempts(string $login): bool
     {
         if ($login != false) {
             $countAttemptsByLogin = $this->getResourceModel()->countAttemptsByUserLogin($login);
@@ -219,7 +220,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return bool
      */
-    private function isUserAuth()
+    private function isUserAuth(): bool
     {
         return $this->session->isLoggedIn();
     }
@@ -387,9 +388,9 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
     /**
      * Get symbols array to use for word generation
      *
-     * @return array
+     * @return string[]
      */
-    private function getSymbols()
+    private function getSymbols(): array
     {
         return str_split((string)$this->captchaData->getConfig('symbols'));
     }
@@ -429,7 +430,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return bool
      */
-    private function isShowAlways()
+    private function isShowAlways(): bool
     {
         if ((string)$this->captchaData->getConfig('mode') == \Magento\Captcha\Helper\Data::MODE_ALWAYS) {
             return true;
@@ -456,9 +457,9 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return bool
      */
-    private function isEnabled()
+    private function isEnabled(): bool
     {
-        return (string)$this->captchaData->getConfig('enable');
+        return (bool) $this->captchaData->getConfig('enable');
     }
 
     /**
@@ -466,9 +467,9 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * For frontend this list is based on current website
      *
-     * @return array
+     * @return string[]
      */
-    private function getTargetForms()
+    private function getTargetForms(): array
     {
         $formsString = (string)$this->captchaData->getConfig('forms');
         return explode(',', $formsString);
@@ -507,7 +508,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return $this
      */
-    private function clearWord()
+    private function clearWord(): DefaultModel
     {
         $this->session->unsetData($this->getFormIdKey(self::SESSION_WORD));
         $this->word = null;
@@ -549,7 +550,7 @@ class DefaultModel extends \Zend\Captcha\Image implements \Magento\Captcha\Model
      *
      * @return \Magento\Captcha\Model\ResourceModel\Log
      */
-    private function getResourceModel()
+    private function getResourceModel(): Log
     {
         return $this->resLogFactory->create();
     }

@@ -89,7 +89,7 @@ class CheckContactUsFormObserver implements ObserverInterface
      *
      * @return DataPersistorInterface
      */
-    private function getDataPersistor()
+    private function getDataPersistor(): DataPersistorInterface
     {
         if ($this->dataPersistor === null) {
             $this->dataPersistor = ObjectManager::getInstance()

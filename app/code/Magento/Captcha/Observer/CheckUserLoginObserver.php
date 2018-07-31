@@ -86,14 +86,13 @@ class CheckUserLoginObserver implements ObserverInterface
     /**
      * Get customer repository
      *
-     * @return \Magento\Customer\Api\CustomerRepositoryInterface
+     * @return CustomerRepositoryInterface
      */
-    private function getCustomerRepository()
+    private function getCustomerRepository(): CustomerRepositoryInterface
     {
-
-        if (!($this->customerRepository instanceof \Magento\Customer\Api\CustomerRepositoryInterface)) {
+        if (!($this->customerRepository instanceof CustomerRepositoryInterface)) {
             return \Magento\Framework\App\ObjectManager::getInstance()->get(
-                \Magento\Customer\Api\CustomerRepositoryInterface::class
+                CustomerRepositoryInterface::class
             );
         } else {
             return $this->customerRepository;
@@ -105,7 +104,7 @@ class CheckUserLoginObserver implements ObserverInterface
      *
      * @return AuthenticationInterface
      */
-    private function getAuthentication()
+    private function getAuthentication(): AuthenticationInterface
     {
 
         if (!($this->authentication instanceof AuthenticationInterface)) {
