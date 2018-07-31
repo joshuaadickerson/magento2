@@ -51,7 +51,7 @@ class Import
      *
      * @return void
      */
-    private function invalidateIndexer()
+    private function invalidateIndexer(): void
     {
         $priceIndexer = $this->indexerRegistry->get(\Magento\Catalog\Model\Indexer\Product\Price\Processor::INDEXER_ID);
         if (!$priceIndexer->isScheduled()) {

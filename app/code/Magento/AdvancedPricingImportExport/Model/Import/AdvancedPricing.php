@@ -619,7 +619,7 @@ class AdvancedPricing extends \Magento\ImportExport\Model\Import\Entity\Abstract
      * @return string
      * @throws \Exception
      */
-    private function getProductEntityLinkField()
+    private function getProductEntityLinkField(): string
     {
         if (!$this->productEntityLinkField) {
             $this->productEntityLinkField = $this->getMetadataPool()

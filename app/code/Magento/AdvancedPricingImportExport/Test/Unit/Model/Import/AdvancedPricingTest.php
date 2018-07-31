@@ -1010,7 +1010,7 @@ class AdvancedPricingTest extends \Magento\ImportExport\Test\Unit\Model\Import\A
      * @return mixed
      * @throws \ReflectionException
      */
-    private function invokeMethod($object, $method, $args = [])
+    private function invokeMethod(object $object, string $method, array $args = [])
     {
         $class = new \ReflectionClass(\Magento\AdvancedPricingImportExport\Model\Import\AdvancedPricing::class);
         $method = $class->getMethod($method);
@@ -1022,12 +1022,12 @@ class AdvancedPricingTest extends \Magento\ImportExport\Test\Unit\Model\Import\A
     /**
      * Get AdvancedPricing Mock object with predefined methods.
      *
-     * @param array $methods
+     * @param string[] $methods
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
      * @throws \ReflectionException
      */
-    private function getAdvancedPricingMock($methods = [])
+    private function getAdvancedPricingMock(array $methods = []): \PHPUnit_Framework_MockObject_MockObject
     {
         $metadataPoolMock = $this->createMock(\Magento\Framework\EntityManager\MetadataPool::class);
         $metadataMock = $this->createMock(\Magento\Framework\EntityManager\EntityMetadata::class);
