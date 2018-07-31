@@ -147,7 +147,7 @@ class TransactionService
      * @param string $transactionId
      * @return string
      */
-    private function getRequestBody($login, $transactionKey, $transactionId)
+    private function getRequestBody(string $login, string $transactionKey, string $transactionId): string
     {
         $requestBody = sprintf(
             '<?xml version="1.0" encoding="utf-8"?>' .
@@ -159,6 +159,7 @@ class TransactionService
             $transactionKey,
             $transactionId
         );
+
         return $requestBody;
     }
 
@@ -170,7 +171,7 @@ class TransactionService
      * @param string $xml
      * @return string
      */
-    private function removePrivateDataFromXml($xml)
+    private function removePrivateDataFromXml(string $xml): string
     {
         foreach ($this->debugReplacePrivateDataKeys as $key) {
             $xml = preg_replace(sprintf('~(?<=<%s>).*?(?=</%s>)~', $key, $key), Logger::DEBUG_KEYS_MASK, $xml);

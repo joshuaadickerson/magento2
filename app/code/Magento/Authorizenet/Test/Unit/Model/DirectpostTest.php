@@ -587,7 +587,7 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
      * Create mock for response factory
      * @return void
      */
-    private function initResponseFactoryMock()
+    private function initResponseFactoryMock(): void
     {
         $this->responseFactoryMock = $this->getMockBuilder(
             \Magento\Authorizenet\Model\Directpost\Response\Factory::class
@@ -652,12 +652,12 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
      * @return Element
      */
     private function getTransactionXmlDocument(
-        $transactionId,
-        $resultCode,
-        $resultStatus,
-        $responseStatus,
-        $responseCode
-    ) {
+        string $transactionId,
+        string $resultCode,
+        string $resultStatus,
+        string $responseStatus,
+        string $responseCode
+    ): Element {
         $body = sprintf(
             '<?xml version="1.0" encoding="utf-8"?>
             <getTransactionDetailsResponse
@@ -696,7 +696,7 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
      * Get mock for authorize.net request factory
      * @return \PHPUnit\Framework\MockObject_MockBuilder
      */
-    private function getRequestFactoryMock()
+    private function getRequestFactoryMock(): \PHPUnit\Framework\MockObject_MockBuilder
     {
         $requestFactory = $this->getMockBuilder(Factory::class)
             ->disableOriginalConstructor()
@@ -716,7 +716,7 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
      * Get mock for order
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getOrderMock()
+    private function getOrderMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $orderMock = $this->getMockBuilder(Order::class)
             ->disableOriginalConstructor()
@@ -748,7 +748,7 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
      * Create and return mock for http client factory
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getHttpClientFactoryMock()
+    private function getHttpClientFactoryMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $this->httpClientMock = $this->getMockBuilder(\Magento\Framework\HTTP\ZendClient::class)
             ->disableOriginalConstructor()
@@ -777,7 +777,7 @@ class DirectpostTest extends \PHPUnit\Framework\TestCase
      * @param $reasonText
      * @return string
      */
-    private function getRefundResponseBody($code, $reasonCode, $reasonText)
+    private function getRefundResponseBody(string $code, string $reasonCode, string $reasonText): string
     {
         $result = array_fill(0, 50, '');
         $result[0] = $code; // XResponseCode

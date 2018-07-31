@@ -102,7 +102,7 @@ class TransactionServiceTest extends \PHPUnit\Framework\TestCase
      * Create and return mock for http client factory
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getHttpClientFactoryMock()
+    private function getHttpClientFactoryMock(): \PHPUnit_Framework_MockObject_MockObject
     {
         $this->httpClientMock = $this->getMockBuilder(\Magento\Framework\HTTP\ZendClient::class)
             ->disableOriginalConstructor()
@@ -133,8 +133,13 @@ class TransactionServiceTest extends \PHPUnit\Framework\TestCase
      * @param string $responseCode
      * @return string
      */
-    private function getResponseBody($transactionId, $resultCode, $resultStatus, $responseStatus, $responseCode)
-    {
+    private function getResponseBody(
+        string $transactionId,
+        int $resultCode,
+        string $resultStatus,
+        string $responseStatus,
+        string $responseCode
+    ) {
         return sprintf(
             '<?xml version="1.0" encoding="utf-8"?>
             <getTransactionDetailsResponse

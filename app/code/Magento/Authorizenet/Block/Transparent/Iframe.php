@@ -69,7 +69,7 @@ class Iframe extends TransparentIframe
      *
      * @return void
      */
-    private function addSuccessMessage()
+    private function addSuccessMessage(): void
     {
         $params = $this->getParams();
         if (isset($params['redirect_parent'])) {
