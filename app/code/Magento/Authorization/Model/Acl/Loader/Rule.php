@@ -97,7 +97,7 @@ class Rule implements \Magento\Framework\Acl\LoaderInterface
      *
      * @return array
      */
-    private function getRulesArray()
+    private function getRulesArray(): array
     {
         $rulesCachedData = $this->aclDataCache->load($this->cacheKey);
         if ($rulesCachedData) {

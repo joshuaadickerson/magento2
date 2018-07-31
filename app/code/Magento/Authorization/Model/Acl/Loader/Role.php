@@ -104,7 +104,7 @@ class Role implements \Magento\Framework\Acl\LoaderInterface
      *
      * @return array
      */
-    private function getRolesArray()
+    private function getRolesArray(): array
     {
         $rolesCachedData = $this->aclDataCache->load($this->cacheKey);
         if ($rolesCachedData) {
